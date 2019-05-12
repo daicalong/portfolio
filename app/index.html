@@ -9,25 +9,17 @@
   <title>Hatomi</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="build/libs.css">
+  <link rel="stylesheet" href="build/app.css">
+
   <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> -->
-  <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
-  <ui-view></ui-view>
+<body class="relative overflow-auto bg-grey-lighter">
+  <ui-view class="block"></ui-view>
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
-  <script src="lib/angular/angular.js"></script>
-  <script src="lib/angular-route/angular-route.js"></script>
-  <script src="lib/@uirouter/angularjs/release/angular-ui-router.js"></script>
-  <script src="app.js"></script>
-  <script src="states/base/base.setup.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
-  <script src="core/version/version.js"></script>
-  <script src="core/version/version-directive.js"></script>
-  <script src="core/version/interpolate-filter.js"></script>
+  <script src="build/libs.js"></script>
+  <script src="build/app.js"></script>  
 </body>
 </html>

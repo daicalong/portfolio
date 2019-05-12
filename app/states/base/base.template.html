@@ -1,12 +1,12 @@
-<header class="w-full static shadow">
-    <nav class="">
+<header class="sticky shadow w-full pin-t z-10 bg-white">
+    <nav class="container mx-auto">
         <ul class="list-reset flex">
-            <li ng-repeat="nav in $ctrl.nav" class="p-2">
+            <li ng-repeat="nav in $ctrl.nav" class="" ng-class="{'mr-auto':nav.isHome}">
                 <a ui-sref="{{nav.uiSref}}"
-                ui-sref-active="font-bold"
-                class="text text-blue no-underline">{{nav.title}}</a>
+                ui-sref-active="text-pink-dark"
+                class="block text text-grey-darker no-underline hover:text-pink-dark px-2 py-4">{{nav.title}}</a>
             </li>
         </ul>
     </nav>
 </header>
-<ui-view></ui-view>
+<ui-view class="block container mx-auto p-2"></ui-view>

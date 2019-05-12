@@ -13,7 +13,8 @@ function baseController() {
       {
         title: 'Home',
         uiSref: 'Base.Home',
-        hasSubnav: false
+        hasSubnav: false,
+        isHome: true
       },
       {
         title: 'UX',

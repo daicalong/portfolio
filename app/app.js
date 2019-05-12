@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and core components
-let app = angular.module('hatomi', ['ui.router', 'ngRoute', 'hatomi.view1', 'hatomi.view2', 'hatomi.version']);
+let app = angular.module('hatomi', ['ui.router']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
   var baseState = {
@@ -10,29 +10,28 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     component: 'base',
     redirectTo: 'Base.Home'
   }
+
   var homeState = {
     name: 'Base.Home',
     url: '/Home',
     component: 'home'
   }
+
+  var worksState = {
+    name: 'Base.Works',
+    url: '/Works',
+    redirectTo: 'Base.Works.UX'
+  }
+
+  var UXState = {
+    name: 'Base.Works.UX',
+    url: '/UX',
+    component: 'ux'
+  }
   $stateProvider.state(baseState);
   $stateProvider.state(homeState);
+  $stateProvider.state(worksState);
+  $stateProvider.state(UXState);
   $urlRouterProvider.otherwise('/Home');
 }]);
-
-app.component("home",
-  {
-    templateUrl: '/states/home/home.template.html',
-    controller: homeController
-  });
-
-
-
-function homeController() {
-  var $ctrl = this;
-  $ctrl.person = { 'name': 'hatomi' };
-}
-
-app.controller('homeController', homeController);
-
 

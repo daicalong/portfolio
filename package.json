@@ -15,6 +15,11 @@
   "devDependencies": {
     "angular-mocks": "^1.7.5",
     "cpx": "^1.5.0",
+    "grunt": "^1.0.4",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-contrib-watch": "^1.1.0",
     "http-server": "^0.11.1",
     "jasmine-core": "^3.3.0",
     "karma": "^3.1.1",
@@ -24,10 +29,9 @@
     "protractor": "^5.4.1"
   },
   "scripts": {
-    "postinstall": "npm run copy-libs",
+    "postinstall": "",
     "update-deps": "npm update",
-    "postupdate-deps": "npm run copy-libs",
-    "copy-libs": "cpx \"node_modules/{angular,angular-*,html5-boilerplate/dist,@uirouter/angularjs/release}/**/*\" app/lib -C",
+    "postupdate-deps": "",
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1 ./app",
     "pretest": "npm install",
