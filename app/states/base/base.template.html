@@ -1,0 +1,12 @@
+<header class="w-full static shadow">
+    <nav class="">
+        <ul class="list-reset flex">
+            <li ng-repeat="nav in $ctrl.nav" class="p-2">
+                <a ui-sref="{{nav.uiSref}}"
+                ui-sref-active="font-bold"
+                class="text text-blue no-underline">{{nav.title}}</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<ui-view></ui-view>
