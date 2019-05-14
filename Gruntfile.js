@@ -17,14 +17,16 @@ module.exports = function (grunt) {
             },
             libcss: {
                 src: [
-                    
+
                 ],
                 dest: "./app/build/libs.css"
             },
             appjs: {
                 src: [
-                    "./app/app.js",                  
-                    "./app/states/**/*.js"
+                    "./app/app.js",
+                    "./app/services/**/*.js",
+                    "./app/states/**/*.js",
+                    "./app/components/**/*.js"                
                 ],
                 dest: "./app/build/app.js",
                 options: {
@@ -54,17 +56,55 @@ module.exports = function (grunt) {
                     verbose: true
                 }
             }
-        }
-    });
+        },
+        'http-server': {
+            dev: {
 
+                // the server root directory
+                root: 'D:/@Taichi Files@/Current Projects/git/Hatomi 2019/app/',
+
+
+                port: 8282,
+                host: "0.0.0.0",
+
+                cache: '',
+                showDir: true,
+                autoIndex: true,
+                ext: "html",
+
+                // run in parallel with other tasks
+                runInBackground: true | false,
+
+                // specify a logger function. By default the requests are
+                // sent to stdout.
+                logFn: function (req, res, error) { },
+
+                // Proxies all requests which can't be resolved locally to the given url
+                // Note this this will disable 'showDir'
+                proxy: "http://someurl.com",
+
+                // Tell grunt task to open the browser
+                openBrowser: true,
+
+                // customize url to serve specific pages
+                customPages: {
+                    "/readme": "README.md",
+                    "/readme.html": "README.html"
+                }
+
+            }
+        }
+
+    });
 
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-http-server');
 
     grunt.registerTask("libs", ["concat:libsjs", "concat:libcss"]);
     grunt.registerTask("appjs", ["concat:appjs"]);
     grunt.registerTask("appcss", ["concat:appcss"]);
-    grunt.registerTask("default", ["libs", "appjs", "appcss", "watch:all"]);
+    grunt.registerTask("default", ["libs", "appjs", "appcss", "http-server:dev", "watch:all"]);
 };

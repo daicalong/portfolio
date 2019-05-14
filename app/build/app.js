@@ -28,12 +28,20 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     url: '/UX',
     component: 'ux'
   }
+
+  var CardState = {
+    name: 'Card',
+    url: '',
+    component: 'projectCardSm'
+  }
   $stateProvider.state(baseState);
   $stateProvider.state(homeState);
   $stateProvider.state(worksState);
   $stateProvider.state(UXState);
+  $stateProvider.state(CardState);
   $urlRouterProvider.otherwise('/Home');
 }]);
+
 
 
 app.component("base",
@@ -44,40 +52,40 @@ app.component("base",
 
 
 function baseController() {
-    var $ctrl = this;
-    $ctrl.person = { 'name': 'hatomi' };
-  
-    $ctrl.nav = [
-      {
-        title: 'Home',
-        uiSref: 'Base.Home',
-        hasSubnav: false,
-        isHome: true
-      },
-      {
-        title: 'UX',
-        uiSref: 'Base.Works.UX',
-        hasSubnav: false,
-      },
-      {
-        title: 'Illustration',
-        uiSref: 'Base.Works.Illustration',
-        hasSubnav: false
-      },
-      {
-        title: 'Other',
-        uiSref: 'Base.Works.Other',
-        hasSubnav: false
-      },
-      {
-        title: 'Contact',
-        uiSref: 'Base.Contact',
-        hasSubnav: false
-      }
-    ];
-  }
+  var $ctrl = this;
+  $ctrl.person = { 'name': 'hatomi' };
 
-  app.controller('baseController', baseController);
+  $ctrl.nav = [
+    {
+      title: 'Home',
+      uiSref: 'Base.Home',
+      hasSubnav: false,
+      isHome: true
+    },
+    {
+      title: 'UX',
+      uiSref: 'Base.Works.UX',
+      hasSubnav: false,
+    },
+    {
+      title: 'Illustration',
+      uiSref: 'Base.Works.Illustration',
+      hasSubnav: false
+    },
+    {
+      title: 'Other',
+      uiSref: 'Base.Works.Other',
+      hasSubnav: false
+    },
+    {
+      title: 'Contact',
+      uiSref: 'Base.Contact',
+      hasSubnav: false
+    }
+  ];
+}
+
+app.controller('baseController', baseController);
 app.component("home",
     {
         templateUrl: '/states/home/home.template.html',
@@ -113,13 +121,17 @@ app.component("ux",
         controller: uxController
     });
 
-function uxController() {
+function uxController(projectListFactory, projectGalleryValue, filterFilter) {
     let $ctrl = this;
 
-    $ctrl.uxArray = [
-        {'name': 'Work 1'},
-        {'name': 'Work 2'},
-    ]
+    const _getDate = () => {
+        return new Date();
+    }
+
+    $ctrl.$onInit = () => {
+        $ctrl.uxGallery = projectGalleryValue.ux;
+        $ctrl.projectList = filterFilter(projectListFactory, {category: 'UI/UX'});   
+    }
 
 }
 

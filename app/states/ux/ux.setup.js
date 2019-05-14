@@ -4,13 +4,17 @@ app.component("ux",
         controller: uxController
     });
 
-function uxController() {
+function uxController(projectListFactory, projectGalleryValue, filterFilter) {
     let $ctrl = this;
 
-    $ctrl.uxArray = [
-        {'name': 'Work 1'},
-        {'name': 'Work 2'},
-    ]
+    const _getDate = () => {
+        return new Date();
+    }
+
+    $ctrl.$onInit = () => {
+        $ctrl.uxGallery = projectGalleryValue.ux;
+        $ctrl.projectList = filterFilter(projectListFactory, {category: 'UI/UX'});   
+    }
 
 }
 

@@ -28,10 +28,18 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     url: '/UX',
     component: 'ux'
   }
+
+  var CardState = {
+    name: 'Card',
+    url: '',
+    component: 'projectCardSm'
+  }
   $stateProvider.state(baseState);
   $stateProvider.state(homeState);
   $stateProvider.state(worksState);
   $stateProvider.state(UXState);
+  $stateProvider.state(CardState);
   $urlRouterProvider.otherwise('/Home');
 }]);
+
 

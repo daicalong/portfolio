@@ -1,2 +1,8 @@
-<p>TODO: Add UX</p>
-<p ng-repeat="work in $ctrl.uxArray">{{work.name}}</p>
+<ul class="list-reset flex flex-wrap mb-4">
+    <li ng-repeat="img in $ctrl.uxGallery.imgList">
+        <div class="w-64 h-64 bg-cover bg-no-repeat bg-center" 
+        style="background-image: url({{img}});"></div>
+    </li>
+</ul>
+<project-card-sm class="block" project="project" ng-repeat="project in $ctrl.projectList">
+</project-card-sm> 
