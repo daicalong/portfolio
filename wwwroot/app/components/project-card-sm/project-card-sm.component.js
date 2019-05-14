@@ -1,6 +1,6 @@
 app.component("projectCardSm",
     {
-        templateUrl: '/components/project-card-sm/project-card-sm.component.html',
+        templateUrl: '/app/components/project-card-sm/project-card-sm.component.html',
         controller: projectCardSmController,
         bindings: {
             project: '<'

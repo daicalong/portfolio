@@ -11,24 +11,24 @@ module.exports = function (grunt) {
         concat: {
             appcss: {
                 src: [
-                    "./app/app.css"
+                    "./wwwroot/app/app.css"
                 ],
-                dest: "./app/build/app.css"
+                dest: "./wwwroot/build/app.css"
             },
             libcss: {
                 src: [
 
                 ],
-                dest: "./app/build/libs.css"
+                dest: "./wwwroot/build/libs.css"
             },
             appjs: {
                 src: [
-                    "./app/app.js",
-                    "./app/services/**/*.js",
-                    "./app/states/**/*.js",
-                    "./app/components/**/*.js"                
+                    "./wwwroot/app/app.js",
+                    "./wwwroot/app/services/**/*.js",
+                    "./wwwroot/app/states/**/*.js",
+                    "./wwwroot/app/components/**/*.js"                
                 ],
-                dest: "./app/build/app.js",
+                dest: "./wwwroot/build/app.js",
                 options: {
                     sourceMap: true
                 }
@@ -40,7 +40,7 @@ module.exports = function (grunt) {
                     "./node_modules/angular/angular-mocks/angular-mocks.js"
 
                 ],
-                dest: "./app/build/libs.js",
+                dest: "./wwwroot/build/libs.js",
                 options: {
                     sourceMap: true
                 }
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         watch: {
             //skip the './' in front to allow it to see new files added: http://stackoverflow.com/questions/31679375/grunt-contrib-watch-doesnt-see-new-files
             all: {
-                files: ["app/**/*.*", "app/index.html", "!app/build/**/*.*"],
+                files: ["wwwroot/app/**/*.*", "wwwroot/app/index.html", "!wwwroot/app/build/**/*.*"],
                 tasks: ["appjs", "appcss"],
                 options: {
                     spawn: false,
@@ -61,7 +61,7 @@ module.exports = function (grunt) {
             dev: {
 
                 // the server root directory
-                root: 'D:/@Taichi Files@/Current Projects/git/Hatomi 2019/app/',
+                root: 'D:/@Taichi Files@/Current Projects/git/Hatomi 2019/wwwroot/',
 
 
                 port: 8282,
@@ -81,7 +81,7 @@ module.exports = function (grunt) {
 
                 // Proxies all requests which can't be resolved locally to the given url
                 // Note this this will disable 'showDir'
-                proxy: "http://someurl.com",
+                proxy: "https://github.com/daicalong/hatomi",
 
                 // Tell grunt task to open the browser
                 openBrowser: true,

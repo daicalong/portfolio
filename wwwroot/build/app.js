@@ -44,9 +44,62 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
 
 
 
+app.value('projectGalleryValue', {
+    ux: {
+        category: 'UI/UX',
+        tags: ['Web Design', 'UX', 'UI'],
+        imgList: [
+            '/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg',
+            '/assets/images/gallery/andrej-lisakov-686125-unsplash.jpg',
+            '/assets/images/gallery/andrew-pons-6488-unsplash.jpg',
+            '/assets/images/gallery/anne-lin-572127-unsplash.jpg',
+            '/assets/images/gallery/chinh-le-duc-201487-unsplash.jpg',
+            '/assets/images/gallery/giorgio-tomassetti-762135-unsplash.jpg'
+        ]
+    },
+    illustration: {
+        category: 'UI/UX',
+        tags: ['Web Design', 'UX', 'UI'],
+        imgList: [
+            '/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg',
+            '/assets/images/gallery/andrej-lisakov-686125-unsplash.jpg',
+            '/assets/images/gallery/andrew-pons-6488-unsplash.jpg',
+            '/assets/images/gallery/anne-lin-572127-unsplash.jpg',
+            '/assets/images/gallery/chinh-le-duc-201487-unsplash.jpg',
+            '/assets/images/gallery/giorgio-tomassetti-762135-unsplash.jpg'
+        ]
+    }
+});
+app.factory("projectListFactory", ['projectGalleryValue', function projectListFactory(projectGalleryValue) {
+    
+    function getProjectGallery() {
+       return projectGalleryValue;
+    }
+
+    let projectGallery = getProjectGallery();
+
+    let projectList = [
+        {
+            name: 'Marketplace One',
+            date: '',
+            category: projectGallery.ux.category,
+            tags: ['Web Design', 'UX', 'UI'],
+            imgUrl: projectGallery.ux.imgList[0],
+            descriptions:
+                [
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lacinia massa a tortor tempor sagittis. Aenean iaculis eros non feugiat accumsan. Nulla consequat elit id enim finibus dapibus.',
+                    'Sed eget tellus facilisis, eleifend ex at, gravida nulla. Quisque convallis dignissim mi ac pretium. Suspendisse et mi quis sapien porta eleifend. Nulla porta nibh sed tellus aliquet, nec dignissim tortor ultrices.'
+                ]
+        }
+    ];
+
+    return projectList;
+}
+
+]);
 app.component("base",
   {
-    templateUrl: '/states/base/base.template.html',
+    templateUrl: '/app/states/base/base.template.html',
     controller: baseController
   });
 
@@ -88,7 +141,7 @@ function baseController() {
 app.controller('baseController', baseController);
 app.component("home",
     {
-        templateUrl: '/states/home/home.template.html',
+        templateUrl: '/app/states/home/home.template.html',
         controller: homeController
     });
 
@@ -117,7 +170,7 @@ app.controller('homeController', homeController);
 
 app.component("ux",
     {
-        templateUrl: '/states/ux/ux.template.html',
+        templateUrl: '/app/states/ux/ux.template.html',
         controller: uxController
     });
 
@@ -139,6 +192,21 @@ app.controller('uxController', uxController);
 
 app.component("works",
     {
-        templateUrl: '/states/works/works.template.html'
+        templateUrl: '/app/states/works/works.template.html'
     });
+app.component("projectCardSm",
+    {
+        templateUrl: '/app/components/project-card-sm/project-card-sm.component.html',
+        controller: projectCardSmController,
+        bindings: {
+            project: '<'
+        }
+    });
+
+function projectCardSmController() {
+    let $ctrl = this;
+
+}
+
+app.controller('projectCardSmController', projectCardSmController);
 //# sourceMappingURL=app.js.map

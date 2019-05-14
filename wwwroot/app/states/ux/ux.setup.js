@@ -1,6 +1,6 @@
 app.component("ux",
     {
-        templateUrl: '/states/ux/ux.template.html',
+        templateUrl: '/app/states/ux/ux.template.html',
         controller: uxController
     });
 
