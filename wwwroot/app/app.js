@@ -4,41 +4,56 @@
 let app = angular.module('hatomi', ['ui.router']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-  var baseState = {
+  let baseState = {
     name: 'Base',
     url: '',
     component: 'base',
     redirectTo: 'Base.Home'
   }
 
-  var homeState = {
+  let homeState = {
     name: 'Base.Home',
     url: '/Home',
     component: 'home'
   }
 
-  var worksState = {
+  let worksState = {
     name: 'Base.Works',
     url: '/Works',
     redirectTo: 'Base.Works.UX'
   }
 
-  var UXState = {
+  let uXState = {
     name: 'Base.Works.UX',
     url: '/UX',
     component: 'ux'
   }
 
-  var CardState = {
-    name: 'Card',
-    url: '',
-    component: 'projectCardSm'
+  let illustrationState = {
+    name: 'Base.Works.Illustration',
+    url: '/Illustration',
+    component: 'illustration'
   }
+
+  let otherWorksState = {
+    name: 'Base.Works.Other',
+    url: '/Other',
+    component: 'otherWorks'
+  }
+
+  // var State = (name, component, url, redirect) => {
+  //   this.name = name;
+  //   this.component = component;
+  //   this.url = url || '';
+  //   this.redirect = redirect || null;
+  // };
+
   $stateProvider.state(baseState);
   $stateProvider.state(homeState);
   $stateProvider.state(worksState);
-  $stateProvider.state(UXState);
-  $stateProvider.state(CardState);
+  $stateProvider.state(uXState);
+  $stateProvider.state(illustrationState);
+  $stateProvider.state(otherWorksState);
   $urlRouterProvider.otherwise('/Home');
 }]);
 

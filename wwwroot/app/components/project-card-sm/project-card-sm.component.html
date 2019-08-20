@@ -2,13 +2,13 @@
     <div class="w-full h-64 bg-cover bg-no-repeat bg-center" style="background-image: url({{$ctrl.project.imgUrl}});" alt="{{$ctrl.project.name}}"></div>
     <div class="px-6 py-4">
       <div class="font-bold text-lg mb-2 text-pink-dark">{{$ctrl.project.name}}</div>
-      <div class="font-bold text-sm text-grey mb-2">{{$ctrl.project.date | date:'MM/dd/yy'}}</div>
-      <p class="text-grey-darker text-base mb-1" ng-repeat="item in $ctrl.project.descriptions">
+      <div class="font-bold text-sm text-gray mb-2">{{$ctrl.project.date | date:'MM/dd/yy'}}</div>
+      <p class="text-gray-darker text-base mb-1" ng-repeat="item in $ctrl.project.descriptions">
         {{item}}
       </p>
     </div>
     <div class="px-6 py-4">
       <span ng-repeat="tag in $ctrl.project.tags"
-      class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2">#{{tag}}</span>  
+      class="inline-block bg-gray-lighter rounded-full px-3 py-1 text-sm font-semibold text-gray-darker mr-2">#{{tag}}</span>  
     </div>
 </div>

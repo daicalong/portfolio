@@ -1,27 +1,27 @@
-app.factory("projectListFactory", ['projectGalleryValue', function projectListFactory(projectGalleryValue) {
-    
-    function getProjectGallery() {
-       return projectGalleryValue;
-    }
+(function () {
+    app.factory("projectListFactory", ['projectGalleryValue',
+        function projectListFactory(projectGalleryValue) {
 
-    let projectGallery = getProjectGallery();
+            let projectGallery = projectGalleryValue;
+            let projectList = [
+                {
+                    id: 0,
+                    name: 'Marketplace One',
+                    date: '2017-01-01T05:00:00.000Z',
+                    category: 'UX',
+                    tags: ['web design, ux, ui'],
+                    imgUrl: '/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg'
+                }
+            ];
 
-    let projectList = [
-        {
-            name: 'Marketplace One',
-            date: '',
-            category: projectGallery.ux.category,
-            tags: ['Web Design', 'UX', 'UI'],
-            imgUrl: projectGallery.ux.imgList[0],
-            descriptions:
-                [
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lacinia massa a tortor tempor sagittis. Aenean iaculis eros non feugiat accumsan. Nulla consequat elit id enim finibus dapibus.',
-                    'Sed eget tellus facilisis, eleifend ex at, gravida nulla. Quisque convallis dignissim mi ac pretium. Suspendisse et mi quis sapien porta eleifend. Nulla porta nibh sed tellus aliquet, nec dignissim tortor ultrices.'
-                ]
+            const getProjectList = () => {
+                return projectList;
+            };
+
+            return {
+                getProjectList: getProjectList
+            };
         }
-    ];
 
-    return projectList;
-}
-
-]);
+    ]);
+})();

@@ -12,9 +12,8 @@ function uxController(projectListFactory, projectGalleryValue, filterFilter) {
     }
 
     $ctrl.$onInit = () => {
-        $ctrl.uxGallery = projectGalleryValue.ux;
-        $ctrl.projectList = filterFilter(projectListFactory, {category: 'UI/UX'});   
-    }
+        $ctrl.uxGallery = filterFilter(projectGalleryValue, {category: 'ux'});   
+    }; 
 
 }
 

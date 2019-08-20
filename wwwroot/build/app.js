@@ -4,99 +4,277 @@
 let app = angular.module('hatomi', ['ui.router']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-  var baseState = {
+  let baseState = {
     name: 'Base',
     url: '',
     component: 'base',
     redirectTo: 'Base.Home'
   }
 
-  var homeState = {
+  let homeState = {
     name: 'Base.Home',
     url: '/Home',
     component: 'home'
   }
 
-  var worksState = {
+  let worksState = {
     name: 'Base.Works',
     url: '/Works',
     redirectTo: 'Base.Works.UX'
   }
 
-  var UXState = {
+  let uXState = {
     name: 'Base.Works.UX',
     url: '/UX',
     component: 'ux'
   }
 
-  var CardState = {
-    name: 'Card',
-    url: '',
-    component: 'projectCardSm'
+  let illustrationState = {
+    name: 'Base.Works.Illustration',
+    url: '/Illustration',
+    component: 'illustration'
   }
+
+  let otherWorksState = {
+    name: 'Base.Works.Other',
+    url: '/Other',
+    component: 'otherWorks'
+  }
+
+  // var State = (name, component, url, redirect) => {
+  //   this.name = name;
+  //   this.component = component;
+  //   this.url = url || '';
+  //   this.redirect = redirect || null;
+  // };
+
   $stateProvider.state(baseState);
   $stateProvider.state(homeState);
   $stateProvider.state(worksState);
-  $stateProvider.state(UXState);
-  $stateProvider.state(CardState);
+  $stateProvider.state(uXState);
+  $stateProvider.state(illustrationState);
+  $stateProvider.state(otherWorksState);
   $urlRouterProvider.otherwise('/Home');
 }]);
 
 
 
-app.value('projectGalleryValue', {
-    ux: {
-        category: 'UI/UX',
-        tags: ['Web Design', 'UX', 'UI'],
-        imgList: [
-            '/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg',
-            '/assets/images/gallery/andrej-lisakov-686125-unsplash.jpg',
-            '/assets/images/gallery/andrew-pons-6488-unsplash.jpg',
-            '/assets/images/gallery/anne-lin-572127-unsplash.jpg',
-            '/assets/images/gallery/chinh-le-duc-201487-unsplash.jpg',
-            '/assets/images/gallery/giorgio-tomassetti-762135-unsplash.jpg'
-        ]
+// app.value('projectGalleryValue', {
+//     ux: {
+//         category: 'UI/UX',
+//         tags: ['Web Design', 'UX', 'UI'],
+//         imgList: [
+//             '/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg',
+//             '/assets/images/gallery/andrej-lisakov-686125-unsplash.jpg',
+//             '/assets/images/gallery/andrew-pons-6488-unsplash.jpg',
+//             '/assets/images/gallery/anne-lin-572127-unsplash.jpg',
+//             '/assets/images/gallery/chinh-le-duc-201487-unsplash.jpg',
+//             '/assets/images/gallery/giorgio-tomassetti-762135-unsplash.jpg'
+//         ]
+//     },
+//     illustration: {
+//         category: 'UI/UX',
+//         tags: ['Web Design', 'UX', 'UI'],
+//         imgList: [
+//             '/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg',
+//             '/assets/images/gallery/andrej-lisakov-686125-unsplash.jpg',
+//             '/assets/images/gallery/andrew-pons-6488-unsplash.jpg',
+//             '/assets/images/gallery/anne-lin-572127-unsplash.jpg',
+//             '/assets/images/gallery/chinh-le-duc-201487-unsplash.jpg',
+//             '/assets/images/gallery/giorgio-tomassetti-762135-unsplash.jpg'
+//         ]
+//     }
+// });
+
+app.value('projectGalleryValue', [
+    {
+        "id": 1,
+        "name": "UX1",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg"
     },
-    illustration: {
-        category: 'UI/UX',
-        tags: ['Web Design', 'UX', 'UI'],
-        imgList: [
-            '/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg',
-            '/assets/images/gallery/andrej-lisakov-686125-unsplash.jpg',
-            '/assets/images/gallery/andrew-pons-6488-unsplash.jpg',
-            '/assets/images/gallery/anne-lin-572127-unsplash.jpg',
-            '/assets/images/gallery/chinh-le-duc-201487-unsplash.jpg',
-            '/assets/images/gallery/giorgio-tomassetti-762135-unsplash.jpg'
-        ]
+    {
+        "id": 2,
+        "name": "UX2",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/andrej-lisakov-686125-unsplash.jpg"
+    },
+    {
+        "id": 3,
+        "name": "UX3",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/chinh-le-duc-201487-unsplash.jpg"
+    },
+    {
+        "id": 4,
+        "name": "UX4",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/giorgio-tomassetti-762135-unsplash.jpg"
+    },
+    {
+        "id": 5,
+        "name": "UX5",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/anne-lin-572127-unsplash.jpg"
+    },
+    {
+        "id": 6,
+        "name": "UX6",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg"
+    },
+    {
+        "id": 7,
+        "name": "UX7",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/andrej-lisakov-686125-unsplash.jpg"
+    },
+    {
+        "id": 8,
+        "name": "UX8",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg"
+    },
+    {
+        "id": 9,
+        "name": "UX9",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/andrej-lisakov-686125-unsplash.jpg"
+    },
+    {
+        "id": 10,
+        "name": "UX10",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/chinh-le-duc-201487-unsplash.jpg"
+    },
+    {
+        "id": 11,
+        "name": "UX11",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg"
+    },
+    {
+        "id": 12,
+        "name": "UX12",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/andrej-lisakov-686125-unsplash.jpg"
+    },
+    {
+        "id": 13,
+        "name": "UX13",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/chinh-le-duc-201487-unsplash.jpg"
+    },
+    {
+        "id": 14,
+        "name": "UX14",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/giorgio-tomassetti-762135-unsplash.jpg"
+    },
+    {
+        "id": 15,
+        "name": "UX15",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/anne-lin-572127-unsplash.jpg"
+    },
+    {
+        "id": 16,
+        "name": "UX16",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg"
+    },
+    {
+        "id": 17,
+        "name": "UX17",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/andrej-lisakov-686125-unsplash.jpg"
+    },
+    {
+        "id": 18,
+        "name": "UX18",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg"
+    },
+    {
+        "id": 19,
+        "name": "UX19",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/andrej-lisakov-686125-unsplash.jpg"
+    },
+    {
+        "id": 20,
+        "name": "UX20",
+        "date": "2017-01-01T05:00:00.000Z",
+        "category": "ux",
+        "tags": ["web design, ux, ui"],
+        "url": "/assets/images/gallery/chinh-le-duc-201487-unsplash.jpg"
     }
-});
-app.factory("projectListFactory", ['projectGalleryValue', function projectListFactory(projectGalleryValue) {
-    
-    function getProjectGallery() {
-       return projectGalleryValue;
-    }
-
-    let projectGallery = getProjectGallery();
-
-    let projectList = [
-        {
-            name: 'Marketplace One',
-            date: '',
-            category: projectGallery.ux.category,
-            tags: ['Web Design', 'UX', 'UI'],
-            imgUrl: projectGallery.ux.imgList[0],
-            descriptions:
-                [
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lacinia massa a tortor tempor sagittis. Aenean iaculis eros non feugiat accumsan. Nulla consequat elit id enim finibus dapibus.',
-                    'Sed eget tellus facilisis, eleifend ex at, gravida nulla. Quisque convallis dignissim mi ac pretium. Suspendisse et mi quis sapien porta eleifend. Nulla porta nibh sed tellus aliquet, nec dignissim tortor ultrices.'
-                ]
-        }
-    ];
-
-    return projectList;
-}
-
 ]);
+(function () {
+    app.factory("projectListFactory", ['projectGalleryValue',
+        function projectListFactory(projectGalleryValue) {
+
+            let projectGallery = projectGalleryValue;
+            let projectList = [
+                {
+                    id: 0,
+                    name: 'Marketplace One',
+                    date: '2017-01-01T05:00:00.000Z',
+                    category: 'UX',
+                    tags: ['web design, ux, ui'],
+                    imgUrl: '/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg'
+                }
+            ];
+
+            const getProjectList = () => {
+                return projectList;
+            };
+
+            return {
+                getProjectList: getProjectList
+            };
+        }
+
+    ]);
+})();
 app.component("base",
   {
     templateUrl: '/app/states/base/base.template.html',
@@ -107,35 +285,33 @@ app.component("base",
 function baseController() {
   var $ctrl = this;
   $ctrl.person = { 'name': 'hatomi' };
+  $ctrl.nav = [];
 
-  $ctrl.nav = [
-    {
-      title: 'Home',
-      uiSref: 'Base.Home',
-      hasSubnav: false,
-      isHome: true
-    },
-    {
-      title: 'UX',
-      uiSref: 'Base.Works.UX',
-      hasSubnav: false,
-    },
-    {
-      title: 'Illustration',
-      uiSref: 'Base.Works.Illustration',
-      hasSubnav: false
-    },
-    {
-      title: 'Other',
-      uiSref: 'Base.Works.Other',
-      hasSubnav: false
-    },
-    {
-      title: 'Contact',
-      uiSref: 'Base.Contact',
-      hasSubnav: false
-    }
-  ];
+  $ctrl.toggleMenu = () => {
+    $ctrl.menuIsOpen = !$ctrl.menuIsOpen;
+  };
+
+  function navItem(title, uiSref, iconClass, hasSubnav) {
+    this.title = title;
+    this.uiSref = uiSref;
+    this.iconClass = iconClass;
+    this.hasSubnav = hasSubnav;
+  }
+
+  function myNav() {
+    $ctrl.nav.push(
+      new navItem('Home', 'Base.Home', 'fig-home', false),
+      new navItem('UX', 'Base.Works.UX', 'fig-dashboard-variant-2', false),
+      new navItem('Illustration', 'Base.Works.Illustration', 'fig-sketch', false),
+      new navItem('Other', 'Base.Works.Other', 'fig-rocket', false),
+      new navItem('Contact', 'Base.Contact', 'fig-email', false),
+    )
+  }
+
+  $ctrl.$onInit = () => {
+    myNav();
+  }
+
 }
 
 app.controller('baseController', baseController);
@@ -168,6 +344,32 @@ function homeController() {
 
 app.controller('homeController', homeController);
 
+app.component('illustration',
+    {
+        templateUrl: '/app/states/illustration/illustration.template.html',
+        controller: uxController
+    });
+
+function illustrationController(projectListFactory, projectGalleryValue, filterFilter) {
+    let $ctrl = this;
+
+}
+
+app.controller('illustrationController', illustrationController);
+
+app.component('otherWorks',
+    {
+        templateUrl: '/app/states/other-works/other-works.template.html',
+        controller: otherWorksController
+    });
+
+function otherWorksController(projectListFactory, projectGalleryValue, filterFilter) {
+    let $ctrl = this;
+
+}
+
+app.controller('otherWorksController', otherWorksController);
+
 app.component("ux",
     {
         templateUrl: '/app/states/ux/ux.template.html',
@@ -182,9 +384,8 @@ function uxController(projectListFactory, projectGalleryValue, filterFilter) {
     }
 
     $ctrl.$onInit = () => {
-        $ctrl.uxGallery = projectGalleryValue.ux;
-        $ctrl.projectList = filterFilter(projectListFactory, {category: 'UI/UX'});   
-    }
+        $ctrl.uxGallery = filterFilter(projectGalleryValue, {category: 'ux'});   
+    }; 
 
 }
 
