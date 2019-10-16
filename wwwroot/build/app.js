@@ -431,7 +431,7 @@ app.value('projectGalleryValue', [
 })();
 app.component("base",
   {
-    templateUrl: '/app/states/base/base.template.html',
+    templateUrl: '/wwwroot/app/states/base/base.template.html',
     controller: baseController
   });
 
@@ -471,7 +471,7 @@ function baseController() {
 app.controller('baseController', baseController);
 app.component("home",
     {
-        templateUrl: '/app/states/home/home.template.html',
+        templateUrl: '/wwwroot/app/states/home/home.template.html',
         controller: homeController
     });
 
@@ -500,7 +500,7 @@ app.controller('homeController', homeController);
 
 app.component('illustration',
     {
-        templateUrl: '/app/states/illustration/illustration.template.html',
+        templateUrl: '/wwwroot/app/states/illustration/illustration.template.html',
         controller: illustrationController
     });
 
@@ -513,7 +513,7 @@ app.controller('illustrationController', illustrationController);
 
 app.component('otherWorks',
     {
-        templateUrl: '/app/states/other-works/other-works.template.html',
+        templateUrl: '/wwwroot/app/states/other-works/other-works.template.html',
         controller: otherWorksController
     });
 
@@ -527,7 +527,7 @@ app.controller('otherWorksController', otherWorksController);
 (function(){
     app.component("ux",
     {
-        templateUrl: '/app/states/ux/ux.template.html',
+        templateUrl: '/wwwroot/app/states/ux/ux.template.html',
         controller: uxController
     });
 
@@ -549,7 +549,7 @@ app.controller('uxController', uxController);
 
 app.component("works",
     {
-        templateUrl: '/app/states/works/works.template.html'
+        templateUrl: '/wwwroot/app/states/works/works.template.html'
     });
 app.component("projectCardSm",
     {
