@@ -1,4 +1,4 @@
 app.component("works",
     {
-        templateUrl: '/app/states/works/works.template.html'
+        templateUrl: '/wwwroot/app/states/works/works.template.html'
     });

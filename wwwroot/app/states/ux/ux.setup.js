@@ -1,10 +1,11 @@
-app.component("ux",
+(function(){
+    app.component("ux",
     {
-        templateUrl: '/app/states/ux/ux.template.html',
+        templateUrl: '/wwwroot/app/states/ux/ux.template.html',
         controller: uxController
     });
 
-function uxController(projectListFactory, projectGalleryValue, filterFilter) {
+function uxController(projectListFactory) {
     let $ctrl = this;
 
     const _getDate = () => {
@@ -12,9 +13,10 @@ function uxController(projectListFactory, projectGalleryValue, filterFilter) {
     }
 
     $ctrl.$onInit = () => {
-        $ctrl.uxGallery = filterFilter(projectGalleryValue, {category: 'ux'});   
+        $ctrl.uxGallery = projectListFactory.getProjectList('web design');
     }; 
 
 }
 
 app.controller('uxController', uxController);
+})();

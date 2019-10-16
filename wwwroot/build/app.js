@@ -59,33 +59,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
 
 
 
-// app.value('projectGalleryValue', {
-//     ux: {
-//         category: 'UI/UX',
-//         tags: ['Web Design', 'UX', 'UI'],
-//         imgList: [
-//             '/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg',
-//             '/assets/images/gallery/andrej-lisakov-686125-unsplash.jpg',
-//             '/assets/images/gallery/andrew-pons-6488-unsplash.jpg',
-//             '/assets/images/gallery/anne-lin-572127-unsplash.jpg',
-//             '/assets/images/gallery/chinh-le-duc-201487-unsplash.jpg',
-//             '/assets/images/gallery/giorgio-tomassetti-762135-unsplash.jpg'
-//         ]
-//     },
-//     illustration: {
-//         category: 'UI/UX',
-//         tags: ['Web Design', 'UX', 'UI'],
-//         imgList: [
-//             '/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg',
-//             '/assets/images/gallery/andrej-lisakov-686125-unsplash.jpg',
-//             '/assets/images/gallery/andrew-pons-6488-unsplash.jpg',
-//             '/assets/images/gallery/anne-lin-572127-unsplash.jpg',
-//             '/assets/images/gallery/chinh-le-duc-201487-unsplash.jpg',
-//             '/assets/images/gallery/giorgio-tomassetti-762135-unsplash.jpg'
-//         ]
-//     }
-// });
-
 app.value('projectGalleryValue', [
     {
         "id": 1,
@@ -248,28 +221,209 @@ app.value('projectGalleryValue', [
         "url": "/assets/images/gallery/chinh-le-duc-201487-unsplash.jpg"
     }
 ]);
+
 (function () {
     app.factory("projectListFactory", ['projectGalleryValue',
         function projectListFactory(projectGalleryValue) {
 
-            let projectGallery = projectGalleryValue;
             let projectList = [
                 {
-                    id: 0,
-                    name: 'Marketplace One',
-                    date: '2017-01-01T05:00:00.000Z',
-                    category: 'UX',
-                    tags: ['web design, ux, ui'],
-                    imgUrl: '/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg'
+                    "id": 0,
+                    "name": "Hatomi",
+                    "date": "20191101T000000-0700",
+                    "category": "web design",
+                    "tags": [
+                        "ui",
+                        "website",
+                        "javascript",
+                        "angularjs"
+                    ]
+                },
+                {
+                    "id": 1,
+                    "name": "Marketplace One",
+                    "date": "20190401T000000-0700",
+                    "category": "web design",
+                    "tags": [
+                        "ux",
+                        "ui",
+                        "website",
+                        "logo",
+                        "custom graphics",
+                        "angularjs"
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "ForceCRM",
+                    "date": "20180301T000000-0700",
+                    "category": "web design",
+                    "tags": [
+                        "ux",
+                        "ui",
+                        "website",
+                        "custom graphics",
+                        "angularjs"
+                    ]
+                },
+                {
+                    "id": 3,
+                    "name": "Marketing Tracker",
+                    "date": "20190701T000000-0700",
+                    "category": "web design",
+                    "tags": [
+                        "ux",
+                        "ui",
+                        "website",
+                        "custom graphics",
+                        "angularjs"
+                    ]
+                },
+                {
+                    "id": 4,
+                    "name": "Alphastar Corporate Website",
+                    "date": "20181001T000000-0700",
+                    "category": "web design",
+                    "tags": [
+                        "ui",
+                        "website",
+                        "custom graphics",
+                        "angularjs"
+                    ]
+                },
+                {
+                    "name": "FIG Technology Summit Website",
+                    "date": "20190301T000000-0700",
+                    "category": "web design",
+                    "tags": [
+                        "ui",
+                        "website",
+                        "custom graphics",
+                        "angularjs",
+                        "tailwindcss"
+                    ]
+                },
+                {
+                    "id": 5,
+                    "name": "FIG Marketing Corporate Website",
+                    "date": "20181101T000000-0700",
+                    "category": "web design",
+                    "tags": [
+                        "ux",
+                        "ui",
+                        "website"
+                    ]
+                },
+                {
+                    "id": 6,
+                    "name": "FIG Mobile App",
+                    "date": "2019701T000000-0700",
+                    "category": "web design",
+                    "tags": [
+                        "ux",
+                        "ui",
+                        "mockup"
+                    ]
+                },
+                {
+                    "id": 7,
+                    "name": "Maldives Spa and Nails",
+                    "date": "20171001T000000-0700",
+                    "category": "web design",
+                    "tags": [
+                        "ux",
+                        "ui",
+                        "website"
+                    ]
+                },
+                {
+                    "id": 8,
+                    "name": "Maldives Spa and Nails",
+                    "date": "20161101T000000-0700",
+                    "category": "graphic design",
+                    "tags": [
+                        "logo",
+                        "adobe illustrator"
+                    ]
+                },
+                {
+                    "id": 9,
+                    "name": "Superior Habits",
+                    "date": "20170120T000000-0700",
+                    "category": "graphic design",
+                    "tags": [
+                        "logo",
+                        "adobe illustrator"
+                    ]
+                },
+                {
+                    "id": 10,
+                    "name": "5Ghost",
+                    "date": "20160801T000000-0700",
+                    "category": "graphic design",
+                    "tags": [
+                        "logo",
+                        "adobe illustrator"
+                    ]
+                },
+                {
+                    "id": 11,
+                    "name": [
+                        "Zoolax",
+                        "Inc."
+                    ],
+                    "date": "20170301T000000-0700",
+                    "category": "graphic design",
+                    "tags": [
+                        "logo",
+                        "adobe illustrator"
+                    ]
+                },
+                {
+                    "id": 12,
+                    "name": "Breeze In Yoga",
+                    "date": "20161101T000000-0700",
+                    "category": "graphic design",
+                    "tags": [
+                        "logo",
+                        "adobe illustrator"
+                    ]
+                },
+                {
+                    "id": 13,
+                    "name": "Asher Photography",
+                    "date": "20160701T000000-0700",
+                    "category": "graphic design",
+                    "tags": [
+                        "logo",
+                        "adobe illustrator"
+                    ]
+                },
+                {
+                    "id": 14,
+                    "name": "Lazy Afternoon",
+                    "date": "20140701T000000-0700",
+                    "category": "illustration",
+                    "tags": ["adobe photoshop", "illustration"]
                 }
             ];
 
-            const getProjectList = () => {
-                return projectList;
+            function serviceMethod() {
+                return $timeout(function () {
+                    return {
+                        property: 'value'
+                    };
+                }, 1000);
+            }
+
+
+            const getProjectList = (category) => {
+                return projectList.filter(element => element.category === category);
             };
 
             return {
-                getProjectList: getProjectList
+                getProjectList: getProjectList,
+                serviceMethod: serviceMethod
             };
         }
 
@@ -277,7 +431,7 @@ app.value('projectGalleryValue', [
 })();
 app.component("base",
   {
-    templateUrl: '/app/states/base/base.template.html',
+    templateUrl: '/wwwroot/app/states/base/base.template.html',
     controller: baseController
   });
 
@@ -317,7 +471,7 @@ function baseController() {
 app.controller('baseController', baseController);
 app.component("home",
     {
-        templateUrl: '/app/states/home/home.template.html',
+        templateUrl: '/wwwroot/app/states/home/home.template.html',
         controller: homeController
     });
 
@@ -346,8 +500,8 @@ app.controller('homeController', homeController);
 
 app.component('illustration',
     {
-        templateUrl: '/app/states/illustration/illustration.template.html',
-        controller: uxController
+        templateUrl: '/wwwroot/app/states/illustration/illustration.template.html',
+        controller: illustrationController
     });
 
 function illustrationController(projectListFactory, projectGalleryValue, filterFilter) {
@@ -359,7 +513,7 @@ app.controller('illustrationController', illustrationController);
 
 app.component('otherWorks',
     {
-        templateUrl: '/app/states/other-works/other-works.template.html',
+        templateUrl: '/wwwroot/app/states/other-works/other-works.template.html',
         controller: otherWorksController
     });
 
@@ -370,13 +524,14 @@ function otherWorksController(projectListFactory, projectGalleryValue, filterFil
 
 app.controller('otherWorksController', otherWorksController);
 
-app.component("ux",
+(function(){
+    app.component("ux",
     {
-        templateUrl: '/app/states/ux/ux.template.html',
+        templateUrl: '/wwwroot/app/states/ux/ux.template.html',
         controller: uxController
     });
 
-function uxController(projectListFactory, projectGalleryValue, filterFilter) {
+function uxController(projectListFactory) {
     let $ctrl = this;
 
     const _getDate = () => {
@@ -384,16 +539,17 @@ function uxController(projectListFactory, projectGalleryValue, filterFilter) {
     }
 
     $ctrl.$onInit = () => {
-        $ctrl.uxGallery = filterFilter(projectGalleryValue, {category: 'ux'});   
+        $ctrl.uxGallery = projectListFactory.getProjectList('web design');
     }; 
 
 }
 
 app.controller('uxController', uxController);
+})();
 
 app.component("works",
     {
-        templateUrl: '/app/states/works/works.template.html'
+        templateUrl: '/wwwroot/app/states/works/works.template.html'
     });
 app.component("projectCardSm",
     {

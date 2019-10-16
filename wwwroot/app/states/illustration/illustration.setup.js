@@ -1,7 +1,7 @@
 app.component('illustration',
     {
-        templateUrl: '/app/states/illustration/illustration.template.html',
-        controller: uxController
+        templateUrl: '/wwwroot/app/states/illustration/illustration.template.html',
+        controller: illustrationController
     });
 
 function illustrationController(projectListFactory, projectGalleryValue, filterFilter) {
