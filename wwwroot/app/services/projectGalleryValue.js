@@ -3,7 +3,7 @@ app.value('projectGalleryValue', [
         "id": 1,
         "name": "UX1",
         "date": "2017-01-01T05:00:00.000Z",
-        "category": "ux",
+        "category": "/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg",
         "tags": ["web design, ux, ui"],
         "url": "/assets/images/gallery/andrej-lisakov-679177-unsplash.jpg"
     },
