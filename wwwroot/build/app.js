@@ -4,55 +4,24 @@
 let app = angular.module('hatomi', ['ui.router']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-  let baseState = {
-    name: 'Base',
-    url: '',
-    component: 'base',
-    redirectTo: 'Base.WIP'
+
+  class stateObj {
+    constructor(name, url, component, redirectTo) {
+      this.name = name;
+      this.url = url;
+      this.component = component || null;
+      this.redirectTo = redirectTo || null;
+    }
   }
 
-  let homeState = {
-    name: 'Base.Home',
-    url: '/Home',
-    component: 'home'
-  }
-
-  let worksState = {
-    name: 'Base.Works',
-    url: '/Works',
-    redirectTo: 'Base.Works.UX'
-  }
-
-  let uXState = {
-    name: 'Base.Works.UX',
-    url: '/UX',
-    component: 'ux'
-  }
-
-  let illustrationState = {
-    name: 'Base.Works.Illustration',
-    url: '/Illustration',
-    component: 'illustration'
-  }
-
-  let otherWorksState = {
-    name: 'Base.Works.Other',
-    url: '/Other',
-    component: 'otherWorks'
-  }
-  let wipState = {
-    name: 'Base.WIP',
-    url: '/WIP',
-    component: 'wip'
-  }
-
-  $stateProvider.state(baseState);
-  $stateProvider.state(homeState);
-  $stateProvider.state(worksState);
-  $stateProvider.state(uXState);
-  $stateProvider.state(illustrationState);
-  $stateProvider.state(otherWorksState);
-  $stateProvider.state(wipState);
+  $stateProvider.state(new stateObj('Base', '', 'base', 'Base.Home'));
+  $stateProvider.state(new stateObj('Base.Home', '/Home', 'home', false));
+  $stateProvider.state(new stateObj('Base.Works', '/Works', 'works', 'Base.Works.UX'));
+  $stateProvider.state(new stateObj('Base.Works.UX', '/UX', 'ux', false));
+  $stateProvider.state(new stateObj('Base.Works.Illustration', '/Illustration', 'illustration', false));
+  $stateProvider.state(new stateObj('Base.Works.Other', '/Other', 'otherWorks', false));  
+  $stateProvider.state(new stateObj('Base.WIP', '/WIP', 'wip', false));
+  
   $urlRouterProvider.otherwise('/WIP');
 }]);
 
@@ -261,25 +230,23 @@ function baseController() {
     $ctrl.menuIsOpen = !$ctrl.menuIsOpen;
   };
 
-  function navItem(title, uiSref, iconClass, hasSubnav) {
-    this.title = title;
-    this.uiSref = uiSref;
-    this.iconClass = iconClass;
-    this.hasSubnav = hasSubnav;
+  class navItem {
+    constructor(title, url, iconClass, hasSubnav) {
+      this.title = title;
+      this.url = url;
+      this.iconClass = iconClass;
+      this.hasSubnav = hasSubnav;
+    }
   }
 
-  function myNav() {
+  $ctrl.$onInit = () => {
     $ctrl.nav.push(
       new navItem('Home', 'Base.Home', 'fig-home', false),
       new navItem('UX', 'Base.Works.UX', 'fig-dashboard-variant-2', false),
       new navItem('Illustration', 'Base.Works.Illustration', 'fig-sketch', false),
       new navItem('Other', 'Base.Works.Other', 'fig-rocket', false),
-      new navItem('Contact', 'Base.Contact', 'fig-email', false),
-    )
-  }
-
-  $ctrl.$onInit = () => {
-    myNav();
+      new navItem('Contact', 'Base.Contact', 'fig-email', false)
+    );
   }
 
 }
