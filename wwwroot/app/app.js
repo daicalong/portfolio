@@ -14,14 +14,14 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     }
   }
 
-  $stateProvider.state(new stateObj('Base', '', 'base', 'Base.Home'));
+  $stateProvider.state(new stateObj('Base', '', 'base', 'Base.WIP'));
   $stateProvider.state(new stateObj('Base.Home', '/Home', 'home', false));
   $stateProvider.state(new stateObj('Base.Works', '/Works', 'works', 'Base.Works.UX'));
   $stateProvider.state(new stateObj('Base.Works.UX', '/UX', 'ux', false));
   $stateProvider.state(new stateObj('Base.Works.Illustration', '/Illustration', 'illustration', false));
-  $stateProvider.state(new stateObj('Base.Works.Other', '/Other', 'otherWorks', false));  
+  $stateProvider.state(new stateObj('Base.Works.Other', '/Other', 'otherWorks', false));
   $stateProvider.state(new stateObj('Base.WIP', '/WIP', 'wip', false));
-  
+
   $urlRouterProvider.otherwise('/WIP');
 }]);
 
