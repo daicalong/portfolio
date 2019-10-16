@@ -5,3 +5,7 @@ app/lib/
 tmp
 .DS_Store
 .idea
+wwwroot/build/libs.js
+wwwroot/build/app.js
+wwwroot/build/app.js
+wwwroot/build/app.css
