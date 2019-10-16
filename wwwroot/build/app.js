@@ -8,7 +8,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     name: 'Base',
     url: '',
     component: 'base',
-    redirectTo: 'Base.Home'
+    redirectTo: 'Base.WIP'
   }
 
   let homeState = {
@@ -40,13 +40,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     url: '/Other',
     component: 'otherWorks'
   }
-
-  // var State = (name, component, url, redirect) => {
-  //   this.name = name;
-  //   this.component = component;
-  //   this.url = url || '';
-  //   this.redirect = redirect || null;
-  // };
+  let wipState = {
+    name: 'Base.WIP',
+    url: '/WIP',
+    component: 'wip'
+  }
 
   $stateProvider.state(baseState);
   $stateProvider.state(homeState);
@@ -54,7 +52,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
   $stateProvider.state(uXState);
   $stateProvider.state(illustrationState);
   $stateProvider.state(otherWorksState);
-  $urlRouterProvider.otherwise('/Home');
+  $stateProvider.state(wipState);
+  $urlRouterProvider.otherwise('/WIP');
 }]);
 
 
@@ -248,7 +247,7 @@ app.value('projectGalleryValue', [
 })();
 app.component("base",
   {
-    templateUrl: '/app/states/base/base.template.html',
+    templateUrl: '/wwwroot/app/states/base/base.template.html',
     controller: baseController
   });
 
@@ -288,7 +287,7 @@ function baseController() {
 app.controller('baseController', baseController);
 app.component("home",
     {
-        templateUrl: '/app/states/home/home.template.html',
+        templateUrl: '/wwwroot/app/states/home/home.template.html',
         controller: homeController
     });
 
@@ -317,7 +316,7 @@ app.controller('homeController', homeController);
 
 app.component('illustration',
     {
-        templateUrl: '/app/states/illustration/illustration.template.html',
+        templateUrl: '/wwwroot/app/states/illustration/illustration.template.html',
         controller: illustrationController
     });
 
@@ -330,7 +329,7 @@ app.controller('illustrationController', illustrationController);
 
 app.component('otherWorks',
     {
-        templateUrl: '/app/states/other-works/other-works.template.html',
+        templateUrl: '/wwwroot/app/states/other-works/other-works.template.html',
         controller: otherWorksController
     });
 
@@ -344,7 +343,7 @@ app.controller('otherWorksController', otherWorksController);
 (function(){
     app.component("ux",
     {
-        templateUrl: '/app/states/ux/ux.template.html',
+        templateUrl: '/wwwroot/app/states/ux/ux.template.html',
         controller: uxController
     });
 
@@ -364,9 +363,22 @@ function uxController(projectListFactory) {
 app.controller('uxController', uxController);
 })();
 
+app.component("wip",
+    {
+        templateUrl: '/wwwroot/app/states/wip/wip.template.html',
+        controller: wipController
+    });
+
+function wipController() {
+    var $ctrl = this;
+
+}
+
+app.controller('wipController', wipController);
+
 app.component("works",
     {
-        templateUrl: '/app/states/works/works.template.html'
+        templateUrl: '/wwwroot/app/states/works/works.template.html'
     });
 app.component("projectCardSm",
     {

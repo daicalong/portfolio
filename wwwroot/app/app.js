@@ -8,7 +8,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     name: 'Base',
     url: '',
     component: 'base',
-    redirectTo: 'Base.Home'
+    redirectTo: 'Base.WIP'
   }
 
   let homeState = {
@@ -40,13 +40,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     url: '/Other',
     component: 'otherWorks'
   }
-
-  // var State = (name, component, url, redirect) => {
-  //   this.name = name;
-  //   this.component = component;
-  //   this.url = url || '';
-  //   this.redirect = redirect || null;
-  // };
+  let wipState = {
+    name: 'Base.WIP',
+    url: '/WIP',
+    component: 'wip'
+  }
 
   $stateProvider.state(baseState);
   $stateProvider.state(homeState);
@@ -54,7 +52,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
   $stateProvider.state(uXState);
   $stateProvider.state(illustrationState);
   $stateProvider.state(otherWorksState);
-  $urlRouterProvider.otherwise('/Home');
+  $stateProvider.state(wipState);
+  $urlRouterProvider.otherwise('/WIP');
 }]);
 
 

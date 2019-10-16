@@ -57,7 +57,7 @@ module.exports = function (grunt) {
             dev: {
 
                 // the server root directory
-                root: 'D:/@Taichi Files@/Current Projects/git/Hatomi 2019/wwwroot/',
+                root: 'D:/@Taichi Files@/Current Projects/git/Hatomi 2019/',
 
 
                 port: 8282,
@@ -77,7 +77,7 @@ module.exports = function (grunt) {
 
                 // Proxies all requests which can't be resolved locally to the given url
                 // Note this this will disable 'showDir'
-                proxy: "https://github.com/daicalong/hatomi",
+                proxy: "https://github.com/daicalong/daicalong.github.io",
 
                 // Tell grunt task to open the browser
                 openBrowser: true,
