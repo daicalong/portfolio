@@ -1,9 +1,9 @@
 {
-  "name": "angular-seed",
+  "name": "hatomi",
   "private": true,
   "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "description": "Harry's Portfolio",
+  "repository": "https://github.com/daicalong/daicalong.github.io",
   "license": "MIT",
   "dependencies": {
     "@uirouter/angularjs": "^1.0.23",

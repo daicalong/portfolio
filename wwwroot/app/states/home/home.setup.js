@@ -1,6 +1,6 @@
 app.component("home",
     {
-        templateUrl: '/app/states/home/home.template.html',
+        templateUrl: '/wwwroot/app/states/home/home.template.html',
         controller: homeController
     });
 
