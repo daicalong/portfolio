@@ -12,25 +12,25 @@ module.exports = function (grunt) {
         concat: {
             appcss: {
                 src: [
-                    "./wwwroot/app/app.css",
-                    "./wwwroot/app/tailwind.css"
+                    "./docs/app/app.css",
+                    "./docs/app/tailwind.css"
                 ],
-                dest: "./wwwroot/build/app.css"
+                dest: "./docs/build/app.css"
             },
             libcss: {
                 src: [
 
                 ],
-                dest: "./wwwroot/build/libs.css"
+                dest: "./docs/build/libs.css"
             },
             appjs: {
                 src: [
-                    "./wwwroot/app/app.js",
-                    "./wwwroot/app/services/**/*.js",
-                    "./wwwroot/app/states/**/*.js",
-                    "./wwwroot/app/components/**/*.js"
+                    "./docs/app/app.js",
+                    "./docs/app/services/**/*.js",
+                    "./docs/app/states/**/*.js",
+                    "./docs/app/components/**/*.js"
                 ],
-                dest: "./wwwroot/build/app.js",
+                dest: "./docs/build/app.js",
                 options: {
                     sourceMap: true
                 }
@@ -42,7 +42,7 @@ module.exports = function (grunt) {
                     "./node_modules/angular/angular-mocks/angular-mocks.js"
 
                 ],
-                dest: "./wwwroot/build/libs.js",
+                dest: "./docs/build/libs.js",
                 options: {
                     sourceMap: true
                 }
@@ -57,7 +57,7 @@ module.exports = function (grunt) {
             dev: {
 
                 // the server root directory
-                root: 'D:/@Taichi Files@/Current Projects/git/Hatomi 2019/',
+                root: 'D:/@Taichi Files@/Current Projects/git/Hatomi 2019/docs',
 
 
                 port: 8282,
@@ -93,7 +93,7 @@ module.exports = function (grunt) {
         watch: {
             //skip the './' in front to allow it to see new files added: http://stackoverflow.com/questions/31679375/grunt-contrib-watch-doesnt-see-new-files
             all: {
-                files: ["wwwroot/app/**/*.*", "wwwroot/app/index.html", "!wwwroot/app/build/**/*.*"],
+                files: ["docs/app/**/*.*", "docs/index.html", "!docs/app/build/**/*.*"],
                 tasks: ["appjs", "appcss"],
                 options: {
                     spawn: false,

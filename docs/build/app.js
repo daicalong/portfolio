@@ -14,14 +14,14 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     }
   }
 
-  $stateProvider.state(new stateObj('Base', '', 'base', 'Base.Home'));
+  $stateProvider.state(new stateObj('Base', '', 'base', 'Base.WIP'));
   $stateProvider.state(new stateObj('Base.Home', '/Home', 'home', false));
   $stateProvider.state(new stateObj('Base.Works', '/Works', 'works', 'Base.Works.UX'));
   $stateProvider.state(new stateObj('Base.Works.UX', '/UX', 'ux', false));
   $stateProvider.state(new stateObj('Base.Works.Illustration', '/Illustration', 'illustration', false));
-  $stateProvider.state(new stateObj('Base.Works.Other', '/Other', 'otherWorks', false));  
+  $stateProvider.state(new stateObj('Base.Works.Other', '/Other', 'otherWorks', false));
   $stateProvider.state(new stateObj('Base.WIP', '/WIP', 'wip', false));
-  
+
   $urlRouterProvider.otherwise('/WIP');
 }]);
 
@@ -214,9 +214,42 @@ app.value('projectGalleryValue', [
 
     ]);
 })();
+(function() {
+    app.factory("wpFactory", ['$http', '$q',
+        function wpFactory($http, $q) {
+            var url = 'http://hpnguyen52.wordpress.com/wp-json/wp/v2';
+
+            const getPosts = (number) => {
+                return ($http.get(url + 'posts?per_page=' + number).then(_success, _error));
+            };
+
+            const getMediaDataForId = (id) => {
+                return ($http.get(url + 'media/' + id).then(_success, _error));
+            };
+
+            const _success = (response) => {
+                return response.data;
+            };
+
+            const _error = (response) => {
+                if (!angular.isObject || !response.data.message)
+                    return ($q.reject('An unknown error has occured.'));
+
+                return ($q.reject(response.data.message));
+            };
+
+            return {
+                getPosts: getPosts,
+                getMediaDataForId: getMediaDataForId
+            }
+
+        }
+
+    ]);
+})();
 app.component("base",
   {
-    templateUrl: '/wwwroot/app/states/base/base.template.html',
+    templateUrl: '/app/states/base/base.template.html',
     controller: baseController
   });
 
@@ -254,7 +287,7 @@ function baseController() {
 app.controller('baseController', baseController);
 app.component("home",
     {
-        templateUrl: '/wwwroot/app/states/home/home.template.html',
+        templateUrl: '/app/states/home/home.template.html',
         controller: homeController
     });
 
@@ -283,7 +316,7 @@ app.controller('homeController', homeController);
 
 app.component('illustration',
     {
-        templateUrl: '/wwwroot/app/states/illustration/illustration.template.html',
+        templateUrl: '/app/states/illustration/illustration.template.html',
         controller: illustrationController
     });
 
@@ -296,7 +329,7 @@ app.controller('illustrationController', illustrationController);
 
 app.component('otherWorks',
     {
-        templateUrl: '/wwwroot/app/states/other-works/other-works.template.html',
+        templateUrl: '/app/states/other-works/other-works.template.html',
         controller: otherWorksController
     });
 
@@ -310,7 +343,7 @@ app.controller('otherWorksController', otherWorksController);
 (function(){
     app.component("ux",
     {
-        templateUrl: '/wwwroot/app/states/ux/ux.template.html',
+        templateUrl: '/app/states/ux/ux.template.html',
         controller: uxController
     });
 
@@ -332,20 +365,28 @@ app.controller('uxController', uxController);
 
 app.component("wip",
     {
-        templateUrl: '/wwwroot/app/states/wip/wip.template.html',
+        templateUrl: '/app/states/wip/wip.template.html',
         controller: wipController
     });
 
-function wipController() {
+function wipController(wpFactory) {
     var $ctrl = this;
 
+    $ctrl.$onInit = () => {
+        wpFactory.getPosts(1).then((response) => {
+            $ctrl.posts = response;
+
+            response.forEach((el) => {
+                console.log(el);
+            });
+        });
+    };
 }
 
 app.controller('wipController', wipController);
-
 app.component("works",
     {
-        templateUrl: '/wwwroot/app/states/works/works.template.html'
+        templateUrl: '/app/states/works/works.template.html'
     });
 app.component("projectCardSm",
     {

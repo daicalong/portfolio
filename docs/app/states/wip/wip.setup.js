@@ -1,6 +1,6 @@
 app.component("wip",
     {
-        templateUrl: '/wwwroot/app/states/wip/wip.template.html',
+        templateUrl: '/app/states/wip/wip.template.html',
         controller: wipController
     });
 
