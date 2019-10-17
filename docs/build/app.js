@@ -217,7 +217,7 @@ app.value('projectGalleryValue', [
 (function() {
     app.factory("wpFactory", ['$http', '$q',
         function wpFactory($http, $q) {
-            var url = 'http://hpnguyen52.wordpress.com/wp-json/wp/v2';
+            var url = 'http://hpnguyen52.wordpress.com/wp-json/wp/v2/';
 
             const getPosts = (number) => {
                 return ($http.get(url + 'posts?per_page=' + number).then(_success, _error));
