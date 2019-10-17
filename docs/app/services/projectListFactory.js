@@ -1,4 +1,3 @@
-
 (function () {
     app.factory("projectListFactory", ['projectGalleryValue',
         function projectListFactory(projectGalleryValue) {
