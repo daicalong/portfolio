@@ -1,6 +1,6 @@
 app.component('illustration',
     {
-        templateUrl: '/wwwroot/app/states/illustration/illustration.template.html',
+        templateUrl: '/app/states/illustration/illustration.template.html',
         controller: illustrationController
     });
 

@@ -24,7 +24,7 @@
         <nav class="sm:block hidden top-0 left-0 bg-white nav">
             <ul class="list-reset sm:flex sm:items-center">
                 <li ng-repeat="nav in $ctrl.nav">
-                    <a ui-sref="{{nav.uiSref}}" ui-sref-active="nav__link--is-active"
+                    <a ui-sref="{{nav.url}}" ui-sref-active="nav__link--is-active"
                         class="relative flex items-center text text-gray-darker no-underline hover:text-pink-dark py-6 sm:py-4 px-2 mx-4 nav__link">
                         <i class="fig-24px {{nav.iconClass}} mr-1"></i>
                         <span>{{nav.title}}</span>

@@ -1,7 +1,7 @@
 (function(){
     app.component("ux",
     {
-        templateUrl: '/wwwroot/app/states/ux/ux.template.html',
+        templateUrl: '/app/states/ux/ux.template.html',
         controller: uxController
     });
 

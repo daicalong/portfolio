@@ -4,55 +4,24 @@
 let app = angular.module('hatomi', ['ui.router']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-  let baseState = {
-    name: 'Base',
-    url: '',
-    component: 'base',
-    redirectTo: 'Base.WIP'
+
+  class stateObj {
+    constructor(name, url, component, redirectTo) {
+      this.name = name;
+      this.url = url;
+      this.component = component || null;
+      this.redirectTo = redirectTo || null;
+    }
   }
 
-  let homeState = {
-    name: 'Base.Home',
-    url: '/Home',
-    component: 'home'
-  }
+  $stateProvider.state(new stateObj('Base', '', 'base', 'Base.WIP'));
+  $stateProvider.state(new stateObj('Base.Home', '/Home', 'home', false));
+  $stateProvider.state(new stateObj('Base.Works', '/Works', 'works', 'Base.Works.UX'));
+  $stateProvider.state(new stateObj('Base.Works.UX', '/UX', 'ux', false));
+  $stateProvider.state(new stateObj('Base.Works.Illustration', '/Illustration', 'illustration', false));
+  $stateProvider.state(new stateObj('Base.Works.Other', '/Other', 'otherWorks', false));
+  $stateProvider.state(new stateObj('Base.WIP', '/WIP', 'wip', false));
 
-  let worksState = {
-    name: 'Base.Works',
-    url: '/Works',
-    redirectTo: 'Base.Works.UX'
-  }
-
-  let uXState = {
-    name: 'Base.Works.UX',
-    url: '/UX',
-    component: 'ux'
-  }
-
-  let illustrationState = {
-    name: 'Base.Works.Illustration',
-    url: '/Illustration',
-    component: 'illustration'
-  }
-
-  let otherWorksState = {
-    name: 'Base.Works.Other',
-    url: '/Other',
-    component: 'otherWorks'
-  }
-  let wipState = {
-    name: 'Base.WIP',
-    url: '/WIP',
-    component: 'wip'
-  }
-
-  $stateProvider.state(baseState);
-  $stateProvider.state(homeState);
-  $stateProvider.state(worksState);
-  $stateProvider.state(uXState);
-  $stateProvider.state(illustrationState);
-  $stateProvider.state(otherWorksState);
-  $stateProvider.state(wipState);
   $urlRouterProvider.otherwise('/WIP');
 }]);
 
@@ -245,9 +214,42 @@ app.value('projectGalleryValue', [
 
     ]);
 })();
+(function() {
+    app.factory("wpFactory", ['$http', '$q',
+        function wpFactory($http, $q) {
+            var url = 'http://hpnguyen52.wordpress.com/wp-json/wp/v2/';
+
+            const getPosts = (number) => {
+                return ($http.get(url + 'posts?per_page=' + number).then(_success, _error));
+            };
+
+            const getMediaDataForId = (id) => {
+                return ($http.get(url + 'media/' + id).then(_success, _error));
+            };
+
+            const _success = (response) => {
+                return response.data;
+            };
+
+            const _error = (response) => {
+                if (!angular.isObject || !response.data.message)
+                    return ($q.reject('An unknown error has occured.'));
+
+                return ($q.reject(response.data.message));
+            };
+
+            return {
+                getPosts: getPosts,
+                getMediaDataForId: getMediaDataForId
+            }
+
+        }
+
+    ]);
+})();
 app.component("base",
   {
-    templateUrl: '/wwwroot/app/states/base/base.template.html',
+    templateUrl: '/app/states/base/base.template.html',
     controller: baseController
   });
 
@@ -261,25 +263,23 @@ function baseController() {
     $ctrl.menuIsOpen = !$ctrl.menuIsOpen;
   };
 
-  function navItem(title, uiSref, iconClass, hasSubnav) {
-    this.title = title;
-    this.uiSref = uiSref;
-    this.iconClass = iconClass;
-    this.hasSubnav = hasSubnav;
+  class navItem {
+    constructor(title, url, iconClass, hasSubnav) {
+      this.title = title;
+      this.url = url;
+      this.iconClass = iconClass;
+      this.hasSubnav = hasSubnav;
+    }
   }
 
-  function myNav() {
+  $ctrl.$onInit = () => {
     $ctrl.nav.push(
       new navItem('Home', 'Base.Home', 'fig-home', false),
       new navItem('UX', 'Base.Works.UX', 'fig-dashboard-variant-2', false),
       new navItem('Illustration', 'Base.Works.Illustration', 'fig-sketch', false),
       new navItem('Other', 'Base.Works.Other', 'fig-rocket', false),
-      new navItem('Contact', 'Base.Contact', 'fig-email', false),
-    )
-  }
-
-  $ctrl.$onInit = () => {
-    myNav();
+      new navItem('Contact', 'Base.Contact', 'fig-email', false)
+    );
   }
 
 }
@@ -287,7 +287,7 @@ function baseController() {
 app.controller('baseController', baseController);
 app.component("home",
     {
-        templateUrl: '/wwwroot/app/states/home/home.template.html',
+        templateUrl: '/app/states/home/home.template.html',
         controller: homeController
     });
 
@@ -316,7 +316,7 @@ app.controller('homeController', homeController);
 
 app.component('illustration',
     {
-        templateUrl: '/wwwroot/app/states/illustration/illustration.template.html',
+        templateUrl: '/app/states/illustration/illustration.template.html',
         controller: illustrationController
     });
 
@@ -329,7 +329,7 @@ app.controller('illustrationController', illustrationController);
 
 app.component('otherWorks',
     {
-        templateUrl: '/wwwroot/app/states/other-works/other-works.template.html',
+        templateUrl: '/app/states/other-works/other-works.template.html',
         controller: otherWorksController
     });
 
@@ -343,7 +343,7 @@ app.controller('otherWorksController', otherWorksController);
 (function(){
     app.component("ux",
     {
-        templateUrl: '/wwwroot/app/states/ux/ux.template.html',
+        templateUrl: '/app/states/ux/ux.template.html',
         controller: uxController
     });
 
@@ -365,20 +365,28 @@ app.controller('uxController', uxController);
 
 app.component("wip",
     {
-        templateUrl: '/wwwroot/app/states/wip/wip.template.html',
+        templateUrl: '/app/states/wip/wip.template.html',
         controller: wipController
     });
 
-function wipController() {
+function wipController(wpFactory) {
     var $ctrl = this;
 
+    $ctrl.$onInit = () => {
+        wpFactory.getPosts(1).then((response) => {
+            $ctrl.posts = response;
+
+            response.forEach((el) => {
+                console.log(el);
+            });
+        });
+    };
 }
 
 app.controller('wipController', wipController);
-
 app.component("works",
     {
-        templateUrl: '/wwwroot/app/states/works/works.template.html'
+        templateUrl: '/app/states/works/works.template.html'
     });
 app.component("projectCardSm",
     {
