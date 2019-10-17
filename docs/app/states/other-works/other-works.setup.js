@@ -1,6 +1,6 @@
 app.component('otherWorks',
     {
-        templateUrl: '/wwwroot/app/states/other-works/other-works.template.html',
+        templateUrl: '/app/states/other-works/other-works.template.html',
         controller: otherWorksController
     });
 

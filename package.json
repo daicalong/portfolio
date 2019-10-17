@@ -24,7 +24,7 @@
     "tailwindcss": "^1.1.2"
   },
   "scripts": {
-    "tailwind": "./node_modules/.bin/tailwind build ./wwwroot/app/tailwind.css -c ./tailwind.config.js -o ./wwwroot/build/app.css --silent",
+    "tailwind": "./node_modules/.bin/tailwind build ./docs/app/tailwind.css -c ./tailwind.config.js -o ./docs/build/app.css --silent",
     "postinstall": "",
     "update-deps": "npm update",
     "postupdate-deps": "",
