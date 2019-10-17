@@ -13,8 +13,8 @@ function uxController(projectListFactory) {
     }
 
     $ctrl.$onInit = () => {
-        $ctrl.uxGallery = projectListFactory.getProjectList('ux');
-    }; 
+        $ctrl.uxGallery = projectListFactory.getProjectList('web design');
+    };
 
 }
 

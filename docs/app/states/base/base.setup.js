@@ -26,9 +26,9 @@ function baseController() {
   $ctrl.$onInit = () => {
     $ctrl.nav.push(
       new navItem('Home', 'Base.Home', 'fig-home', false),
-      new navItem('UX', 'Base.Works.UX', 'fig-dashboard-variant-2', false),
-      new navItem('Illustration', 'Base.Works.Illustration', 'fig-sketch', false),
-      new navItem('Other', 'Base.Works.Other', 'fig-rocket', false),
+      new navItem('UX', 'Base.Projects.UX', 'fig-dashboard-variant-2', false),
+      new navItem('Illustration', 'Base.Projects.Illustration', 'fig-sketch', false),
+      new navItem('Other', 'Base.Projects.Other', 'fig-rocket', false),
       new navItem('Contact', 'Base.Contact', 'fig-email', false)
     );
   }

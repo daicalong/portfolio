@@ -13,7 +13,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     }
   }
 
-  $stateProvider.state(new stateObj('Base', '', 'base', 'Base.WIP'));
+  $stateProvider.state(new stateObj('Base', '', 'base', 'Base.Home'));
   $stateProvider.state(new stateObj('Base.Home', '/Home', 'home', false));
   $stateProvider.state(new stateObj('Base.Projects', '/Projects', 'projects', 'Base.Projects.UX'));
   $stateProvider.state(new stateObj('Base.Projects.UX', '/UX', 'ux', false));
@@ -21,7 +21,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
   $stateProvider.state(new stateObj('Base.Projects.Other', '/Other', 'otherWorks', false));
   $stateProvider.state(new stateObj('Base.WIP', '/WIP', 'wip', false));
 
-  $urlRouterProvider.otherwise('/WIP');
+  $urlRouterProvider.otherwise('/Home');
 }]);
 
 
@@ -316,9 +316,9 @@ function baseController() {
   $ctrl.$onInit = () => {
     $ctrl.nav.push(
       new navItem('Home', 'Base.Home', 'fig-home', false),
-      new navItem('UX', 'Base.Works.UX', 'fig-dashboard-variant-2', false),
-      new navItem('Illustration', 'Base.Works.Illustration', 'fig-sketch', false),
-      new navItem('Other', 'Base.Works.Other', 'fig-rocket', false),
+      new navItem('UX', 'Base.Projects.UX', 'fig-dashboard-variant-2', false),
+      new navItem('Illustration', 'Base.Projects.Illustration', 'fig-sketch', false),
+      new navItem('Other', 'Base.Projects.Other', 'fig-rocket', false),
       new navItem('Contact', 'Base.Contact', 'fig-email', false)
     );
   }
@@ -381,12 +381,12 @@ function otherWorksController(projectListFactory, projectGalleryValue, filterFil
 
 app.controller('otherWorksController', otherWorksController);
 
-app.component("works",
+app.component("projects",
     {
         templateUrl: '/app/states/projects/projects.template.html',
         controller: projectsController
     });
-    
+
 function projectsController() {
     var $ctrl = this;
 
@@ -408,8 +408,8 @@ function uxController(projectListFactory) {
     }
 
     $ctrl.$onInit = () => {
-        $ctrl.uxGallery = projectListFactory.getProjectList('ux');
-    }; 
+        $ctrl.uxGallery = projectListFactory.getProjectList('web design');
+    };
 
 }
 
@@ -426,13 +426,13 @@ function wipController(wpFactory) {
     var $ctrl = this;
 
     $ctrl.$onInit = () => {
-        wpFactory.getPosts(1).then((response) => {
-            $ctrl.posts = response;
+        // wpFactory.getPosts(1).then((response) => {
+        //     $ctrl.posts = response;
 
-            response.forEach((el) => {
-                console.log(el);
-            });
-        });
+        //     response.forEach((el) => {
+        //         console.log(el);
+        //     });
+        // });
     };
 }
 

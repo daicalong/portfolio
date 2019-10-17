@@ -57,7 +57,7 @@ module.exports = function (grunt) {
             dev: {
 
                 // the server root directory
-                root: 'D:/@Taichi Files@/Current Projects/git/Hatomi 2019/docs/',
+                root: './docs/',
 
 
                 port: 8282,

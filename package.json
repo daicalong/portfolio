@@ -29,7 +29,7 @@
     "update-deps": "npm update",
     "postupdate-deps": "",
     "prestart": "npm install",
-    "start": "http-server -a localhost -p 8000 -c-1 ./app",
+    "start": "http-server  ./docs -o -a localhost -p 3000",
     "pretest": "npm install",
     "preupdate-webdriver": "npm install",
     "//": "Do not install the Firefox driver to work around https://github.com/angular/webdriver-manager/issues/303.",
