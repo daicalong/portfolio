@@ -15,7 +15,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
 
   $stateProvider.state(new stateObj('Base', '', 'base', 'Base.Home'));
   $stateProvider.state(new stateObj('Base.Home', '/Home', 'home', false));
-  $stateProvider.state(new stateObj('Base.Projects', '/Projects', 'projects', 'Base.Projects.UX'));
+  $stateProvider.state(new stateObj('Base.ProjectCategory', '/Projects/{categoryId}', 'projectCategory', false));
   $stateProvider.state(new stateObj('Base.Projects.UX', '/UX', 'ux', false));
   $stateProvider.state(new stateObj('Base.Projects.Illustration', '/Illustration', 'illustration', false));
   $stateProvider.state(new stateObj('Base.Projects.Other', '/Other', 'otherWorks', false));
