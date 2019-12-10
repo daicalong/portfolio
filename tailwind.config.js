@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     container: {
       center: true,
+      padding: '2rem'
     },
     colors: {
       transparent: 'transparent',
@@ -17,13 +18,13 @@ module.exports = {
       white: '#fff',
 
       gray: {
-        lightest: '#edf2f7',
-        lighter: '#e2e8f0',
-        light: '#cbd5e0',
-        default: '#a0aec0',
-        dark: '#718096',
-        darker: '#4a5568',
-        darkest: '#2d3748',
+        lightest: '#f5f5f5',
+        lighter: '#d9d9d9',
+        light: '#c1c1c1',
+        default: '#919191',
+        dark: '#7a7a7a',
+        darker: '#474747',
+        darkest: '#1E1E1E',
       },
       red: {
         lightest: '#fed7d7',
@@ -116,6 +117,11 @@ module.exports = {
     fontFamily: {
       display: ['Patua One', 'sans-serif'],
       body: ['Source Sans Pro', 'sans-serif'],
+    },
+    rounded: {
+      sm: 4,
+      default: 6,
+      lg: 12
     },
     extend: {
       spacing: {

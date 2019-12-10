@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Patua+One|Source+Sans+Pro:400,700');
+@import url('https://fonts.googleapis.com/css?family=Patua+One|Source+Sans+Pro:400,600,700');
 @import url('https://i.icomoon.io/public/812c8e0906/FIGIcons/style.css');
 
 @tailwind base;
@@ -22,24 +22,35 @@ html {
     content: '';
 }
 
-.fig-18px::before {
-    font-size: 18px;
+
+.loading-container, #loading-bar {
+    @apply bg-white;
+    transition: opacity 350ms ease;
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+}
+#loading-bar .bar {
+    transition: width ease 200ms;
+    margin: auto 0;
+    height: 18px;
+    @apply bg-pink;
 }
 
-.fig-24px::before {
-    font-size: 24px;
+.heading {
+    @apply font-display text-lg leading-tight;
 }
 
-.fig-36px::before {
-    font-size: 36px;
+.label {
+    @apply text-sm;
 }
 
-.fig-48px::before {
-    font-size: 48px;
-}
-
-.grid-gallery__img {
-
+.loading {
+    @apply bg-blue;
 }
 
 @tailwind utilities;

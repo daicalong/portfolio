@@ -1,12 +1,15 @@
-app.component('otherWorks',
-    {
-        templateUrl: '/app/states/other-works/other-works.template.html',
-        controller: otherWorksController
-    });
+(function (app, ng) {
+    app.component('otherWorks',
+        {
+            templateUrl: '/app/states/other-works/other-works.template.html',
+            controller: otherWorksController
+        });
 
-function otherWorksController(projectListFactory, projectGalleryValue, filterFilter) {
-    let $ctrl = this;
+    app.controller('otherWorksController', otherWorksController);
 
-}
+    otherWorksController.$inject = ['projectListFactory'];
 
-app.controller('otherWorksController', otherWorksController);
+    function otherWorksController(projectListFactory, projectGalleryValue, filterFilter) {
+        let $ctrl = this;
+    }
+})(window.app, window.angular);

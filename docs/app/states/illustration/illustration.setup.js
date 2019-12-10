@@ -1,12 +1,16 @@
-app.component('illustration',
-    {
-        templateUrl: '/app/states/illustration/illustration.template.html',
-        controller: illustrationController
-    });
+(function (app, ng) {
+    app.component('illustration',
+        {
+            templateUrl: '/app/states/illustration/illustration.template.html',
+            controller: illustrationController
+        });
 
-function illustrationController(projectListFactory, projectGalleryValue, filterFilter) {
-    let $ctrl = this;
+    app.controller('illustrationController', illustrationController);
 
-}
+    illustrationController.$inject = ['projectListFactory'];
 
-app.controller('illustrationController', illustrationController);
+    function illustrationController(projectListFactory) {
+        let $ctrl = this;
+
+    }
+})(window.app, window.angular);

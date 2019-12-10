@@ -39,12 +39,53 @@ module.exports = function (grunt) {
                 src: [
                     "./node_modules/angular/angular.js",
                     "./node_modules/@uirouter/angularjs/release/angular-ui-router.js",
-                    "./node_modules/angular/angular-mocks/angular-mocks.js"
-
+                    "./node_modules/angular-animate/angular-animate.min.js",
+                    "./node_modules/angular-loading-bar/build/loading-bar.min.js",
                 ],
                 dest: "./docs/build/libs.js",
                 options: {
                     sourceMap: true
+                }
+            },
+        },
+        cssmin: {
+            appcss: {
+                files: {
+                    "./docs/build/app.min.css": ["./docs/build/app.css"]
+                },
+                options: {
+                    root: "./docs/build",
+                    processImport: false,
+                    sourceMap: true
+                }
+            },
+            libscss: {
+                files: {
+                    "./docs/build/libs.min.css": ["./docs/build/libs.css"]
+                },
+                options: {
+                    root: "./build",
+                    sourceMap: true
+                }
+            }
+        },
+        uglify: {
+            libsjs: {
+                src: "./docs/build/libs.js",
+                dest: "./docs/build/libs.min.js",
+                options: {
+                    sourceMap: true,
+                    sourceMapIncludeSources: true,
+                    sourceMapIn: "./docs/build/libs.js.map"
+                }
+            },
+            appjs: {
+                src: "./docs/build/app.js",
+                dest: "./docs/build/app.min.js",
+                options: {
+                    sourceMap: true,
+                    sourceMapIncludeSources: true,
+                    sourceMapIn: "./docs/build/app.js.map"
                 }
             }
         },
@@ -110,8 +151,9 @@ module.exports = function (grunt) {
     // grunt.loadNpmTasks('grunt-contrib-watch');
     // grunt.loadNpmTasks('grunt-http-server');
 
-    grunt.registerTask("libs", ["concat:libsjs", "concat:libcss"]);
-    grunt.registerTask("appjs", ["concat:appjs"]);
+    grunt.registerTask("libs", ["concat:libsjs", "uglify:libsjs", "concat:libcss", "cssmin:libscss"]);
+    grunt.registerTask("appjs", ["concat:appjs", "uglify:appjs"]);
     grunt.registerTask("appcss", ["concat:appcss", "shell:tailwind"]);
-    grunt.registerTask("default", ["libs", "appjs", "appcss", "http-server:dev", "watch:all"]);
+    grunt.registerTask("minify-all", ["cssmin:appcss"]);
+    grunt.registerTask("default", ["libs", "appjs", "appcss", "minify-all", "uglify", "http-server:dev", "watch:all"]);
 };

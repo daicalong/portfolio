@@ -1,27 +1,38 @@
 'use strict';
-// Declare app level module which depends on views, and core components
-let app = angular.module('hatomi', ['ui.router']);
+(function (ng, window, doc, module) {
 
-app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+  var dependencies = ['ui.router', 'angular-loading-bar', 'ngAnimate'];
 
-  class stateObj {
-    constructor(name, url, component, redirectTo) {
-      this.name = name;
-      this.url = url;
-      this.component = component || null;
-      this.redirectTo = redirectTo || null;
-    }
+  window.app = ng.module(module, dependencies);
+  
+  function bootstrap() {
+    ng.element(doc).ready(function () {
+      ng.bootstrap(doc, [module], { strictDi: true });
+    });
   }
 
-  $stateProvider.state(new stateObj('Base', '', 'base', 'Base.Home'));
-  $stateProvider.state(new stateObj('Base.Home', '/Home', 'home', false));
-  $stateProvider.state(new stateObj('Base.ProjectCategory', '/Projects/{categoryId}', 'projectCategory', false));
-  $stateProvider.state(new stateObj('Base.Projects.UX', '/UX', 'ux', false));
-  $stateProvider.state(new stateObj('Base.Projects.Illustration', '/Illustration', 'illustration', false));
-  $stateProvider.state(new stateObj('Base.Projects.Other', '/Other', 'otherWorks', false));
-  $stateProvider.state(new stateObj('Base.WIP', '/WIP', 'wip', false));
+  bootstrap();
 
-  $urlRouterProvider.otherwise('/Home');
-}]);
+  app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
+    class stateObj {
+      constructor(name, url, component, redirectTo) {
+        this.name = name;
+        this.url = url;
+        this.component = component || null;
+        this.redirectTo = redirectTo || null;
+      }
+    }
 
+    $stateProvider.state(new stateObj('Nav', '', 'navigation', 'Nav.Home'));
+    $stateProvider.state(new stateObj('Nav.Home', '/Home', 'home', false));
+    $stateProvider.state(new stateObj('Nav.Projects', '/Projects/', 'projects', 'Projects.UX'));
+    $stateProvider.state(new stateObj('Nav.Projects.UX', '/UX', 'ux', false));
+    $stateProvider.state(new stateObj('Nav.Projects.Details', 'Details/{projectId}', 'projectDetails', false));
+    $stateProvider.state(new stateObj('Nav.Projects.Illustration', '/Illustration', 'illustration', false));
+    $stateProvider.state(new stateObj('Nav.Projects.Other', '/Other', 'otherWorks', false));
+    $stateProvider.state(new stateObj('Nav.WIP', '/WIP', 'wip', false));
+
+    $urlRouterProvider.otherwise('/Home');
+  }]);
+})(window.angular, window, window.document, 'hatomi'); //jshint ignore:line

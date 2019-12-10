@@ -1,420 +1,486 @@
 'use strict';
-// Declare app level module which depends on views, and core components
-let app = angular.module('hatomi', ['ui.router']);
+(function (ng, window, doc, module) {
 
-app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+  var dependencies = ['ui.router', 'angular-loading-bar', 'ngAnimate'];
 
-  class stateObj {
-    constructor(name, url, component, redirectTo) {
-      this.name = name;
-      this.url = url;
-      this.component = component || null;
-      this.redirectTo = redirectTo || null;
-    }
+  window.app = ng.module(module, dependencies);
+  
+  function bootstrap() {
+    ng.element(doc).ready(function () {
+      ng.bootstrap(doc, [module], { strictDi: true });
+    });
   }
 
-  $stateProvider.state(new stateObj('Base', '', 'base', 'Base.Home'));
-  $stateProvider.state(new stateObj('Base.Home', '/Home', 'home', false));
-  $stateProvider.state(new stateObj('Base.Projects', '/Projects', 'projects', 'Base.Projects.UX'));
-  $stateProvider.state(new stateObj('Base.Projects.UX', '/UX', 'ux', false));
-  $stateProvider.state(new stateObj('Base.Projects.Illustration', '/Illustration', 'illustration', false));
-  $stateProvider.state(new stateObj('Base.Projects.Other', '/Other', 'otherWorks', false));
-  $stateProvider.state(new stateObj('Base.WIP', '/WIP', 'wip', false));
+  bootstrap();
 
-  $urlRouterProvider.otherwise('/Home');
-}]);
+  app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
+    class stateObj {
+      constructor(name, url, component, redirectTo) {
+        this.name = name;
+        this.url = url;
+        this.component = component || null;
+        this.redirectTo = redirectTo || null;
+      }
+    }
 
+    $stateProvider.state(new stateObj('Nav', '', 'navigation', 'Nav.Home'));
+    $stateProvider.state(new stateObj('Nav.Home', '/Home', 'home', false));
+    $stateProvider.state(new stateObj('Nav.Projects', '/Projects/', 'projects', 'Projects.UX'));
+    $stateProvider.state(new stateObj('Nav.Projects.UX', '/UX', 'ux', false));
+    $stateProvider.state(new stateObj('Nav.Projects.Details', 'Details/{projectId}', 'projectDetails', false));
+    $stateProvider.state(new stateObj('Nav.Projects.Illustration', '/Illustration', 'illustration', false));
+    $stateProvider.state(new stateObj('Nav.Projects.Other', '/Other', 'otherWorks', false));
+    $stateProvider.state(new stateObj('Nav.WIP', '/WIP', 'wip', false));
 
-app.value('projectGalleryValue',
+    $urlRouterProvider.otherwise('/Home');
+  }]);
+})(window.angular, window, window.document, 'hatomi'); //jshint ignore:line
+(function(app) {
+    app.value('projectGalleryValue',
     [
         {
-            "id": 0,
-            "name": "Hatomi",
-            "date": "20191101T000000-0700",
-            "category": "web design",
-            "tags": [
-                "ui",
-                "website",
-                "javascript",
-                "angularjs"
-            ],
-            "img": "hatomi-thumb.jpg"
+          "id": 0,
+          "name": "Hatomi",
+          "date": "20191101T000000-0700",
+          "category": "web design",
+          "tags": [
+            "ui",
+            "website",
+            "javascript",
+            "angularjs"
+          ],
+          "img": "hatomi-thumb.jpg",
+          "starred": true
         },
         {
-            "id": 1,
-            "name": "Marketplace One",
-            "date": "20190401T000000-0700",
-            "category": "web design",
-            "tags": [
-                "ux",
-                "ui",
-                "website",
-                "logo",
-                "custom graphics",
-                "angularjs"
-            ],
-            "img": "mp1-thumb.jpg"
+          "id": 1,
+          "name": "Marketplace One",
+          "date": "20190401T000000-0700",
+          "category": "web design",
+          "tags": [
+            "ux",
+            "ui",
+            "website",
+            "logo",
+            "custom graphics",
+            "angularjs"
+          ],
+          "img": "mp1-thumb.jpg",
+          "starred": false
         },
         {
-            "id": 2,
-            "name": "ForceCRM",
-            "date": "20180301T000000-0700",
-            "category": "web design",
-            "tags": [
-                "ux",
-                "ui",
-                "website",
-                "custom graphics",
-                "angularjs"
-            ],
-            "img": "force-crm-thumb.jpg"
+          "id": 2,
+          "name": "ForceCRM",
+          "date": "20180301T000000-0700",
+          "category": "web design",
+          "tags": [
+            "ux",
+            "ui",
+            "website",
+            "custom graphics",
+            "angularjs"
+          ],
+          "img": "force-crm-thumb.jpg",
+          "starred": true
         },
         {
-            "id": 3,
-            "name": "Marketing Tracker",
-            "date": "20190701T000000-0700",
-            "category": "web design",
-            "tags": [
-                "ux",
-                "ui",
-                "website",
-                "custom graphics",
-                "angularjs"
-            ],
-            "img": "marketing-tracker-thumb.jpg"
+          "id": 3,
+          "name": "Marketing Tracker",
+          "date": "20190701T000000-0700",
+          "category": "web design",
+          "tags": [
+            "ux",
+            "ui",
+            "website",
+            "custom graphics",
+            "angularjs"
+          ],
+          "img": "marketing-tracker-thumb.jpg",
+          "starred": false
         },
         {
-            "id": 4,
-            "name": "Alphastar Corporate Website",
-            "date": "20181001T000000-0700",
-            "category": "web design",
-            "tags": [
-                "ui",
-                "website",
-                "custom graphics",
-                "angularjs"
-            ],
-            "img": [
-                "acm-thumb",
-                "jpg"
-            ]
+          "id": 4,
+          "name": "Alphastar Corporate Website",
+          "date": "20181001T000000-0700",
+          "category": "web design",
+          "tags": [
+            "ui",
+            "website",
+            "custom graphics",
+            "angularjs"
+          ],
+          "img": [
+            "acm-thumb",
+            "jpg"
+          ],
+          "starred": false
         },
         {
-            "name": "FIG Technology Summit Website",
-            "date": "20190301T000000-0700",
-            "category": "web design",
-            "tags": [
-                "ui",
-                "website",
-                "custom graphics",
-                "angularjs",
-                "tailwindcss"
-            ],
-            "img": "fig-tech-summit-thumb.jpg"
+          "name": "FIG Technology Summit Website",
+          "date": "20190301T000000-0700",
+          "category": "web design",
+          "tags": [
+            "ui",
+            "website",
+            "custom graphics",
+            "angularjs",
+            "tailwindcss"
+          ],
+          "img": "fig-tech-summit-thumb.jpg",
+          "starred": false
         },
         {
-            "id": 5,
-            "name": "FIG Marketing Corporate Website",
-            "date": "20181101T000000-0700",
-            "category": "web design",
-            "tags": [
-                "ux",
-                "ui",
-                "website"
-            ],
-            "img": "fig-thumb.jpg"
+          "id": 5,
+          "name": "FIG Marketing Corporate Website",
+          "date": "20181101T000000-0700",
+          "category": "web design",
+          "tags": [
+            "ux",
+            "ui",
+            "website"
+          ],
+          "img": "fig-thumb.jpg",
+          "starred": false
         },
         {
-            "id": 6,
-            "name": "FIG Mobile App",
-            "date": "2019701T000000-0700",
-            "category": "web design",
-            "tags": [
-                "ux",
-                "ui",
-                "mockup"
-            ],
-            "img": "fig-app-thumb.jpg"
+          "id": 6,
+          "name": "FIG Mobile App",
+          "date": "2019701T000000-0700",
+          "category": "web design",
+          "tags": [
+            "ux",
+            "ui",
+            "mockup"
+          ],
+          "img": "fig-app-thumb.jpg",
+          "starred": false
         },
         {
-            "id": 7,
-            "name": "Maldives Spa and Nails",
-            "date": "20171001T000000-0700",
-            "category": "web design",
-            "tags": [
-                "ux",
-                "ui",
-                "website"
-            ],
-            "img": "maldives-web-thumb.jpg"
+          "id": 7,
+          "name": "Maldives Spa and Nails",
+          "date": "20171001T000000-0700",
+          "category": "web design",
+          "tags": [
+            "ux",
+            "ui",
+            "website"
+          ],
+          "img": "maldives-web-thumb.jpg",
+          "starred": false
         },
         {
-            "id": 8,
-            "name": "Maldives Spa and Nails",
-            "date": "20161101T000000-0700",
-            "category": "graphic design",
-            "tags": [
-                "logo",
-                "adobe illustrator"
-            ],
-            "img": "maldives-log-thumb.jpg"
+          "id": 8,
+          "name": "Maldives Spa and Nails",
+          "date": "20161101T000000-0700",
+          "category": "graphic design",
+          "tags": [
+            "logo",
+            "adobe illustrator"
+          ],
+          "img": "maldives-log-thumb.jpg",
+          "starred": true
         },
         {
-            "id": 9,
-            "name": "Superior Habits",
-            "date": "20170120T000000-0700",
-            "category": "graphic design",
-            "tags": [
-                "logo",
-                "adobe illustrator"
-            ],
-            "img": "superior-habits-thumb.jpg"
+          "id": 9,
+          "name": "Superior Habits",
+          "date": "20170120T000000-0700",
+          "category": "graphic design",
+          "tags": [
+            "logo",
+            "adobe illustrator"
+          ],
+          "img": "superior-habits-thumb.jpg",
+          "starred": true
         },
         {
-            "id": 10,
-            "name": "5Ghost",
-            "date": "20160801T000000-0700",
-            "category": "graphic design",
-            "tags": [
-                "logo",
-                "adobe illustrator"
-            ],
-            "img": "5ghost-thumb.jpg"
+          "id": 10,
+          "name": "5Ghost",
+          "date": "20160801T000000-0700",
+          "category": "graphic design",
+          "tags": [
+            "logo",
+            "adobe illustrator"
+          ],
+          "img": "5ghost-thumb.jpg",
+          "starred": false
         },
         {
-            "id": 11,
-            "name": [
-                "Zoolax",
-                "Inc."
-            ],
-            "date": "20170301T000000-0700",
-            "category": "graphic design",
-            "tags": [
-                "logo",
-                "adobe illustrator"
-            ],
-            "img": "zoolax-thumb.jpg"
+          "id": 11,
+          "name": "Zoolax, Inc.",
+          "date": "20170301T000000-0700",
+          "category": "graphic design",
+          "tags": [
+            "logo",
+            "adobe illustrator"
+          ],
+          "img": "zoolax-thumb.jpg",
+          "starred": true
         },
         {
-            "id": 12,
-            "name": "Breeze In Yoga",
-            "date": "20161101T000000-0700",
-            "category": "graphic design",
-            "tags": [
-                "logo",
-                "adobe illustrator"
-            ],
-            "img": "breeze-in-yoga-thumb.jpg"
+          "id": 12,
+          "name": "Breeze In Yoga",
+          "date": "20161101T000000-0700",
+          "category": "graphic design",
+          "tags": [
+            "logo",
+            "adobe illustrator"
+          ],
+          "img": "breeze-in-yoga-thumb.jpg",
+          "starred": true
         },
         {
-            "id": 13,
-            "name": "Asher Photography",
-            "date": "20160701T000000-0700",
-            "category": "graphic design",
-            "tags": [
-                "logo",
-                "adobe illustrator"
-            ],
-            "img": "asher-photography-thumb.jpg"
+          "id": 13,
+          "name": "Asher Photography",
+          "date": "20160701T000000-0700",
+          "category": "graphic design",
+          "tags": [
+            "logo",
+            "adobe illustrator"
+          ],
+          "img": "asher-photography-thumb.jpg",
+          "starred": false
         },
         {
-            "id": 14,
-            "name": "Lazy Afternoon",
-            "date": "20140701T000000-0700",
-            "category": "illustration",
-            "tags": [
-                "adobe photoshop",
-                "illustration"
-            ],
-            "img": "lazy-afternoon-thumb.jpg"
+          "id": 14,
+          "name": "Lazy Afternoon",
+          "date": "20140701T000000-0700",
+          "category": "illustration",
+          "tags": [
+            "adobe photoshop",
+            "illustration"
+          ],
+          "img": "lazy-afternoon-thumb.jpg",
+          "starred": true
         }
-    ]
+      ]
 );
-(function () {
+})(window.app);
+(function (app) {
     app.factory("projectListFactory", ['projectGalleryValue',
         function projectListFactory(projectGalleryValue) {
-
-            function serviceMethod() {
-                return $timeout(function () {
-                    return {
-                        property: 'value'
-                    };
-                }, 1000);
-            }
-
 
             const getProjectList = (category) => {
                 return projectGalleryValue.filter(element => element.category === category);
             };
 
-            return {
-                getProjectList: getProjectList
-            };
-        }
-
-    ]);
-})();
-(function() {
-    app.factory("wpFactory", ['$http', '$q',
-        function wpFactory($http, $q) {
-            var url = 'http://hpnguyen52.wordpress.com/wp-json/wp/v2/';
-
-            const getPosts = (number) => {
-                return ($http.get(url + 'posts?per_page=' + number).then(_success, _error));
+            const getHighlightList = (isStarred) => {
+                return projectGalleryValue.filter(element => element.starred === isStarred);
             };
 
-            const getMediaDataForId = (id) => {
-                return ($http.get(url + 'media/' + id).then(_success, _error));
-            };
-
-            const _success = (response) => {
-                return response.data;
-            };
-
-            const _error = (response) => {
-                if (!angular.isObject || !response.data.message)
-                    return ($q.reject('An unknown error has occured.'));
-
-                return ($q.reject(response.data.message));
-            };
-
-            return {
-                getPosts: getPosts,
-                getMediaDataForId: getMediaDataForId
+            const getProjectById = (projectId) => {
+                return projectGalleryValue.find(project => project.id = projectId)
             }
 
+            return {
+                getProjectList: getProjectList,
+                getHighlightList: getHighlightList,
+                getProjectById: getProjectById
+            };
         }
 
     ]);
-})();
-app.component("base",
-  {
-    templateUrl: '/app/states/base/base.template.html',
-    controller: baseController
-  });
+})(window.app);
+(function(app) {
+    app.factory("wpFactory", ['$http', '$q',
+    function wpFactory($http, $q) {
+        var url = 'http://hpnguyen52.wordpress.com/wp-json/wp/v2/';
 
+        const getPosts = (number) => {
+            return ($http.get(url + 'posts?per_page=' + number).then(_success, _error));
+        };
 
-function baseController() {
-  var $ctrl = this;
-  $ctrl.person = { 'name': 'hatomi' };
-  $ctrl.nav = [];
+        const getMediaDataForId = (id) => {
+            return ($http.get(url + 'media/' + id).then(_success, _error));
+        };
 
-  $ctrl.toggleMenu = () => {
-    $ctrl.menuIsOpen = !$ctrl.menuIsOpen;
-  };
+        const _success = (response) => {
+            return response.data;
+        };
 
-  class navItem {
-    constructor(title, url, iconClass, hasSubnav) {
-      this.title = title;
-      this.url = url;
-      this.iconClass = iconClass;
-      this.hasSubnav = hasSubnav;
-    }
-  }
+        const _error = (response) => {
+            if (!angular.isObject || !response.data.message)
+                return ($q.reject('An unknown error has occured.'));
 
-  $ctrl.$onInit = () => {
-    $ctrl.nav.push(
-      new navItem('Home', 'Base.Home', 'fig-home', false),
-      new navItem('UX', 'Base.Projects.UX', 'fig-dashboard-variant-2', false),
-      new navItem('Illustration', 'Base.Projects.Illustration', 'fig-sketch', false),
-      new navItem('Other', 'Base.Projects.Other', 'fig-rocket', false),
-      new navItem('Contact', 'Base.Contact', 'fig-email', false)
-    );
-  }
+            return ($q.reject(response.data.message));
+        };
 
-}
-
-app.controller('baseController', baseController);
-app.component("home",
-    {
-        templateUrl: '/app/states/home/home.template.html',
-        controller: homeController
-    });
-
-function homeController() {
-    var $ctrl = this;
-    $ctrl.person = { 'name': 'hatomi' };
-
-    for (var a = [], i = 0; i < 40; ++i) a[i] = i;
-
-    // http://stackoverflow.com/questions/962802#962890
-    function shuffle(array) {
-        var tmp, current, top = array.length;
-        if (top) while (--top) {
-            current = Math.floor(Math.random() * (top + 1));
-            tmp = array[current];
-            array[current] = array[top];
-            array[top] = tmp;
+        return {
+            getPosts: getPosts,
+            getMediaDataForId: getMediaDataForId
         }
-        return array;
+
+    }
+]);
+})(window.app);
+(function (app, ng) {
+    app.component("home",
+        {
+            templateUrl: '/app/states/home/home.template.html',
+            controller: homeController
+        });
+
+        homeController.$inject = ['projectListFactory'];
+
+    function homeController(projectListFactory) {
+        let $ctrl = this;
+
+        $ctrl.$onInit = () => {
+            $ctrl.highlightProjectList = projectListFactory.getHighlightList(true);
+        };
     }
 
-    $ctrl.array = shuffle(a);
-}
+    app.controller('homeController', homeController);
 
-app.controller('homeController', homeController);
+})(window.app, window.angular);
 
-app.component('illustration',
+
+(function (app, ng) {
+    app.component('illustration',
+        {
+            templateUrl: '/app/states/illustration/illustration.template.html',
+            controller: illustrationController
+        });
+
+    app.controller('illustrationController', illustrationController);
+
+    illustrationController.$inject = ['projectListFactory'];
+
+    function illustrationController(projectListFactory) {
+        let $ctrl = this;
+
+    }
+})(window.app, window.angular);
+
+(function () {
+  app.component("navigation",
     {
-        templateUrl: '/app/states/illustration/illustration.template.html',
-        controller: illustrationController
+      templateUrl: '/app/states/nav/nav.template.html',
+      controller: navController
     });
 
-function illustrationController(projectListFactory, projectGalleryValue, filterFilter) {
-    let $ctrl = this;
+  app.controller('navController', navController);
 
-}
+  navController.$inject = [];
 
-app.controller('illustrationController', illustrationController);
-
-app.component('otherWorks',
-    {
-        templateUrl: '/app/states/other-works/other-works.template.html',
-        controller: otherWorksController
-    });
-
-function otherWorksController(projectListFactory, projectGalleryValue, filterFilter) {
-    let $ctrl = this;
-
-}
-
-app.controller('otherWorksController', otherWorksController);
-
-app.component("projects",
-    {
-        templateUrl: '/app/states/projects/projects.template.html',
-        controller: projectsController
-    });
-
-function projectsController() {
+  function navController() {
     var $ctrl = this;
 
-}
+    $ctrl.nav = [];
 
-app.controller('projectsController', projectsController);
-(function(){
-    app.component("ux",
-    {
-        templateUrl: '/app/states/ux/ux.template.html',
-        controller: uxController
-    });
+    $ctrl.toggleMenu = () => {
+      $ctrl.menuIsOpen = !$ctrl.menuIsOpen;
+    };
 
-function uxController(projectListFactory) {
-    let $ctrl = this;
-
-    const _getDate = () => {
-        return new Date();
+    class navItem {
+      constructor(title, url, iconClass, hasSubnav) {
+        this.title = title;
+        this.url = url;
+        this.iconClass = iconClass;
+        this.hasSubnav = hasSubnav;
+      }
     }
 
     $ctrl.$onInit = () => {
-        $ctrl.uxGallery = projectListFactory.getProjectList('web design');
-    };
+      $ctrl.nav.push(
+        new navItem('Home', 'Nav.Home', 'fig-home', false),
+        new navItem('UX', 'Nav.Projects.UX', 'fig-dashboard-variant-2', false),
+        new navItem('Illustration', 'Nav.Projects.Illustration', 'fig-sketch', false),
+        new navItem('Other', 'Nav.Projects.Other', 'fig-rocket', false),
+        new navItem('Contact', 'Nav.Contact', 'fig-email', false)
+      );
+    }
 
-}
-
-app.controller('uxController', uxController);
+  }
 })();
+(function (app, ng) {
+    app.component('otherWorks',
+        {
+            templateUrl: '/app/states/other-works/other-works.template.html',
+            controller: otherWorksController
+        });
+
+    app.controller('otherWorksController', otherWorksController);
+
+    otherWorksController.$inject = ['projectListFactory'];
+
+    function otherWorksController(projectListFactory, projectGalleryValue, filterFilter) {
+        let $ctrl = this;
+    }
+})(window.app, window.angular);
+
+(function (app, ng) {
+    app.component('projectDetails',
+        {
+            templateUrl: '/app/states/project-details/project-details.template.html',
+            controller: projectDetailsController,
+        });
+
+    app.controller('projectDetailsController', projectDetailsController);
+
+    projectDetailsController.$inject = ['projectListFactory', '$stateParams', 'projectGalleryValue'];
+
+    function projectDetailsController(projectListFactory, $stateParams, projectGalleryValue) {
+        let $ctrl = this;
+
+        $ctrl.$onInit = () => {
+            $ctrl.project = projectListFactory.getProjectById($stateParams.projectId);
+            ng.extend($ctrl.project, {
+                section: [
+                    {
+                        img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+                        paragraph: ''
+                    },
+                    {
+                        img: 'https://images.unsplash.com/photo-1496150997837-ba438ce4b6c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80',
+                        paragraph: ''
+                    },
+                ]
+            })
+        }
+    }
+})(window.app, window.angular);
+
+(function (app, ng) {
+    app.component("projects",
+        {
+            templateUrl: '/app/states/projects/projects.template.html',
+            controller: projectsController
+        });
+
+    app.controller('projectsController', projectsController);
+
+    projectsController.$inject = ['projectListFactory'];
+
+    function projectsController() {
+        var $ctrl = this;
+
+    }
+})(window.app, window.angular);
+
+(function (app, ng) {
+    app.component("ux",
+        {
+            templateUrl: '/app/states/ux/ux.template.html',
+            controller: uxController
+        });
+
+    app.controller('uxController', uxController);
+
+    uxController.$inject = ['projectListFactory'];
+
+    function uxController(projectListFactory) {
+        let $ctrl = this;
+
+        const _getDate = () => {
+            return new Date();
+        }
+
+        $ctrl.$onInit = () => {
+            $ctrl.uxGallery = projectListFactory.getProjectList('web design');
+        };
+    }
+})(window.app, window.angular);
 
 app.component("wip",
     {
