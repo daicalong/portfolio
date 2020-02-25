@@ -8,7 +8,7 @@
 <section class="container mx-auto px-2 my-8">
     <ul class="list-reset w-full flex flex-col">
         <li ng-repeat="item in $ctrl.highlightProjectList">
-            <a ui-sref="Nav.Projects.Details({projectId: item.id})" aria-label="Link to {{item.name}}"
+            <a ui-sref="Nav.Projects.Details({projectName: item.name})" aria-label="Link to {{item.name}}"
                 class="h-128 bg-gray-lightest my-4 p-6 flex flex-col rounded-lg bg-center bg-no-repeat bg-cover outline-none"
                 style="background-image: url('/assets/images/gallery/{{item.img}}')">
                 <div class="flex flex-col mt-auto">

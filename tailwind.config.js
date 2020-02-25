@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '2rem'
+      padding: '1rem'
     },
     colors: {
       transparent: 'transparent',
@@ -35,24 +35,6 @@ module.exports = {
         darker: '#c53030',
         darkest: '#9b2c2c',
       },
-      orange: {
-        lightest: '#feebc8',
-        lighter: '#fbd38d',
-        light: '#f6ad55',
-        default: '#ed8936',
-        dark: '#dd6b20',
-        darker: '#c05621',
-        darkest: '#9c4221',
-      },
-      yellow: {
-        lightest: '#fefcbf',
-        lighter: '#faf089',
-        light: '#f6e05e',
-        default: '#ecc94b',
-        dark: '#d69e2e',
-        darker: '#b7791f',
-        darkest: '#975a16',
-      },
       green: {
         lightest: '#c6f6d5',
         lighter: '#9ae6b4',
@@ -61,15 +43,6 @@ module.exports = {
         dark: '#38a169',
         darker: '#2f855a',
         darkest: '#276749',
-      },
-      teal: {
-        lightest: '#b2f5ea',
-        lighter: '#81e6d9',
-        light: '#4fd1c5',
-        default: '#38b2ac',
-        dark: '#319795',
-        darker: '#2c7a7b',
-        darkest: '#285e61',
       },
       blue: {
         lightest: '#bee3f8',
@@ -80,32 +53,14 @@ module.exports = {
         darker: '#2b6cb0',
         darkest: '#2c5282',
       },
-      indigo: {
-        lightest: '#c3dafe',
-        lighter: '#a3bffa',
-        light: '#7f9cf5',
-        default: '#667eea',
-        dark: '#5a67d8',
-        darker: '#4c51bf',
-        darkest: '#434190',
-      },
-      purple: {
-        lightest: '#e9d8fd',
-        lighter: '#d6bcfa',
-        light: '#b794f4',
-        default: '#9f7aea',
-        dark: '#805ad5',
-        darker: '#6b46c1',
-        darkest: '#553c9a',
-      },
       pink: {
-        lightest: '#fed7e2',
-        lighter: '#fbb6ce',
-        light: '#f687b3',
-        default: '#ed64a6',
-        dark: '#d53f8c',
-        darker: '#b83280',
-        darkest: '#97266d',
+        lightest: '#FF9EC3',
+        lighter: '#F2186C',
+        light: '#DE1663',
+        default: '#BF1355',
+        dark: '#A6114A',
+        darker: '#800D39',
+        darkest: '#590928',
       },
     },
     screens: {
@@ -115,15 +70,15 @@ module.exports = {
       xl: '1280px',
     },
     fontFamily: {
-      display: ['Patua One', 'sans-serif'],
+      display: ['Proza Libre', 'sans-serif'],
       body: ['Source Sans Pro', 'sans-serif'],
     },
-    rounded: {
-      sm: 4,
-      default: 6,
-      lg: 12
+    borderRadius: {
+      sm: '0.5rem',
+      default: '1rem',
+      lg: '2rem'
     },
-    extend: {
+    extend: {      
       spacing: {
         '1/4': '25%',
         '1/3': '33.333%',
@@ -134,6 +89,11 @@ module.exports = {
         '128': '32rem',
         '256': '64rem',
         '512': '128rem'
+      },
+      minHeight: {
+        sm: '18rem',
+        default: '36rem',
+        lg: '48rem'
       }
     }
   }

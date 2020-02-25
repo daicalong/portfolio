@@ -1,4 +1,4 @@
-(function () {
+(function (app) {
   app.component("navigation",
     {
       templateUrl: '/app/states/nav/nav.template.html',
@@ -38,4 +38,4 @@
     }
 
   }
-})();
+})(window.app);

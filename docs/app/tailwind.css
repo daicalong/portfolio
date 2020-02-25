@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Patua+One|Source+Sans+Pro:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Proza+Libre:500&display=swap');
 @import url('https://i.icomoon.io/public/812c8e0906/FIGIcons/style.css');
 
 @tailwind base;
@@ -42,15 +43,35 @@ html {
 }
 
 .heading {
-    @apply font-display text-lg leading-tight;
+    @apply my-2 font-display leading-tight;
 }
 
 .label {
-    @apply text-sm;
+    @apply text-sm my-1 text-gray;
 }
 
 .loading {
     @apply bg-blue;
+}
+
+.fig-18px::before {
+    font-size: 18px;
+}
+
+.fig-24px::before {
+    font-size: 24px;
+}
+
+.fig-36px::before {
+    font-size: 36px;
+}
+
+.fig-48px::before {
+    font-size: 48px;
+}
+
+.bg-img {
+    background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
 }
 
 @tailwind utilities;

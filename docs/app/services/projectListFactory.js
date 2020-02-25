@@ -10,11 +10,11 @@
                 return projectGalleryValue.filter(element => element.starred === isStarred);
             };
 
-            const getProjectById = (projectId) => {
-                return projectGalleryValue.find(project => project.id = projectId)
+            const getProjectById = (projectName) => {  
+                return projectGalleryValue.find(project => project.name == projectName);
             }
 
-            return {
+                return {
                 getProjectList: getProjectList,
                 getHighlightList: getHighlightList,
                 getProjectById: getProjectById

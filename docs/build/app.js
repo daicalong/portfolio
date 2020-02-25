@@ -4,7 +4,7 @@
   var dependencies = ['ui.router', 'angular-loading-bar', 'ngAnimate'];
 
   window.app = ng.module(module, dependencies);
-  
+
   function bootstrap() {
     ng.element(doc).ready(function () {
       ng.bootstrap(doc, [module], { strictDi: true });
@@ -12,7 +12,9 @@
   }
 
   bootstrap();
+})(window.angular, window, window.document, 'hatomi'); //jshint ignore:line
 
+(function (app) {
   app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
     class stateObj {
@@ -28,14 +30,14 @@
     $stateProvider.state(new stateObj('Nav.Home', '/Home', 'home', false));
     $stateProvider.state(new stateObj('Nav.Projects', '/Projects/', 'projects', 'Projects.UX'));
     $stateProvider.state(new stateObj('Nav.Projects.UX', '/UX', 'ux', false));
-    $stateProvider.state(new stateObj('Nav.Projects.Details', 'Details/{projectId}', 'projectDetails', false));
+    $stateProvider.state(new stateObj('Nav.Projects.Details', 'Details/{projectName}', 'projectDetails', false));
     $stateProvider.state(new stateObj('Nav.Projects.Illustration', '/Illustration', 'illustration', false));
     $stateProvider.state(new stateObj('Nav.Projects.Other', '/Other', 'otherWorks', false));
     $stateProvider.state(new stateObj('Nav.WIP', '/WIP', 'wip', false));
 
     $urlRouterProvider.otherwise('/Home');
   }]);
-})(window.angular, window, window.document, 'hatomi'); //jshint ignore:line
+})(window.app);
 (function(app) {
     app.value('projectGalleryValue',
     [
@@ -268,11 +270,11 @@
                 return projectGalleryValue.filter(element => element.starred === isStarred);
             };
 
-            const getProjectById = (projectId) => {
-                return projectGalleryValue.find(project => project.id = projectId)
+            const getProjectById = (projectName) => {  
+                return projectGalleryValue.find(project => project.name == projectName);
             }
 
-            return {
+                return {
                 getProjectList: getProjectList,
                 getHighlightList: getHighlightList,
                 getProjectById: getProjectById
@@ -352,7 +354,7 @@
     }
 })(window.app, window.angular);
 
-(function () {
+(function (app) {
   app.component("navigation",
     {
       templateUrl: '/app/states/nav/nav.template.html',
@@ -392,11 +394,11 @@
     }
 
   }
-})();
+})(window.app);
 (function (app, ng) {
     app.component('otherWorks',
         {
-            templateUrl: '/app/states/other-works/other-works.template.html',
+            templateUrl: '/app/states/otherWorks/otherWorks.template.html',
             controller: otherWorksController
         });
 
@@ -410,36 +412,28 @@
 })(window.app, window.angular);
 
 (function (app, ng) {
+
+
     app.component('projectDetails',
         {
-            templateUrl: '/app/states/project-details/project-details.template.html',
-            controller: projectDetailsController,
+            templateUrl: '/app/states/projectDetails/projectDetails.template.html',
+            controller: projectDetailsController
         });
 
     app.controller('projectDetailsController', projectDetailsController);
 
-    projectDetailsController.$inject = ['projectListFactory', '$stateParams', 'projectGalleryValue'];
+    projectDetailsController.$inject = ['projectListFactory', '$stateParams'];
 
-    function projectDetailsController(projectListFactory, $stateParams, projectGalleryValue) {
+    function projectDetailsController(projectListFactory, $stateParams) {
         let $ctrl = this;
-
+        
         $ctrl.$onInit = () => {
-            $ctrl.project = projectListFactory.getProjectById($stateParams.projectId);
-            ng.extend($ctrl.project, {
-                section: [
-                    {
-                        img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-                        paragraph: ''
-                    },
-                    {
-                        img: 'https://images.unsplash.com/photo-1496150997837-ba438ce4b6c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80',
-                        paragraph: ''
-                    },
-                ]
-            })
+            $ctrl.project = projectListFactory.getProjectById($stateParams.projectName);
+            console.log($ctrl.project);
         }
     }
 })(window.app, window.angular);
+
 
 (function (app, ng) {
     app.component("projects",

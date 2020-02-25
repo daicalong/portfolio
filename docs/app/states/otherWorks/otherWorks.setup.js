@@ -1,7 +1,7 @@
 (function (app, ng) {
     app.component('otherWorks',
         {
-            templateUrl: '/app/states/other-works/other-works.template.html',
+            templateUrl: '/app/states/otherWorks/otherWorks.template.html',
             controller: otherWorksController
         });
 
