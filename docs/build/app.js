@@ -28,7 +28,7 @@
 
     $stateProvider.state(new stateObj('Nav', '', 'navigation', 'Nav.Home'));
     $stateProvider.state(new stateObj('Nav.Home', '/Home', 'home', false));
-    $stateProvider.state(new stateObj('Nav.Projects', '/Projects/', 'projects', 'Projects.UX'));
+    $stateProvider.state(new stateObj('Nav.Projects', '/Projects', 'projects', 'Projects.UX'));
     $stateProvider.state(new stateObj('Nav.Projects.UX', '/UX', 'ux', false));
     $stateProvider.state(new stateObj('Nav.Projects.Details', 'Details/{projectName}', 'projectDetails', false));
     $stateProvider.state(new stateObj('Nav.Projects.Illustration', '/Illustration', 'illustration', false));
@@ -37,6 +37,29 @@
 
     $urlRouterProvider.otherwise('/Home');
   }]);
+})(window.app);
+(function (app) {
+  app.value('personalInfoValue',
+    {
+      siteName: 'Hatomi',
+      phone: '+980-875-1007',
+      email: 'hatomi.design@gmail.com',
+      socialMedia: [
+        {
+          name: 'LinkedIn',
+          url: 'https://www.linkedin.com/in/hpnguyen52/'
+        },
+        {
+          name: 'YouTube',
+          url: 'https://www.youtube.com/user/HPNguyen52',
+        },
+        {
+          name: 'Vimeo',
+          url: 'https://vimeo.com/user16262642'
+        }
+      ]
+    }
+  );
 })(window.app);
 (function(app) {
     app.value('projectGalleryValue',
@@ -322,7 +345,7 @@
             controller: homeController
         });
 
-        homeController.$inject = ['projectListFactory'];
+    homeController.$inject = ['projectListFactory'];
 
     function homeController(projectListFactory) {
         let $ctrl = this;
@@ -361,8 +384,6 @@
       controller: navController
     });
 
-  app.controller('navController', navController);
-
   navController.$inject = [];
 
   function navController() {
@@ -393,6 +414,7 @@
       );
     }
 
+    app.controller('navController', navController);
   }
 })(window.app);
 (function (app, ng) {
@@ -497,19 +519,26 @@ function wipController(wpFactory) {
 }
 
 app.controller('wipController', wipController);
-app.component("projectCardSm",
-    {
-        templateUrl: '/app/components/project-card-sm/project-card-sm.component.html',
-        controller: projectCardSmController,
-        bindings: {
-            project: '<'
-        }
-    });
+(function (app, ng) {
+    app.component("footer",
+        {
+            templateUrl: '/app/components/footer/footer.comp.template.html',
+            controller: footerController
+        });
 
-function projectCardSmController() {
-    let $ctrl = this;
+    footerController.$inject = ['personalInfoValue'];
 
-}
+    function footerController(personalInfoValue) {
+        let $ctrl = this;
 
-app.controller('projectCardSmController', projectCardSmController);
+        $ctrl.$onInit = () => {
+            $ctrl.info = personalInfoValue;
+        };
+    }
+
+    app.controller('footerController', footerController);
+
+})(window.app, window.angular);
+
+
 //# sourceMappingURL=app.js.map

@@ -5,8 +5,6 @@
       controller: navController
     });
 
-  app.controller('navController', navController);
-
   navController.$inject = [];
 
   function navController() {
@@ -37,5 +35,6 @@
       );
     }
 
+    app.controller('navController', navController);
   }
 })(window.app);

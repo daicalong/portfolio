@@ -5,7 +5,7 @@
             controller: homeController
         });
 
-        homeController.$inject = ['projectListFactory'];
+    homeController.$inject = ['projectListFactory'];
 
     function homeController(projectListFactory) {
         let $ctrl = this;
