@@ -26,7 +26,7 @@
       }
     }
 
-    $stateProvider.state(new stateObj('Nav', '', 'navigation', 'Nav.Home'));
+    $stateProvider.state(new stateObj('Nav', '', 'app', 'Nav.Home'));
     $stateProvider.state(new stateObj('Nav.Home', '/Home', 'home', false));
     $stateProvider.state(new stateObj('Nav.Projects', '/Projects', 'projects', 'Projects.UX'));
     $stateProvider.state(new stateObj('Nav.Projects.UX', '/UX', 'ux', false));

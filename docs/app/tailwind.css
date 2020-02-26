@@ -10,6 +10,10 @@ html {
     @apply font-body;
 }
 
+app {
+    @apply flex flex-col min-h-screen;
+}
+
 .mobile-nav {
     top: 100%;
 }

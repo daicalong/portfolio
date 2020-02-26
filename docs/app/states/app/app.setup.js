@@ -1,13 +1,13 @@
 (function (app) {
-  app.component("navigation",
+  app.component("app",
     {
-      templateUrl: '/app/states/nav/nav.template.html',
-      controller: navController
+      templateUrl: '/app/states/app/app.template.html',
+      controller: appController
     });
 
-  navController.$inject = [];
+  appController.$inject = [];
 
-  function navController() {
+  function appController() {
     var $ctrl = this;
 
     $ctrl.nav = [];
@@ -25,7 +25,7 @@
       }
     }
 
-    $ctrl.$onInit = () => {
+    $ctrl.$onInit = () => {      
       $ctrl.nav.push(
         new navItem('Home', 'Nav.Home', 'fig-home', false),
         new navItem('UX', 'Nav.Projects.UX', 'fig-dashboard-variant-2', false),
@@ -35,6 +35,6 @@
       );
     }
 
-    app.controller('navController', navController);
+    app.controller('appController', appController);
   }
 })(window.app);

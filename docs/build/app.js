@@ -26,7 +26,7 @@
       }
     }
 
-    $stateProvider.state(new stateObj('Nav', '', 'navigation', 'Nav.Home'));
+    $stateProvider.state(new stateObj('Nav', '', 'app', 'Nav.Home'));
     $stateProvider.state(new stateObj('Nav.Home', '/Home', 'home', false));
     $stateProvider.state(new stateObj('Nav.Projects', '/Projects', 'projects', 'Projects.UX'));
     $stateProvider.state(new stateObj('Nav.Projects.UX', '/UX', 'ux', false));
@@ -338,6 +338,46 @@
     }
 ]);
 })(window.app);
+(function (app) {
+  app.component("app",
+    {
+      templateUrl: '/app/states/app/app.template.html',
+      controller: appController
+    });
+
+  appController.$inject = [];
+
+  function appController() {
+    var $ctrl = this;
+
+    $ctrl.nav = [];
+
+    $ctrl.toggleMenu = () => {
+      $ctrl.menuIsOpen = !$ctrl.menuIsOpen;
+    };
+
+    class navItem {
+      constructor(title, url, iconClass, hasSubnav) {
+        this.title = title;
+        this.url = url;
+        this.iconClass = iconClass;
+        this.hasSubnav = hasSubnav;
+      }
+    }
+
+    $ctrl.$onInit = () => {      
+      $ctrl.nav.push(
+        new navItem('Home', 'Nav.Home', 'fig-home', false),
+        new navItem('UX', 'Nav.Projects.UX', 'fig-dashboard-variant-2', false),
+        new navItem('Illustration', 'Nav.Projects.Illustration', 'fig-sketch', false),
+        new navItem('Other', 'Nav.Projects.Other', 'fig-rocket', false),
+        new navItem('Contact', 'Nav.Contact', 'fig-email', false)
+      );
+    }
+
+    app.controller('appController', appController);
+  }
+})(window.app);
 (function (app, ng) {
     app.component("home",
         {
@@ -377,46 +417,6 @@
     }
 })(window.app, window.angular);
 
-(function (app) {
-  app.component("navigation",
-    {
-      templateUrl: '/app/states/nav/nav.template.html',
-      controller: navController
-    });
-
-  navController.$inject = [];
-
-  function navController() {
-    var $ctrl = this;
-
-    $ctrl.nav = [];
-
-    $ctrl.toggleMenu = () => {
-      $ctrl.menuIsOpen = !$ctrl.menuIsOpen;
-    };
-
-    class navItem {
-      constructor(title, url, iconClass, hasSubnav) {
-        this.title = title;
-        this.url = url;
-        this.iconClass = iconClass;
-        this.hasSubnav = hasSubnav;
-      }
-    }
-
-    $ctrl.$onInit = () => {
-      $ctrl.nav.push(
-        new navItem('Home', 'Nav.Home', 'fig-home', false),
-        new navItem('UX', 'Nav.Projects.UX', 'fig-dashboard-variant-2', false),
-        new navItem('Illustration', 'Nav.Projects.Illustration', 'fig-sketch', false),
-        new navItem('Other', 'Nav.Projects.Other', 'fig-rocket', false),
-        new navItem('Contact', 'Nav.Contact', 'fig-email', false)
-      );
-    }
-
-    app.controller('navController', navController);
-  }
-})(window.app);
 (function (app, ng) {
     app.component('otherWorks',
         {
