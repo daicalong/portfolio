@@ -1,0 +1,11 @@
+<section class="flex min-h-sm bg-gray-darkest">
+    <div class="container my-16">
+        <h2 class="heading text-3xl text-white text-center">{{$ctrl.info.siteName}}</h2>
+        <h2 class="heading text-xl text-white text-center">{{$ctrl.info.phone}}</h2>
+        <h2 class="heading text-xl text-white text-center">{{$ctrl.info.email}}</h2>
+        <div class="flex justify-center w-full">
+            <a ng-href="{{social.url}}" target="_blank" class="p-2 m-2 text-white hover:text-pink-lightest transition duration-150" ng-repeat="social in $ctrl.info.socialMedia">
+                <i class="fig-youtube fig-36px"></i></a>
+        </div>
+    </div>
+</section>

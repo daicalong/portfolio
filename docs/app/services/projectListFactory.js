@@ -1,25 +1,25 @@
-
-(function () {
+(function (app) {
     app.factory("projectListFactory", ['projectGalleryValue',
         function projectListFactory(projectGalleryValue) {
-
-            function serviceMethod() {
-                return $timeout(function () {
-                    return {
-                        property: 'value'
-                    };
-                }, 1000);
-            }
-
 
             const getProjectList = (category) => {
                 return projectGalleryValue.filter(element => element.category === category);
             };
 
-            return {
-                getProjectList: getProjectList
+            const getHighlightList = (isStarred) => {
+                return projectGalleryValue.filter(element => element.starred === isStarred);
+            };
+
+            const getProjectById = (projectName) => {  
+                return projectGalleryValue.find(project => project.name == projectName);
+            }
+
+                return {
+                getProjectList: getProjectList,
+                getHighlightList: getHighlightList,
+                getProjectById: getProjectById
             };
         }
 
     ]);
-})();
+})(window.app);

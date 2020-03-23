@@ -1,0 +1,52 @@
+<span class="sm:block hidden h-12 bg-gray-lightest"></span>
+<header class="sticky border-b border-gray-lighter w-full top-0 z-20 bg-gray-lightest">
+    <div class="container mx-auto flex items-end">
+        <a ui-sref="Nav.Home" class="flex items-center h-10 p-1 my-4 sm:my-2 mx-2 mr-auto">
+            <svg class="w-8 h-8 mr-2" id="expanded" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <title>hatomi</title>
+                <path d="M5,8A3,3,0,1,1,8,5,3,3,0,0,1,5,8ZM5,3A2,2,0,1,0,7,5,2,2,0,0,0,5,3Z" style="fill:#de1662" />
+                <path d="M5,15a3,3,0,1,1,3-3A3,3,0,0,1,5,15Zm0-5a2,2,0,1,0,2,2A2,2,0,0,0,5,10Z" style="fill:#0d23b5" />
+                <path d="M12,15a3,3,0,1,1,3-3A3,3,0,0,1,12,15Zm0-5a2,2,0,1,0,2,2A2,2,0,0,0,12,10Z"
+                    style="fill:#de1662" />
+                <path d="M19,15a3,3,0,1,1,3-3A3,3,0,0,1,19,15Zm0-5a2,2,0,1,0,2,2A2,2,0,0,0,19,10Z"
+                    style="fill:#e3df00" />
+                <path d="M19,8a3,3,0,1,1,3-3A3,3,0,0,1,19,8Zm0-5a2,2,0,1,0,2,2A2,2,0,0,0,19,3Z" style="fill:#e3df00" />
+                <path d="M19,22a3,3,0,1,1,3-3A3,3,0,0,1,19,22Zm0-5a2,2,0,1,0,2,2A2,2,0,0,0,19,17Z"
+                    style="fill:#de1662" />
+                <path d="M5,22a3,3,0,1,1,3-3A3,3,0,0,1,5,22Zm0-5a2,2,0,1,0,2,2A2,2,0,0,0,5,17Z" style="fill:#0d23b5" />
+            </svg>
+        </a>
+        <button class="block md:hidden border-pink border w-10 h-10 text-pink rounded m-2 ml-auto"
+            ng-click="$ctrl.toggleMenu()">
+            <i class="fig-24px leading-normal fig-menu"></i>
+        </button>
+        <!-- desktop nav -->
+        <nav class="md:block hidden top-0 left-0 nav">
+            <ul class="list-reset sm:flex sm:items-center">
+                <li ng-repeat="nav in $ctrl.nav">
+                    <a ui-sref="{{nav.url}}" ui-sref-active="nav__link--is-active"
+                        class="relative flex items-center text-xs lg:text-sm uppercase text-gray-dark font-semibold no-underline hover:text-pink py-4 mx-2 lg:mx-4 transition duration-150 nav__link">
+                        <i class="fig-24px {{nav.iconClass}} mr-1"></i>
+                        <span>{{nav.title}}</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- mobile nav -->
+        <nav class="absolute md:hidden py-4 left-0 bg-gray-lightest w-full shadow-lg border-t border-gray-lightest mobile-nav"
+            ng-if="$ctrl.menuIsOpen">
+            <ul class="list-reset sm:flex">
+                <li ng-repeat="nav in $ctrl.nav">
+                    <a ui-sref="{{nav.uiSref}}" ui-sref-active="text-pink" ng-click="$ctrl.toggleMenu()"
+                        class="flex text text-gray-darker no-underline hover:text-pink-dark p-4 mobile-nav__link">
+                        <i class="fig-24px {{nav.iconClass}} mr-2"></i>
+                        <span>{{nav.title}}</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<ui-view class="block"></ui-view>
+<footer class="mt-auto"></footer>
