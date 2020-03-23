@@ -19,7 +19,7 @@ app {
 }
 
 .nav__link--is-active {
-    @apply text-pink-dark;
+    @apply text-pink;
 }
 
 .nav__link--is-active::after{

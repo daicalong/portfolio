@@ -74,9 +74,9 @@ module.exports = {
       body: ['Source Sans Pro', 'sans-serif'],
     },
     borderRadius: {
-      sm: '0.5rem',
-      default: '1rem',
-      lg: '2rem'
+      sm: '0.25rem',
+      default: '0.5rem',
+      lg: '1.25rem'
     },
     extend: {      
       spacing: {

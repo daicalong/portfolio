@@ -1,6 +1,7 @@
 <section class="container mx-auto px-2 my-16">
-    <p class="text my-3"><span class="text-4xl font-display text-pink leading-tight">I am a DESIGNER</span> but that's
-        not quite accurate. nteger elementum ante nunc, ac consequat sapien fermentum ac. Nunc nisl purus, mattis vel
+    <h2 class="text-3xl font-display text-pink leading-tight text-center capitalize">Some heading</h2>
+    <p class="text my-2"> but that's not quite accurate. nteger elementum ante nunc, ac consequat sapien fermentum ac.
+        Nunc nisl purus, mattis vel
         pretium ac, posuere et risus. Ut in felis consectetur, congue urna id, blandit ex. Morbi sed dapibus urna.
         Phasellus vehicula semper neque, quis scelerisque lacus eleifend vel. Suspendisse ac ante a dolor gravida
         consequat nec sed mauris.</p>
@@ -9,7 +10,7 @@
     <ul class="list-reset w-full flex flex-col">
         <li ng-repeat="item in $ctrl.highlightProjectList">
             <a ui-sref="Nav.Projects.Details({projectName: item.name})" aria-label="Link to {{item.name}}"
-                class="h-128 bg-gray-lightest my-4 p-6 flex flex-col rounded-lg bg-center bg-no-repeat bg-cover outline-none"
+                class="h-128 bg-white my-4 p-6 flex flex-col rounded bg-center bg-no-repeat bg-cover outline-none shadow hover:shadow-lg transition duration-150"
                 style="background-image: url('/assets/images/gallery/{{item.img}}')">
                 <div class="flex flex-col mt-auto">
                     <h4 class="heading text-pink">{{item.name}}</h4>
