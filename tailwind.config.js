@@ -89,8 +89,8 @@ module.exports = {
                 light: '#c1c1c1',
                 default: '#919191',
                 dark: '#7a7a7a',
-                darker: '#474747',
-                darkest: '#1E1E1E',
+                darker: '#343434',
+                darkest: '#171717',
             },
             red: {
                 lightest: '#fed7d7',
@@ -128,6 +128,9 @@ module.exports = {
                 darker: '#800D39',
                 darkest: '#590928',
             },
+            yellow: {
+                default: '#e3df00'
+            }
         },
         screens: {
             sm: '640px',
