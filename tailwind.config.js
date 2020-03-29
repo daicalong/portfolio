@@ -115,7 +115,7 @@ module.exports = {
                 lighter: '#90cdf4',
                 light: '#63b3ed',
                 default: '#4299e1',
-                dark: '#3182ce',
+                dark: '#0d23b5',
                 darker: '#2b6cb0',
                 darkest: '#2c5282',
             },
@@ -131,6 +131,11 @@ module.exports = {
             yellow: {
                 default: '#e3df00'
             }
+        },
+        fill: {
+            pink: '#DE1663',
+            yellow: '#e3df00',
+            blue: '#0d23b5',
         },
         screens: {
             sm: '640px',
@@ -170,7 +175,7 @@ module.exports = {
             translate: {
                 'px': '1px',
                 '.4': '.4rem'
-            }
+            },
         }
     }
 }
