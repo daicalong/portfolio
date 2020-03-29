@@ -9,6 +9,16 @@ html {
     font-size: 50%;
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply tracking-wide;
+}
+
 main {
     @apply flex min-h-screen;
 }
@@ -48,7 +58,18 @@ main {
 }
 
 .nav {
-    @apply transition duration-200 fixed inset-y-0 left-0 w-2/3 top-0 z-30 bg-gray-darkest flex flex-col overflow-y-auto;
+    @apply transition duration-200 fixed inset-y-0 left-0 top-0 z-30 bg-gray-darkest flex flex-col overflow-y-auto;
+    @screen md {
+        &.nav--open,
+        &.nav--closed {
+            transform: translateX(0) !important;
+        }
+    }
+    @screen lg {
+        .nav__link {
+            @apply text-base;
+        }
+    }
     &.nav--open {
         -webkit-transform: translateX(0);
         transform: translateX(0);
@@ -72,24 +93,6 @@ main {
                 @apply scale-x-100;
                 content: "";
             }
-        }
-    }
-}
-
-@screen md {
-    .nav {
-        @apply w-25.6;
-        &.nav--open,
-        &.nav--closed {
-            transform: translateX(0) !important;
-        }
-    }
-}
-
-@screen lg {
-    .nav {
-        .nav__link {
-            @apply text-base;
         }
     }
 }
@@ -120,11 +123,11 @@ main {
 }
 
 .heading {
-    @apply my-.8 text-lg font-display leading-tight;
+    @apply font-display leading-tight;
 }
 
 .label {
-    @apply text-sm my-.4 text-gray;
+    @apply font-medium text-gray;
 }
 
 .loading {
@@ -153,7 +156,7 @@ main {
 
 //btn components
 .btn {
-    @apply inline-block bg-pink text-xs text-white uppercase font-bold h-4.8 px-4 rounded-sm transition duration-150;
+    @apply inline-block bg-pink tracking-wider text-sm text-white uppercase font-bold h-4.8 px-4 rounded-sm transition duration-150;
     &:not(:disabled) {
         &:hover {
             @apply bg-pink-dark;

@@ -10,7 +10,7 @@
                 "javascript",
                 "angularjs"
             ],
-            "img": "hatomi-thumb.jpg",
+            "img": "hatomi-thumb.png",
             "starred": true
         },
         {
@@ -23,7 +23,7 @@
                 "ui",
                 "website",
                 "logo",
-                "custom graphics",
+                "graphic design",
                 "angularjs"
             ],
             "img": "mp1-thumb.jpg",
@@ -38,7 +38,7 @@
                 "ux",
                 "ui",
                 "website",
-                "custom graphics",
+                "graphic design",
                 "angularjs"
             ],
             "img": "force-crm-thumb.jpg",
@@ -53,7 +53,7 @@
                 "ux",
                 "ui",
                 "website",
-                "custom graphics",
+                "graphic design",
                 "angularjs"
             ],
             "img": "marketing-tracker-thumb.jpg",
@@ -67,24 +67,13 @@
             "tags": [
                 "ui",
                 "website",
-                "custom graphics",
+                "graphic design",
                 "angularjs"
             ],
-            "img": "acm-thumb.jpg",
-            "starred": false
-        },
-        {
-            "name": "FIG Technology Summit Website",
-            "date": "20190301T000000-0700",
-            "category": "web design",
-            "tags": [
-                "ui",
-                "website",
-                "custom graphics",
-                "angularjs",
-                "tailwindcss"
+            "img": [
+                "acm-thumb",
+                "jpg"
             ],
-            "img": "fig-tech-summit-thumb.jpg",
             "starred": false
         },
         {
@@ -103,7 +92,7 @@
         {
             "id": 6,
             "name": "FIG Mobile App",
-            "date": "2019701T000000-0700",
+            "date": "20190701T000000-0700",
             "category": "web design",
             "tags": [
                 "ux",
@@ -209,6 +198,21 @@
             ],
             "img": "lazy-afternoon-thumb.jpg",
             "starred": true
+        },
+        {
+            "id": 15,
+            "name": "FIG Technology Summit Website",
+            "date": "20190301T000000-0700",
+            "category": "web design",
+            "tags": [
+                "ui",
+                "website",
+                "graphic design",
+                "angularjs",
+                "tailwindcss"
+            ],
+            "img": "fig-tech-summit-thumb.jpg",
+            "starred": false
         }
     ]);
 })(window.app);
