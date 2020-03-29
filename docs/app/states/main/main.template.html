@@ -4,7 +4,7 @@
         <div class="after"></div>
      </button>
 </header>
-<header ng-model="$ctrl.mainNav" ng-class="$ctrl.mainNav.isOpen ? 'nav--open' : 'nav--closed'" class="nav">
+<header ng-model="$ctrl.mainNav" ng-class="$ctrl.mainNav.isOpen ? 'nav--open' : 'nav--closed'" class="nav lg:w-32 md:w-25.6 lg:px-2 md:px-1">
     <nav class="mt-7.2">
         <div class="flex flex-col">
             <a ui-sref="Main.Home" class="flex items-center p-1 mx-auto" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
@@ -37,5 +37,5 @@
     </nav>
     <footer class="mt-auto"></footer>
 </header>
-<ui-view class="flex flex-col flex-grow md:ml-25.6 pt-4.8"></ui-view>
+<ui-view class="flex flex-col flex-grow lg:ml-32 md:ml-25.6 pt-4.8"></ui-view>
 <span class="inset-0 fixed z-20 bg-black-3/4 md:hidden" ng-class="{'hidden' : !$ctrl.mainNav.isOpen}" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">></span>
