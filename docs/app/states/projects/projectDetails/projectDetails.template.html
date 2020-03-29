@@ -1,24 +1,35 @@
-<section class="container my-2 py-2">
-    <h1 class="text-2xl font-display my-1 text-pink">{{$ctrl.project.name}}</h1>
-    <label class="label text-gray-darkinline-block my-1">{{$ctrl.project.date | date: 'shortDate'}}</label>
-    <p class="text-lg my-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel ligula non dui aliquet tincidunt. Fusce leo libero, gravida ut felis eget, viverra pharetra nibh. Nunc eu bibendum lorem. Fusce dictum eu lectus sed suscipit. Aliquam a odio elit. Sed
-        ac felis nibh. Aenean pellentesque mi quis urna pharetra venenatis. Donec in placerat erat. Aenean nec suscipit lectus. Ut a dui ut orci eleifend aliquet a finibus libero. Sed aliquet augue sit amet libero condimentum, ac convallis ante tristique.</p>
-    <p class="text-lg my-2"> Aliquam tempor urna ullamcorper nibh consequat, in ullamcorper dui ultricies. Quisque vel magna bibendum, imperdiet justo ac, finibus nulla. Pellentesque vehicula ligula quis suscipit cursus. Cras elementum, lectus vitae rutrum commodo, quam leo sollicitudin
-        mauris, sit amet suscipit nibh lacus non massa.</p>
-    <div class="flex my-2">
+<section class="container my-2 py-2 grid grid-cols-6 gap-4">
+    <div class="col-span-6">
+        <h1 class="text-2xl font-display text-pink">{{$ctrl.project.name}}</h1>
+        <label class="label text-gray-light text-base inline-block">{{$ctrl.project.date | date: 'shortDate'}}</label>
+    </div>
+    <ul class="list-reset flex flex-wrap col-span-6">
+        <li class="text-sm font-medium col-span-1 bg-gray-darker text-white py-.4 px-1 rounded mr-1" ng-repeat="tag in $ctrl.project.tags">
+            {{tag}}
+        </li>
+    </ul>
+    <div class="col-span-6">
+        <p class="text-lg mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel ligula non dui aliquet tincidunt. Fusce leo libero, gravida ut felis eget, viverra pharetra nibh. Nunc eu bibendum lorem. Fusce dictum eu lectus sed suscipit. Aliquam a odio elit.
+            Sed ac felis nibh. Aenean pellentesque mi quis urna pharetra venenatis. Donec in placerat erat. Aenean nec suscipit lectus. Ut a dui ut orci eleifend aliquet a finibus libero. Sed aliquet augue sit amet libero condimentum, ac convallis ante
+            tristique.
+        </p>
+        <p class="text-lg mt-2"> Aliquam tempor urna ullamcorper nibh consequat, in ullamcorper dui ultricies. Quisque vel magna bibendum, imperdiet justo ac, finibus nulla. Pellentesque vehicula ligula quis suscipit cursus. Cras elementum, lectus vitae rutrum commodo, quam leo
+            sollicitudin mauris, sit amet suscipit nibh lacus non massa.</p>
+    </div>
+    <div class="flex my-2 col-span-6">
         <button class="btn btn--lg">Some Button</button>
         <button class="btn btn--icon btn--lg"><i class="fig-24px fig-cancel"></i></button>
     </div>
 </section>
 <section class="container my-2 py-2">
-    <h1 class="heading text-lg my-1 text-pink text-center">Some heading</h1>
+    <h1 class="heading text-xl my-1 text-pink text-center">Some heading</h1>
     <p class="text-lg hidden my-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel ligula non dui aliquet tincidunt. Fusce leo libero, gravida ut felis eget, viverra pharetra nibh. Nunc eu bibendum lorem. Fusce dictum eu lectus sed suscipit. Aliquam a odio elit. Sed
         ac felis nibh. Aenean pellentesque mi quis urna pharetra venenatis. Donec in placerat erat. Aenean nec suscipit lectus. Ut a dui ut orci eleifend aliquet a finibus libero. Sed aliquet augue sit amet libero condimentum, ac convallis ante tristique.</p>
 </section>
 <section class="bg-img bg-fixed bg-center bg-cover p-20 min-h-sm">
 </section>
 <section class="container my-2 py-2">
-    <h1 class="heading text-lg my-1 text-pink text-center">Some heading</h1>
+    <h1 class="heading text-xl my-1 text-pink text-center">Some heading</h1>
     <p class="text-lg my-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel ligula non dui aliquet tincidunt. Fusce leo libero, gravida ut felis eget, viverra pharetra nibh. Nunc eu bibendum lorem. Fusce dictum eu lectus sed suscipit. Aliquam a odio elit. Sed
         ac felis nibh. Aenean pellentesque mi quis urna pharetra venenatis. Donec in placerat erat. Aenean nec suscipit lectus. Ut a dui ut orci eleifend aliquet a finibus libero. Sed aliquet augue sit amet libero condimentum, ac convallis ante tristique.</p>
     <p class="text-lg my-2">Aliquet tincidunt. Fusce leo libero, gravida ut felis eget, viverra pharetra nibh. Nunc eu bibendum lorem. Fusce dictum eu lectus sed suscipit. Aliquam a odio elit. Sed ac felis nibh. Aenean pellentesque mi quis urna pharetra venenatis. Donec in placerat
