@@ -9,7 +9,7 @@
     </div>
     <ul class="list-reset w-full grid lg:grid-cols-3 col-span-6 gap-2">
         <li ng-repeat="item in $ctrl.projectList | orderBy: 'category'" class="gallery-item">
-            <a ui-sref="Main.Projects.Details({projectName: item.name})" aria-label="Link to {{item.name}}" class="card h-25.6" style="background-image: url('/assets/images/gallery/{{item.img}}')">
+            <a ui-sref="Main.Projects.Details({projectName: item.name})" aria-label="Link to {{item.name}}" class="card md:h-25.6 h-32" style="background-image: url('/assets/images/gallery/{{item.img}}')">
                 <div class="card__content">
                     <h4 class="text-lg font-display text-yellow">{{item.name}}</h4>
                     <label class="text-base text-gray-light">{{item.date | date: 'shortDate'}}</label>

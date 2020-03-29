@@ -11052,6 +11052,16 @@ html {
   font-size: 50%;
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: 0.025em;
+}
+
 main {
   display: flex;
   min-height: 100vh;
@@ -11130,13 +11140,23 @@ main {
   top: 0;
   bottom: 0;
   left: 0;
-  width: 66.666667%;
   top: 0;
   z-index: 30;
   background-color: #171717;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  @media (min-width: 768px) {
+    &.nav--open,
+        &.nav--closed {
+      transform: translateX(0) !important;
+    }
+  }
+  @media (min-width: 1280px) {
+    .nav__link {
+      font-size: 1.6rem;
+    }
+  }
   &.nav--open {
     transform: translateX(0);
   }
@@ -11189,24 +11209,6 @@ main {
   }
 }
 
-@media (min-width: 768px) {
-  .nav {
-    width: 25.6rem;
-    &.nav--open,
-        &.nav--closed {
-      transform: translateX(0) !important;
-    }
-  }
-}
-
-@media (min-width: 1280px) {
-  .nav {
-    .nav__link {
-      font-size: 1.6rem;
-    }
-  }
-}
-
 .loading-container,
 #loading-bar {
   background-color: #fff;
@@ -11229,17 +11231,12 @@ main {
 }
 
 .heading {
-  margin-top: .8rem;
-  margin-bottom: .8rem;
-  font-size: 1.8rem;
   font-family: Proza Libre, sans-serif;
   line-height: 1.25;
 }
 
 .label {
-  font-size: 1.4rem;
-  margin-top: .4rem;
-  margin-bottom: .4rem;
+  font-weight: 500;
   color: #919191;
 }
 
@@ -11271,7 +11268,8 @@ main {
 .btn {
   display: inline-block;
   background-color: #DE1663;
-  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+  font-size: 1.4rem;
   color: #fff;
   text-transform: uppercase;
   font-weight: 700;
