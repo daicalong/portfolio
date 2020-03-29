@@ -1,9 +1,8 @@
-(function (app, ng) {
-    app.component("home",
-        {
-            templateUrl: '/app/states/home/home.template.html',
-            controller: homeController
-        });
+(function(app, ng) {
+    app.component("home", {
+        templateUrl: '/app/states/home/home.template.html',
+        controller: homeController
+    });
 
     homeController.$inject = ['projectListFactory'];
 
@@ -18,4 +17,3 @@
     app.controller('homeController', homeController);
 
 })(window.app, window.angular);
-

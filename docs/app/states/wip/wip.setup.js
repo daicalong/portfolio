@@ -1,21 +1,18 @@
-app.component("wip",
-    {
+(function(app, ng) {
+    app.component("wip", {
         templateUrl: '/app/states/wip/wip.template.html',
         controller: wipController
     });
+    app.controller('wipController', wipController);
+    wipController.$inject = ['projectListFactory'];
 
-function wipController(wpFactory) {
-    var $ctrl = this;
+    function wipController(wpFactory) {
+        var $ctrl = this;
 
-    $ctrl.$onInit = () => {
-        // wpFactory.getPosts(1).then((response) => {
-        //     $ctrl.posts = response;
+        $ctrl.$onInit = () => {
 
-        //     response.forEach((el) => {
-        //         console.log(el);
-        //     });
-        // });
-    };
-}
+        };
+    }
 
-app.controller('wipController', wipController);
+
+})(window.app, window.angular);
