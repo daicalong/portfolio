@@ -27,7 +27,7 @@
             </a>
             <ul class="list-reset flex flex-col text-center my-2">
                 <li ng-repeat="nav in $ctrl.nav">
-                    <a ui-sref="{{nav.url}}" ui-sref-active="nav__link--is-active" class="nav__link px-2 py-1 md:py-2 mx-2" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
+                    <a ui-sref="{{nav.url}}" ui-sref-active="nav__link--is-active" class="nav__link px-2 py-1 md:py-2 mx-2 mb-1" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
                         <i class="fig-24px {{nav.iconClass}} mr-1"></i>
                         <span>{{nav.title}}</span>
                     </a>
