@@ -56,6 +56,7 @@ module.exports = function(grunt) {
                     "./node_modules/@uirouter/angularjs/release/angular-ui-router.js",
                     "./node_modules/angular-animate/angular-animate.min.js",
                     "./node_modules/angular-loading-bar/build/loading-bar.min.js",
+                    "./node_modules/angular-cookies/angular-cookies.js",
                 ],
                 dest: "./tmp/libs.js",
                 options: {

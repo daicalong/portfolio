@@ -3,18 +3,18 @@ module.exports = {
     corePlugins: {
         float: false,
         clear: false,
-        objectFit: false,
+        // objectFit: false,
         objectPosition: false,
-        gridTemplateColumns: false,
-        gridColumn: false,
-        gridColumnStart: false,
-        gridColumnStartEnd: false,
-        gridTemplateRows: false,
-        gridRow: false,
-        gridRowStart: false,
-        gridRowEnd: false,
-        gap: false,
-        gridAutoFlow: false,
+        // gridTemplateColumns: false,
+        // gridColumn: false,
+        // gridColumnStart: false,
+        // gridColumnStartEnd: false,
+        // gridTemplateRows: false,
+        // gridRow: false,
+        // gridRowStart: false,
+        // gridRowEnd: false,
+        // gap: false,
+        // gridAutoFlow: false,
         placeholderColor: false,
         borderCollapse: false,
         tableLayout: false,
@@ -64,16 +64,14 @@ module.exports = {
             '192': '192rem'
         },
         fontSize: {
-            'xs': '1rem',
-            'sm': '1.2rem',
-            'base': '1.4rem',
-            'lg': '1.6rem',
-            'xl': '1.8rem',
-            '2xl': '1.5rem',
-            '3xl': '2.4rem',
-            '4xl': '3.2rem',
-            '5xl': '3.6rem',
-            '6xl': '4.8rem',
+            'xs': '1.2rem',
+            'sm': '1.4rem',
+            'base': '1.6rem',
+            'lg': '1.8rem',
+            'xl': '2.4rem',
+            '2xl': '3.6rem',
+            '3xl': '4.8rem',
+            '4xl': '6.4rem',
         },
         container: {
             center: true,
@@ -165,6 +163,10 @@ module.exports = {
             colors: {
                 'black-1/2': 'rgba(0, 0, 0, .5)',
                 'black-3/4': 'rgba(0, 0, 0, .75)'
+            },
+            translate: {
+                'px': '1px',
+                '.4': '.4rem'
             }
         }
     }

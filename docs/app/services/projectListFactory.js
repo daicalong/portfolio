@@ -1,10 +1,10 @@
 (function(app) {
-    app.factory("projectListFactory", ['projectListValue',
-        function projectListFactory(projectListValue) {
+    app.factory("projectListFactory", ['projectListValue', '$q',
+        function projectListFactory(projectListValue, $q) {
 
             const getProjectList = (category) => {
-                if (category) return projectListValue.filter(element => element.category === category);
-                return projectListValue;
+                if (!category) return projectListValue;
+                return projectListValue.filter(element => element.category === category);
             };
 
             const getHighlightList = (isStarred) => {

@@ -1,7 +1,7 @@
 'use strict';
 (function(ng, window, doc, module) {
 
-    var dependencies = ['ui.router', 'angular-loading-bar', 'ngAnimate'];
+    var dependencies = ['ui.router', 'angular-loading-bar', 'ngAnimate', 'ngCookies'];
 
     window.app = ng.module(module, dependencies);
 

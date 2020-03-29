@@ -1,8 +1,15 @@
-<section class="container">
-    <ul class="list-reset w-full flex flex-row flex-wrap">
-        <li ng-repeat="item in $ctrl.projectList" class="flex lg:flex-1/3 sm:flex-auto flex:1/2 p-1 h-25.6">
-            <a ui-sref="Main.Projects.Details({projectName: item.name})" aria-label="Link to {{item.name}}" class="p-2 bg-gray-darker flex-grow flex flex-col rounded bg-center bg-no-repeat bg-cover outline-none shadow hover:shadow-lg transition duration-150" style="background-image: url('/assets/images/gallery/{{item.img}}')">
-                <div class="flex flex-col mt-auto">
+<section class="container md:px-4 my-4 grid grid-cols-6 gap-4">
+    <div class="col-span-6 flex items-center">
+        <label class="text-sm text-white mr-2">Filters:</label>
+        <button ng-repeat="cat in $ctrl.categories | orderBy: 'name'" class="btn btn--icon btn--toggle mr-1" aria-label="{{cat.name}}" title="{{cat.name}}" ng-class="{'btn--toggle-on': cat.name === $ctrl.selectedCategory}" ng-click="$ctrl.filterByCategory(cat.name)">
+            <i class="fig-24px {{cat.icon}}"></i>
+        </button>
+        <button class="btn btn--icon btn--warning ml-1" ng-disabled="!$ctrl.selectedCategory" aria-label="Clear filters" title="Clear filters" ng-click="$ctrl.filterByCategory()"><i class="fig-24px fig-cancel"></i></button>
+    </div>
+    <ul class="list-reset w-full grid lg:grid-cols-3 col-span-6 gap-2">
+        <li ng-repeat="item in $ctrl.projectList | orderBy: 'category'" class="gallery-item">
+            <a ui-sref="Main.Projects.Details({projectName: item.name})" aria-label="Link to {{item.name}}" class="card h-25.6" style="background-image: url('/assets/images/gallery/{{item.img}}')">
+                <div class="card__content--btm">
                     <h4 class="heading text-pink">{{item.name}}</h4>
                     <label class="label text-gray-dark">{{item.date | date: 'shortDate'}}</label>
                 </div>
