@@ -1,9 +1,8 @@
-(function (app, ng) {
-    app.component("ux",
-        {
-            templateUrl: '/app/states/ux/ux.template.html',
-            controller: uxController
-        });
+(function(app, ng) {
+    app.component("ux", {
+        templateUrl: '/app/states/project/ux/ux.template.html',
+        controller: uxController
+    });
 
     app.controller('uxController', uxController);
 

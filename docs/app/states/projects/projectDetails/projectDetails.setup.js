@@ -1,11 +1,8 @@
-(function (app, ng) {
-
-
-    app.component('projectDetails',
-        {
-            templateUrl: '/app/states/projectDetails/projectDetails.template.html',
-            controller: projectDetailsController
-        });
+(function(app, ng) {
+    app.component('projectDetails', {
+        templateUrl: '/app/states/projects/projectDetails/projectDetails.template.html',
+        controller: projectDetailsController
+    });
 
     app.controller('projectDetailsController', projectDetailsController);
 
@@ -13,11 +10,10 @@
 
     function projectDetailsController(projectListFactory, $stateParams) {
         let $ctrl = this;
-        
+
         $ctrl.$onInit = () => {
             $ctrl.project = projectListFactory.getProjectById($stateParams.projectName);
             console.log($ctrl.project);
         }
     }
 })(window.app, window.angular);
-

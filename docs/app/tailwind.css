@@ -1,81 +1,149 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700');
-@import url('https://fonts.googleapis.com/css?family=Proza+Libre:500&display=swap');
-@import url('https://i.icomoon.io/public/812c8e0906/FIGIcons/style.css');
-
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Proza+Libre:500&display=swap");
+@import url("https://i.icomoon.io/public/812c8e0906/FIGIcons/style.css");
 @tailwind base;
-
 @tailwind components;
-
+@tailwind utilities;
 html {
-    @apply font-body;
+  @apply font-body;
+  font-size: 62.5%;
 }
 
-app {
-    @apply flex flex-col min-h-screen;
+main {
+  @apply flex min-h-screen;
 }
 
 .mobile-nav {
-    top: 100%;
+  top: 100%;
 }
 
-.nav__link--is-active {
-    @apply text-pink;
+.nav-button {
+  @apply flex flex-col justify-center items-center border w-3.6 h-3.6 text-pink-light rounded;
 }
 
-.nav__link--is-active::after{
-    @apply bg-pink absolute bottom-0 left-0 w-full h-1;
-    content: '';
+.nav-button .before,
+.nav-button .after {
+  @apply w-1.8 h-px bg-pink-light my-px transition duration-200;
 }
 
-
-.loading-container, #loading-bar {
-    @apply bg-white;
-    transition: opacity 350ms ease;
-    position: fixed;
-    display: flex;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 101;
+.nav-button.nav-button--open .before {
+  @apply my-0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
+
+.nav-button.nav-button--open .after {
+  @apply my-0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.nav {
+  @apply transition duration-200 fixed inset-y-0 left-0 w-2/3 top-0 z-30 bg-gray-darkest flex flex-col;
+}
+
+@screen md {
+  .nav {
+    @apply w-25.6;
+  }
+  .nav.nav--open, .nav.nav--closed {
+    -webkit-transform: translateX(0) !important;
+            transform: translateX(0) !important;
+  }
+}
+
+.nav.nav--open {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.nav.nav--closed {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.nav .nav__link {
+  @apply relative flex justify-center items-center tracking-wide text-xs uppercase font-semibold no-underline p-2 mx-2 transition duration-150;
+}
+
+.nav .nav__link:hover {
+  @apply text-pink;
+}
+
+.nav .nav__link::after {
+  @apply transform scale-x-0 origin-center transition duration-200 bg-pink absolute bottom-0 left-0 w-full h-.4;
+  content: "";
+}
+
+.nav .nav__link.nav__link--is-active {
+  @apply text-pink;
+}
+
+.nav .nav__link.nav__link--is-active::after {
+  @apply scale-x-100;
+  content: "";
+}
+
+@screen lg {
+  .nav .nav__link {
+    @apply text-sm;
+  }
+}
+
+.loading-container,
+#loading-bar {
+  @apply bg-white;
+  -webkit-transition: opacity 350ms ease;
+  transition: opacity 350ms ease;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.loading-container .bar,
 #loading-bar .bar {
-    transition: width ease 200ms;
-    margin: auto 0;
-    height: 18px;
-    @apply bg-pink;
+  -webkit-transition: width ease 200ms;
+  transition: width ease 200ms;
+  margin: auto 0;
+  height: 18px;
+  @apply bg-pink;
 }
 
 .heading {
-    @apply my-2 font-display leading-tight;
+  @apply my-.8 text-lg font-display leading-tight;
 }
 
 .label {
-    @apply text-sm my-1 text-gray;
+  @apply text-sm my-.4 text-gray;
 }
 
 .loading {
-    @apply bg-blue;
+  @apply bg-blue;
 }
 
 .fig-18px::before {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .fig-24px::before {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .fig-36px::before {
-    font-size: 36px;
+  font-size: 36px;
 }
 
 .fig-48px::before {
-    font-size: 48px;
+  font-size: 48px;
 }
 
 .bg-img {
-    background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+  background-image: url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
 }
-
-@tailwind utilities;
+/*# sourceMappingURL=tailwind.css.map */

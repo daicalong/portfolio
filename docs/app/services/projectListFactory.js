@@ -1,20 +1,21 @@
-(function (app) {
-    app.factory("projectListFactory", ['projectGalleryValue',
-        function projectListFactory(projectGalleryValue) {
+(function(app) {
+    app.factory("projectListFactory", ['projectListValue',
+        function projectListFactory(projectListValue) {
 
             const getProjectList = (category) => {
-                return projectGalleryValue.filter(element => element.category === category);
+                if (category) return projectListValue.filter(element => element.category === category);
+                return projectListValue;
             };
 
             const getHighlightList = (isStarred) => {
-                return projectGalleryValue.filter(element => element.starred === isStarred);
+                return projectListValue.filter(element => element.starred === isStarred);
             };
 
-            const getProjectById = (projectName) => {  
-                return projectGalleryValue.find(project => project.name == projectName);
+            const getProjectById = (projectName) => {
+                return projectListValue.find(project => project.name == projectName);
             }
 
-                return {
+            return {
                 getProjectList: getProjectList,
                 getHighlightList: getHighlightList,
                 getProjectById: getProjectById
