@@ -28,7 +28,7 @@ main {
 }
 
 .nav-button {
-    @apply relative flex flex-col justify-center items-center w-4.8 h-4.8 text-pink-light rounded transition duration-150;
+    @apply relative px-1 flex items-center h-4.8 text-pink-light rounded transition duration-150;
     .before,
     .after {
         @apply absolute w-3.6 h-.2 bg-pink-light inset-auto transition duration-200 transform origin-center;
@@ -41,11 +41,20 @@ main {
     }
     &:hover {
         @apply text-pink-dark;
+        .before,
+        .after {
+            @apply bg-pink-dark;
+        }
     }
     &:focus {
         @apply outline-none;
     }
     &.nav-button--open {
+        @apply text-yellow;
+        .before,
+        .after {
+            @apply bg-yellow;
+        }
         .before {
             @apply my-0;
             @apply translate-y-0 rotate-45;
