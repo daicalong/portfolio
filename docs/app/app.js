@@ -26,7 +26,7 @@
             }
         }
 
-        $stateProvider.state(new stateObj('Main', '', 'main', 'Main.WIP'));
+        $stateProvider.state(new stateObj('Main', '', 'main', 'Main.Home'));
         $stateProvider.state(new stateObj('Main.Home', '/Home', 'home', false));
         $stateProvider.state(new stateObj('Main.Projects', '/Projects', 'projects', 'Main.Projects.Overview'));
         $stateProvider.state(new stateObj('Main.Projects.Overview', '', 'overview', false));

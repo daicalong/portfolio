@@ -58,7 +58,7 @@ main {
         transform: translateX(-100%);
     }
     .nav__link {
-        @apply relative flex justify-center items-center tracking-wide text-xs uppercase font-semibold no-underline p-2 mx-2 transition duration-150;
+        @apply relative flex justify-center items-center tracking-wide text-sm uppercase font-semibold no-underline transition duration-150;
         &:hover {
             @apply text-pink;
         }
@@ -89,7 +89,7 @@ main {
 @screen lg {
     .nav {
         .nav__link {
-            @apply text-sm;
+            @apply text-base;
         }
     }
 }
@@ -259,12 +259,16 @@ overview {
 }
 
 .card {
-    @apply bg-gray-darker flex-grow flex flex-col overflow-hidden rounded bg-center bg-no-repeat bg-cover outline-none transition duration-150;
-    &:hover {
+    @apply bg-gray-darker flex-grow flex overflow-hidden rounded bg-center bg-no-repeat bg-cover outline-none transition duration-150;
+    &:hover,
+    &:focus {
         @apply shadow-outline;
     }
-    .card__content--btm {
-        @apply mt-auto bg-black-3/4 p-2;
+    .card__content {
+        @apply flex flex-col justify-center items-center flex-grow bg-black-3/4 p-2 transition duration-150;
+        &:hover {
+            @apply bg-black-1/2;
+        }
     }
 }
 
