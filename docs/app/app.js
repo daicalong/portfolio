@@ -1,28 +1,41 @@
 'use strict';
+(function(ng, window, doc, module) {
 
-// Declare app level module which depends on views, and core components
-let app = angular.module('hatomi', ['ui.router']);
+    var dependencies = ['ui.router', 'angular-loading-bar', 'ngAnimate', 'ngCookies'];
 
-app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    window.app = ng.module(module, dependencies);
 
-  class stateObj {
-    constructor(name, url, component, redirectTo) {
-      this.name = name;
-      this.url = url;
-      this.component = component || null;
-      this.redirectTo = redirectTo || null;
+    function bootstrap() {
+        ng.element(doc).ready(function() {
+            ng.bootstrap(doc, [module], { strictDi: true });
+        });
     }
-  }
 
-  $stateProvider.state(new stateObj('Base', '', 'base', 'Base.WIP'));
-  $stateProvider.state(new stateObj('Base.Home', '/Home', 'home', false));
-  $stateProvider.state(new stateObj('Base.Works', '/Works', 'works', 'Base.Works.UX'));
-  $stateProvider.state(new stateObj('Base.Works.UX', '/UX', 'ux', false));
-  $stateProvider.state(new stateObj('Base.Works.Illustration', '/Illustration', 'illustration', false));
-  $stateProvider.state(new stateObj('Base.Works.Other', '/Other', 'otherWorks', false));
-  $stateProvider.state(new stateObj('Base.WIP', '/WIP', 'wip', false));
+    bootstrap();
+})(window.angular, window, window.document, 'hatomi'); //jshint ignore:line
 
-  $urlRouterProvider.otherwise('/WIP');
-}]);
+(function(app) {
+    app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
+        class stateObj {
+            constructor(name, url, component, redirectTo) {
+                this.name = name;
+                this.url = url;
+                this.component = component || null;
+                this.redirectTo = redirectTo || null;
+            }
+        }
 
+        $stateProvider.state(new stateObj('Main', '', 'main', 'Main.Home'));
+        $stateProvider.state(new stateObj('Main.Home', '/Home', 'home', false));
+        $stateProvider.state(new stateObj('Main.Projects', '/Projects', 'projects', 'Main.Projects.Overview'));
+        $stateProvider.state(new stateObj('Main.Projects.Overview', '', 'overview', false));
+        $stateProvider.state(new stateObj('Main.Projects.UX', '/UX', 'ux', false));
+        $stateProvider.state(new stateObj('Main.Projects.Details', '/{projectName}', 'projectDetails', false));
+        $stateProvider.state(new stateObj('Main.Projects.Illustration', '/Illustration', 'illustration', false));
+        $stateProvider.state(new stateObj('Main.Projects.Other', '/Other', 'otherWorks', false));
+        $stateProvider.state(new stateObj('Main.WIP', '/WIP', 'wip', false));
+
+        $urlRouterProvider.otherwise('/Home');
+    }]);
+})(window.app);

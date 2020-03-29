@@ -1,5 +1,17 @@
-<div class="container mx-auto px-2 my-8">
-    <p class="text my-3"><span class="text-4xl font-display text-pink leading-tight">I am a designer</span> but that's not quite accurate. nteger elementum ante nunc, ac consequat sapien fermentum ac. Nunc nisl purus, mattis vel pretium ac, posuere et risus. Ut in felis consectetur, congue urna id, blandit ex. Morbi sed dapibus urna. Phasellus vehicula semper neque, quis scelerisque lacus eleifend vel. Suspendisse ac ante a dolor gravida consequat nec sed mauris.</p>
-    <p class="text my-3">Cras vitae leo blandit, gravida lorem nec, sollicitudin dolor. Duis odio lorem, sollicitudin et urna sit amet, ullamcorper dictum libero. Suspendisse et ullamcorper lectus, eget iaculis lorem. Morbi auctor lorem quis gravida molestie. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean et rhoncus odio. Quisque nec laoreet risus.</p>
-</div>
-
+<section class="container mx-auto lg:px-7.2 my-2">
+    <h2 class="text-3xl font-display text-pink leading-tight text-center capitalize">Some heading</h2>
+    <p class="text-base my-2"> but that's not quite accurate. nteger elementum ante nunc, ac consequat sapien fermentum ac. Nunc nisl purus, mattis vel pretium ac, posuere et risus. Ut in felis consectetur, congue urna id, blandit ex. Morbi sed dapibus urna. Phasellus vehicula
+        semper neque, quis scelerisque lacus eleifend vel. Suspendisse ac ante a dolor gravida consequat nec sed mauris.</p>
+</section>
+<section class="container mx-auto lg:px-7.2 my-2">
+    <ul class="list-reset w-full flex flex-col">
+        <li ng-repeat="item in $ctrl.highlightProjectList">
+            <a ui-sref="Main.Projects.Details({projectName: item.name})" aria-label="Link to {{item.name}}" class="h-25.6 bg-white my-2 p-2 flex flex-col rounded bg-center bg-no-repeat bg-cover outline-none shadow hover:shadow-lg transition duration-150" style="background-image: url('/assets/images/gallery/{{item.img}}')">
+                <div class="flex flex-col mt-auto">
+                    <h4 class="heading text-pink">{{item.name}}</h4>
+                    <label class="label text-gray-dark">{{item.date | date: 'shortDate'}}</label>
+                </div>
+            </a>
+        </li>
+    </ul>
+</section>
