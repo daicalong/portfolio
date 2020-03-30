@@ -64,14 +64,13 @@ module.exports = {
             '192': '192rem'
         },
         fontSize: {
-            'xs': '1.2rem',
-            'sm': '1.4rem',
-            'base': '1.6rem',
-            'lg': '1.8rem',
-            'xl': '2.4rem',
-            '2xl': '3.6rem',
-            '3xl': '4.8rem',
-            '4xl': '6.4rem',
+            'xs': '1.4rem',
+            'sm': '1.6rem',
+            'base': '1.8rem',
+            'lg': '2.4rem',
+            'xl': '3.6rem',
+            '2xl': '4.8rem',
+            '3xl': '6.4rem'
         },
         container: {
             center: true,
@@ -150,7 +149,8 @@ module.exports = {
         borderRadius: {
             sm: '0.25rem',
             default: '0.5rem',
-            lg: '1.25rem'
+            lg: '1.25rem',
+            full: '9999px'
         },
         extend: {
             minHeight: {
