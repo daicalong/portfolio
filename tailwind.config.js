@@ -1,4 +1,60 @@
 // tailwind.config.js
+const colors = {
+    transparent: 'transparent',
+
+    black: '#000',
+    white: '#fff',
+
+    gray: {
+        lightest: '#f5f5f5',
+        lighter: '#d9d9d9',
+        light: '#c1c1c1',
+        default: '#919191',
+        dark: '#7a7a7a',
+        darker: '#343434',
+        darkest: '#171717',
+    },
+    red: {
+        lightest: '#fed7d7',
+        lighter: '#feb2b2',
+        light: '#fc8181',
+        default: '#f56565',
+        dark: '#e53e3e',
+        darker: '#c53030',
+        darkest: '#9b2c2c',
+    },
+    green: {
+        lightest: '#c6f6d5',
+        lighter: '#9ae6b4',
+        light: '#68d391',
+        default: '#48bb78',
+        dark: '#38a169',
+        darker: '#2f855a',
+        darkest: '#276749',
+    },
+    blue: {
+        lightest: '#bee3f8',
+        lighter: '#90cdf4',
+        light: '#63b3ed',
+        default: '#4299e1',
+        dark: '#0d23b5',
+        darker: '#2b6cb0',
+        darkest: '#2c5282',
+    },
+    pink: {
+        lightest: '#FF9EC3',
+        lighter: '#F2186C',
+        light: '#ff3180',
+        default: '#DE1663',
+        dark: '#A6114A',
+        darker: '#800D39',
+        darkest: '#590928',
+    },
+    yellow: {
+        default: '#e3df00'
+    }
+};
+
 module.exports = {
     corePlugins: {
         float: false,
@@ -78,59 +134,7 @@ module.exports = {
             padding: '1rem'
         },
         colors: {
-            transparent: 'transparent',
-
-            black: '#000',
-            white: '#fff',
-
-            gray: {
-                lightest: '#f5f5f5',
-                lighter: '#d9d9d9',
-                light: '#c1c1c1',
-                default: '#919191',
-                dark: '#7a7a7a',
-                darker: '#343434',
-                darkest: '#171717',
-            },
-            red: {
-                lightest: '#fed7d7',
-                lighter: '#feb2b2',
-                light: '#fc8181',
-                default: '#f56565',
-                dark: '#e53e3e',
-                darker: '#c53030',
-                darkest: '#9b2c2c',
-            },
-            green: {
-                lightest: '#c6f6d5',
-                lighter: '#9ae6b4',
-                light: '#68d391',
-                default: '#48bb78',
-                dark: '#38a169',
-                darker: '#2f855a',
-                darkest: '#276749',
-            },
-            blue: {
-                lightest: '#bee3f8',
-                lighter: '#90cdf4',
-                light: '#63b3ed',
-                default: '#4299e1',
-                dark: '#0d23b5',
-                darker: '#2b6cb0',
-                darkest: '#2c5282',
-            },
-            pink: {
-                lightest: '#FF9EC3',
-                lighter: '#F2186C',
-                light: '#ff3180',
-                default: '#DE1663',
-                dark: '#A6114A',
-                darker: '#800D39',
-                darkest: '#590928',
-            },
-            yellow: {
-                default: '#e3df00'
-            }
+            ...colors
         },
         fill: {
             pink: '#DE1663',

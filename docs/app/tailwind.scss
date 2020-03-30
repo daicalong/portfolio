@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700");
 @import url("https://fonts.googleapis.com/css?family=Proza+Libre:500&display=swap");
 @import url("https://i.icomoon.io/public/812c8e0906/FIGIcons/style.css");
-
 @tailwind base;
+
 /*Extend base elements after this point*/
+
 html {
     @apply font-body;
-    font-size: 62.5%;
+    font-size: 50%;
 }
 
 main {
@@ -14,6 +15,7 @@ main {
 }
 
 @tailwind components;
+
 /*Write custom components after this point*/
 
 //btn components
@@ -215,7 +217,7 @@ main {
 }
 
 .heading {
-    @apply font-display leading-tight text-lg tracking-wide ;
+    @apply font-display leading-tight text-lg tracking-wide;
 }
 
 .label {
@@ -245,7 +247,6 @@ main {
 .bg-img {
     background-image: url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
 }
-
 
 overview {
     .gallery-item {
@@ -287,10 +288,9 @@ overview {
     transform: translate(-50%, -50%);
 }
 
-
 @tailwind utilities;
-/*Write custom utils after this point*/
 
+/*Write custom utils after this point*/
 
 
 /*# sourceMappingURL=tailwind.css.map */
