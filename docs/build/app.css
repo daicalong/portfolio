@@ -1403,6 +1403,9 @@ video {
 .rounded-lg {
   border-radius: 1.25rem; }
 
+.rounded-full {
+  border-radius: 9999px; }
+
 .rounded-t-sm {
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem; }
@@ -1451,6 +1454,22 @@ video {
   border-top-left-radius: 1.25rem;
   border-bottom-left-radius: 1.25rem; }
 
+.rounded-t-full {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px; }
+
+.rounded-r-full {
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px; }
+
+.rounded-b-full {
+  border-bottom-right-radius: 9999px;
+  border-bottom-left-radius: 9999px; }
+
+.rounded-l-full {
+  border-top-left-radius: 9999px;
+  border-bottom-left-radius: 9999px; }
+
 .rounded-tl-sm {
   border-top-left-radius: 0.25rem; }
 
@@ -1486,6 +1505,18 @@ video {
 
 .rounded-bl-lg {
   border-bottom-left-radius: 1.25rem; }
+
+.rounded-tl-full {
+  border-top-left-radius: 9999px; }
+
+.rounded-tr-full {
+  border-top-right-radius: 9999px; }
+
+.rounded-br-full {
+  border-bottom-right-radius: 9999px; }
+
+.rounded-bl-full {
+  border-bottom-left-radius: 9999px; }
 
 .border-solid {
   border-style: solid; }
@@ -5418,27 +5449,24 @@ video {
   color: rgba(0, 0, 0, 0.75); }
 
 .text-xs {
-  font-size: 1.2rem; }
-
-.text-sm {
   font-size: 1.4rem; }
 
-.text-base {
+.text-sm {
   font-size: 1.6rem; }
 
-.text-lg {
+.text-base {
   font-size: 1.8rem; }
 
-.text-xl {
+.text-lg {
   font-size: 2.4rem; }
 
-.text-2xl {
+.text-xl {
   font-size: 3.6rem; }
 
-.text-3xl {
+.text-2xl {
   font-size: 4.8rem; }
 
-.text-4xl {
+.text-3xl {
   font-size: 6.4rem; }
 
 .italic {
@@ -8591,7 +8619,7 @@ main {
       transform: translateX(0) !important; } }
   @media (min-width: 1280px) {
     .nav .nav__link {
-      font-size: 1.6rem; } }
+      font-size: 1.8rem; } }
   .nav.nav--open {
     transform: translateX(0); }
   .nav.nav--closed {
@@ -8602,7 +8630,7 @@ main {
     justify-content: center;
     align-items: center;
     letter-spacing: 0.025em;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     text-transform: uppercase;
     font-weight: 600;
     text-decoration: none;
@@ -8685,7 +8713,7 @@ main {
   display: inline-block;
   background-color: #DE1663;
   letter-spacing: 0.05em;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: #fff;
   text-transform: uppercase;
   font-weight: 700;
@@ -8804,6 +8832,9 @@ overview .gallery-item {
       background-color: rgba(0, 0, 0, 0.5); }
 
 .temp-heading {
+  position: fixed;
+  z-index: 20;
+  width: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); }
@@ -9391,6 +9422,8 @@ overview .gallery-item {
     border-radius: 0.5rem; }
   .sm\:rounded-lg {
     border-radius: 1.25rem; }
+  .sm\:rounded-full {
+    border-radius: 9999px; }
   .sm\:rounded-t-sm {
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem; }
@@ -9427,6 +9460,18 @@ overview .gallery-item {
   .sm\:rounded-l-lg {
     border-top-left-radius: 1.25rem;
     border-bottom-left-radius: 1.25rem; }
+  .sm\:rounded-t-full {
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px; }
+  .sm\:rounded-r-full {
+    border-top-right-radius: 9999px;
+    border-bottom-right-radius: 9999px; }
+  .sm\:rounded-b-full {
+    border-bottom-right-radius: 9999px;
+    border-bottom-left-radius: 9999px; }
+  .sm\:rounded-l-full {
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px; }
   .sm\:rounded-tl-sm {
     border-top-left-radius: 0.25rem; }
   .sm\:rounded-tr-sm {
@@ -9451,6 +9496,14 @@ overview .gallery-item {
     border-bottom-right-radius: 1.25rem; }
   .sm\:rounded-bl-lg {
     border-bottom-left-radius: 1.25rem; }
+  .sm\:rounded-tl-full {
+    border-top-left-radius: 9999px; }
+  .sm\:rounded-tr-full {
+    border-top-right-radius: 9999px; }
+  .sm\:rounded-br-full {
+    border-bottom-right-radius: 9999px; }
+  .sm\:rounded-bl-full {
+    border-bottom-left-radius: 9999px; }
   .sm\:border-solid {
     border-style: solid; }
   .sm\:border-dashed {
@@ -12153,20 +12206,18 @@ overview .gallery-item {
   .sm\:focus\:text-black-3\/4:focus {
     color: rgba(0, 0, 0, 0.75); }
   .sm\:text-xs {
-    font-size: 1.2rem; }
-  .sm\:text-sm {
     font-size: 1.4rem; }
-  .sm\:text-base {
+  .sm\:text-sm {
     font-size: 1.6rem; }
-  .sm\:text-lg {
+  .sm\:text-base {
     font-size: 1.8rem; }
-  .sm\:text-xl {
+  .sm\:text-lg {
     font-size: 2.4rem; }
-  .sm\:text-2xl {
+  .sm\:text-xl {
     font-size: 3.6rem; }
-  .sm\:text-3xl {
+  .sm\:text-2xl {
     font-size: 4.8rem; }
-  .sm\:text-4xl {
+  .sm\:text-3xl {
     font-size: 6.4rem; }
   .sm\:italic {
     font-style: italic; }
@@ -14867,6 +14918,8 @@ overview .gallery-item {
     border-radius: 0.5rem; }
   .md\:rounded-lg {
     border-radius: 1.25rem; }
+  .md\:rounded-full {
+    border-radius: 9999px; }
   .md\:rounded-t-sm {
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem; }
@@ -14903,6 +14956,18 @@ overview .gallery-item {
   .md\:rounded-l-lg {
     border-top-left-radius: 1.25rem;
     border-bottom-left-radius: 1.25rem; }
+  .md\:rounded-t-full {
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px; }
+  .md\:rounded-r-full {
+    border-top-right-radius: 9999px;
+    border-bottom-right-radius: 9999px; }
+  .md\:rounded-b-full {
+    border-bottom-right-radius: 9999px;
+    border-bottom-left-radius: 9999px; }
+  .md\:rounded-l-full {
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px; }
   .md\:rounded-tl-sm {
     border-top-left-radius: 0.25rem; }
   .md\:rounded-tr-sm {
@@ -14927,6 +14992,14 @@ overview .gallery-item {
     border-bottom-right-radius: 1.25rem; }
   .md\:rounded-bl-lg {
     border-bottom-left-radius: 1.25rem; }
+  .md\:rounded-tl-full {
+    border-top-left-radius: 9999px; }
+  .md\:rounded-tr-full {
+    border-top-right-radius: 9999px; }
+  .md\:rounded-br-full {
+    border-bottom-right-radius: 9999px; }
+  .md\:rounded-bl-full {
+    border-bottom-left-radius: 9999px; }
   .md\:border-solid {
     border-style: solid; }
   .md\:border-dashed {
@@ -17629,20 +17702,18 @@ overview .gallery-item {
   .md\:focus\:text-black-3\/4:focus {
     color: rgba(0, 0, 0, 0.75); }
   .md\:text-xs {
-    font-size: 1.2rem; }
-  .md\:text-sm {
     font-size: 1.4rem; }
-  .md\:text-base {
+  .md\:text-sm {
     font-size: 1.6rem; }
-  .md\:text-lg {
+  .md\:text-base {
     font-size: 1.8rem; }
-  .md\:text-xl {
+  .md\:text-lg {
     font-size: 2.4rem; }
-  .md\:text-2xl {
+  .md\:text-xl {
     font-size: 3.6rem; }
-  .md\:text-3xl {
+  .md\:text-2xl {
     font-size: 4.8rem; }
-  .md\:text-4xl {
+  .md\:text-3xl {
     font-size: 6.4rem; }
   .md\:italic {
     font-style: italic; }
@@ -20343,6 +20414,8 @@ overview .gallery-item {
     border-radius: 0.5rem; }
   .lg\:rounded-lg {
     border-radius: 1.25rem; }
+  .lg\:rounded-full {
+    border-radius: 9999px; }
   .lg\:rounded-t-sm {
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem; }
@@ -20379,6 +20452,18 @@ overview .gallery-item {
   .lg\:rounded-l-lg {
     border-top-left-radius: 1.25rem;
     border-bottom-left-radius: 1.25rem; }
+  .lg\:rounded-t-full {
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px; }
+  .lg\:rounded-r-full {
+    border-top-right-radius: 9999px;
+    border-bottom-right-radius: 9999px; }
+  .lg\:rounded-b-full {
+    border-bottom-right-radius: 9999px;
+    border-bottom-left-radius: 9999px; }
+  .lg\:rounded-l-full {
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px; }
   .lg\:rounded-tl-sm {
     border-top-left-radius: 0.25rem; }
   .lg\:rounded-tr-sm {
@@ -20403,6 +20488,14 @@ overview .gallery-item {
     border-bottom-right-radius: 1.25rem; }
   .lg\:rounded-bl-lg {
     border-bottom-left-radius: 1.25rem; }
+  .lg\:rounded-tl-full {
+    border-top-left-radius: 9999px; }
+  .lg\:rounded-tr-full {
+    border-top-right-radius: 9999px; }
+  .lg\:rounded-br-full {
+    border-bottom-right-radius: 9999px; }
+  .lg\:rounded-bl-full {
+    border-bottom-left-radius: 9999px; }
   .lg\:border-solid {
     border-style: solid; }
   .lg\:border-dashed {
@@ -23105,20 +23198,18 @@ overview .gallery-item {
   .lg\:focus\:text-black-3\/4:focus {
     color: rgba(0, 0, 0, 0.75); }
   .lg\:text-xs {
-    font-size: 1.2rem; }
-  .lg\:text-sm {
     font-size: 1.4rem; }
-  .lg\:text-base {
+  .lg\:text-sm {
     font-size: 1.6rem; }
-  .lg\:text-lg {
+  .lg\:text-base {
     font-size: 1.8rem; }
-  .lg\:text-xl {
+  .lg\:text-lg {
     font-size: 2.4rem; }
-  .lg\:text-2xl {
+  .lg\:text-xl {
     font-size: 3.6rem; }
-  .lg\:text-3xl {
+  .lg\:text-2xl {
     font-size: 4.8rem; }
-  .lg\:text-4xl {
+  .lg\:text-3xl {
     font-size: 6.4rem; }
   .lg\:italic {
     font-style: italic; }
@@ -25819,6 +25910,8 @@ overview .gallery-item {
     border-radius: 0.5rem; }
   .xl\:rounded-lg {
     border-radius: 1.25rem; }
+  .xl\:rounded-full {
+    border-radius: 9999px; }
   .xl\:rounded-t-sm {
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem; }
@@ -25855,6 +25948,18 @@ overview .gallery-item {
   .xl\:rounded-l-lg {
     border-top-left-radius: 1.25rem;
     border-bottom-left-radius: 1.25rem; }
+  .xl\:rounded-t-full {
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px; }
+  .xl\:rounded-r-full {
+    border-top-right-radius: 9999px;
+    border-bottom-right-radius: 9999px; }
+  .xl\:rounded-b-full {
+    border-bottom-right-radius: 9999px;
+    border-bottom-left-radius: 9999px; }
+  .xl\:rounded-l-full {
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px; }
   .xl\:rounded-tl-sm {
     border-top-left-radius: 0.25rem; }
   .xl\:rounded-tr-sm {
@@ -25879,6 +25984,14 @@ overview .gallery-item {
     border-bottom-right-radius: 1.25rem; }
   .xl\:rounded-bl-lg {
     border-bottom-left-radius: 1.25rem; }
+  .xl\:rounded-tl-full {
+    border-top-left-radius: 9999px; }
+  .xl\:rounded-tr-full {
+    border-top-right-radius: 9999px; }
+  .xl\:rounded-br-full {
+    border-bottom-right-radius: 9999px; }
+  .xl\:rounded-bl-full {
+    border-bottom-left-radius: 9999px; }
   .xl\:border-solid {
     border-style: solid; }
   .xl\:border-dashed {
@@ -28581,20 +28694,18 @@ overview .gallery-item {
   .xl\:focus\:text-black-3\/4:focus {
     color: rgba(0, 0, 0, 0.75); }
   .xl\:text-xs {
-    font-size: 1.2rem; }
-  .xl\:text-sm {
     font-size: 1.4rem; }
-  .xl\:text-base {
+  .xl\:text-sm {
     font-size: 1.6rem; }
-  .xl\:text-lg {
+  .xl\:text-base {
     font-size: 1.8rem; }
-  .xl\:text-xl {
+  .xl\:text-lg {
     font-size: 2.4rem; }
-  .xl\:text-2xl {
+  .xl\:text-xl {
     font-size: 3.6rem; }
-  .xl\:text-3xl {
+  .xl\:text-2xl {
     font-size: 4.8rem; }
-  .xl\:text-4xl {
+  .xl\:text-3xl {
     font-size: 6.4rem; }
   .xl\:italic {
     font-style: italic; }
