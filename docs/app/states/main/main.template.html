@@ -1,15 +1,15 @@
-<header class="md:hidden fixed p-1 z-40 top-0 inset-x-0" ng-class="{'bg-gray-darkest': !$ctrl.mainNav.isOpen}">
+<header class="md:hidden fixed p-10 z-40 top-0 inset-x-0" ng-class="{'bg-gray-darkest': !$ctrl.mainNav.isOpen}">
     <button ng-class="{ 'nav-button--open' : $ctrl.mainNav.isOpen}" class="nav-button" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
         <div class="before"></div>
         <div class="after"></div>
-        <span class="text-base font-display ml-4 pl-.8 uppercase">Menu</span>
+        <span class="text-base font-display ml-40 pl-8 uppercase">Menu</span>
      </button>
 </header>
-<header ng-model="$ctrl.mainNav" ng-class="$ctrl.mainNav.isOpen ? 'nav--open' : 'nav--closed'" class="nav lg:w-32 md:w-25.6 w-2/3 lg:px-2 md:px-1">
-    <nav class="mt-7.2">
+<header ng-model="$ctrl.mainNav" ng-class="$ctrl.mainNav.isOpen ? 'nav--open' : 'nav--closed'" class="nav lg:w-320 md:w-256 w-2/3 lg:px-20 md:px-10">
+    <nav class="mt-72">
         <div class="flex flex-col">
-            <a ui-sref="Main.Home" class="flex items-center p-1 mx-auto" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
-                <svg class="w-4.8 h-4.8" id="expanded" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <a ui-sref="Main.Home" class="flex items-center p-10 mx-auto" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
+                <svg class="w-48 h-48" id="expanded" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <title>hatomi</title>
                     <path d="M5,8A3,3,0,1,1,8,5,3,3,0,0,1,5,8ZM5,3A2,2,0,1,0,7,5,2,2,0,0,0,5,3Z" style="fill:#de1662" />
                     <path d="M5,15a3,3,0,1,1,3-3A3,3,0,0,1,5,15Zm0-5a2,2,0,1,0,2,2A2,2,0,0,0,5,10Z"
@@ -26,10 +26,10 @@
                         style="fill:#0d23b5" />
                 </svg>
             </a>
-            <ul class="list-reset flex flex-col text-center my-2">
+            <ul class="list-reset flex flex-col text-center my-20" >
                 <li ng-repeat="nav in $ctrl.nav">
-                    <a ui-sref="{{nav.url}}" ui-sref-active="nav__link--is-active" class="nav__link px-2 py-1 md:py-2 mx-2 mb-1" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
-                        <i class="fig-24px {{nav.iconClass}} mr-1"></i>
+                    <a ui-sref="{{nav.url}}" ui-sref-active="nav__link--is-active" class="nav__link px-20 py-10 md:py-20 mx-20 mb-10" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
+                        <i class="fig-24px {{nav.iconClass}} mr-10"></i>
                         <span>{{nav.title}}</span>
                     </a>
                 </li>
@@ -38,5 +38,5 @@
     </nav>
     <footer class="mt-auto"></footer>
 </header>
-<ui-view class="flex flex-col flex-grow lg:ml-32 md:ml-25.6 pt-4.8"></ui-view>
+<ui-view class="flex flex-col flex-grow lg:ml-320 md:ml-256 pt-48"></ui-view>
 <span class="inset-0 fixed z-20 bg-black-3/4 md:hidden" ng-class="{'hidden' : !$ctrl.mainNav.isOpen}" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">></span>
