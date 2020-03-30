@@ -1,4 +1,4 @@
-<header class="md:hidden fixed p-1 z-40 top-0 inset-x-0 bg-gray-darkest">
+<header class="md:hidden fixed p-1 z-40 top-0 inset-x-0" ng-class="{'bg-gray-darkest': !$ctrl.mainNav.isOpen}">
     <button ng-class="{ 'nav-button--open' : $ctrl.mainNav.isOpen}" class="nav-button" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
         <div class="before"></div>
         <div class="after"></div>
