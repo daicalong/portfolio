@@ -15,13 +15,13 @@ const colors = {
         darkest: '#171717',
     },
     red: {
-        lightest: '#fed7d7',
-        lighter: '#feb2b2',
-        light: '#fc8181',
-        default: '#f56565',
-        dark: '#e53e3e',
+        lightest: '#FFA8A8',
+        lighter: '#FF7373',
+        light: '#F25A5A',
+        default: '#DE4747',
+        dark: '#BA3C3C',
         darker: '#c53030',
-        darkest: '#9b2c2c',
+        darkest: '#9E2B2B',
     },
     green: {
         lightest: '#c6f6d5',
@@ -33,25 +33,27 @@ const colors = {
         darkest: '#276749',
     },
     blue: {
-        lightest: '#bee3f8',
-        lighter: '#90cdf4',
-        light: '#63b3ed',
-        default: '#4299e1',
-        dark: '#0d23b5',
-        darker: '#2b6cb0',
-        darkest: '#2c5282',
+        lightest: '#8AC4FF',
+        lighter: '#458CFF',
+        light: '#2060F5',
+        default: '#1B35DE',
+        dark: '#182CAD',
+        darker: '#122080',
+        darkest: '#0C1554',
     },
     pink: {
-        lightest: '#FF9EC3',
-        lighter: '#F2186C',
-        light: '#ff3180',
-        default: '#DE1663',
-        dark: '#A6114A',
-        darker: '#800D39',
-        darkest: '#590928',
+        lightest: '#FFBDD1',
+        lighter: '#FF96B6',
+        light: '#FF598B',
+        default: '#F73B74',
+        dark: '#C42756',
+        darker: '#9E2046',
+        darkest: '#801938',
     },
     yellow: {
-        default: '#e3df00'
+        light: '#F5F256',
+        default: '#E3E03D',
+        dark: '#BAB822'
     }
 };
 
@@ -90,6 +92,7 @@ module.exports = {
             '3/4': '75%',
             '2': '.2rem',
             '4': '.4rem',
+            '5': '.5rem',
             '8': '.8rem',
             '10': '1rem',
             '18': '1.8rem',
@@ -131,15 +134,20 @@ module.exports = {
         },
         container: {
             center: true,
-            padding: '1rem'
+            padding: '2rem'
         },
         colors: {
-            ...colors
-        },
-        fill: {
-            pink: '#DE1663',
-            yellow: '#e3df00',
-            blue: '#0d23b5',
+            ...colors,
+            primary: {
+                light: colors.pink.light,
+                default: colors.pink.default,
+                dark: colors.pink.dark
+            },
+            accent: {
+                light: colors.yellow.light,
+                default: colors.yellow.default,
+                dark: colors.yellow.dark
+            },
         },
         screens: {
             sm: '640px',

@@ -26,7 +26,7 @@
                         style="fill:#0d23b5" />
                 </svg>
             </a>
-            <ul class="list-reset flex flex-col text-center my-20" >
+            <ul class="list-reset flex flex-col text-center my-20">
                 <li ng-repeat="nav in $ctrl.nav">
                     <a ui-sref="{{nav.url}}" ui-sref-active="nav__link--is-active" class="nav__link px-20 py-10 md:py-20 mx-20 mb-10" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
                         <i class="fig-24px {{nav.iconClass}} mr-10"></i>

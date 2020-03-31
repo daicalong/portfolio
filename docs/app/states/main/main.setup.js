@@ -7,7 +7,7 @@
     mainController.$inject = [];
 
     function mainController() {
-        var $ctrl = this;
+        let $ctrl = this;
 
         $ctrl.nav = [];
 
