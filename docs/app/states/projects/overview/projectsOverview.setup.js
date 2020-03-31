@@ -1,4 +1,4 @@
-(function (app, ng) {
+(function(app, ng) {
     app.component("overview", {
         templateUrl: '/app/states/projects/overview/projectsOverview.template.html',
         controller: projectsOverviewController
@@ -13,20 +13,20 @@
 
         ng.extend($ctrl, {
             categories: [{
-                name: 'graphic design',
-                icon: 'fig-geometry',
-                tags: []
-            },
-            {
-                name: 'illustration',
-                icon: 'fig-sketch',
-                tags: []
-            },
-            {
-                name: 'web design',
-                icon: 'fig-code-window',
-                tags: []
-            }
+                    name: 'graphic design',
+                    icon: 'fig-geometry',
+                    tags: []
+                },
+                {
+                    name: 'illustration',
+                    icon: 'fig-sketch',
+                    tags: []
+                },
+                {
+                    name: 'web design',
+                    icon: 'fig-code-window',
+                    tags: []
+                }
             ],
             tags: [
                 "ui",
@@ -41,12 +41,12 @@
                 "tailwindcss",
                 'illustration'
             ],
-            selectedCategory: undefined, 
+            selectedCategory: undefined,
             selectedTags: []
         });
 
-        $ctrl.filterbyTags =(tags) => {
-            $ctrl.selectedTags.some(tag=> $ctrl.tags.includes(tag))
+        $ctrl.filterbyTags = (tags) => {
+            $ctrl.selectedTags.some(tag => $ctrl.tags.includes(tag))
             $ctrl.selectedTags.push(tags);
         };
 
@@ -59,7 +59,6 @@
 
         $ctrl.$onInit = () => {
             $ctrl.selectedCategory = $cookies.get('userSelection');
-            console.log($ctrl.selectedCategory);
             $ctrl.projectList = $ctrl.selectedCategory ? projectListFactory.getProjectList($ctrl.selectedCategory) : projectListFactory.getProjectList();
         };
     }
