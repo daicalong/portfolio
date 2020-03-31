@@ -48,7 +48,7 @@ html {
     //colors
     &.btn--primary {
         &:not(:disabled) {
-            @apply bg-primary;
+            @apply bg-primary text-white;
             &:hover {
                 @apply bg-primary-dark;
             }
@@ -70,7 +70,7 @@ html {
     }
     &.btn--warning {
         &:not(:disabled) {
-            @apply bg-red;
+            @apply bg-red text-white;
             &:hover {
                 @apply bg-red-dark;
             }
@@ -105,9 +105,9 @@ html {
     .btn {
         &.btn--accent {
             &:not(:disabled) {
-                @apply bg-transparent text-accent-darker border;
+                @apply bg-transparent text-blue border;
                 &:hover {
-                    @apply text-accent-dark;
+                    @apply text-blue-dark;
                 }
                 &:focus {
                     @apply shadow-outline;
@@ -167,11 +167,7 @@ html {
             transform: translateX(0) !important;
         }
     }
-    @screen lg {
-        .nav__link {
-            @apply text-base;
-        }
-    }
+
     &.nav--open {
         -webkit-transform: translateX(0);
         transform: translateX(0);
@@ -181,7 +177,7 @@ html {
         transform: translateX(-100%);
     }
     .nav__link {
-        @apply relative flex justify-center items-center tracking-wide text-sm uppercase font-semibold no-underline transition duration-150;
+        @apply relative flex justify-center items-center tracking-wide uppercase font-semibold no-underline transition duration-150;
         &:hover {
             @apply text-pink;
         }
