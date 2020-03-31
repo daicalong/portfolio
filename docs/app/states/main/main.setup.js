@@ -1,19 +1,32 @@
-(function(app) {
+(function(app, ng) {
     app.component("main", {
         templateUrl: '/app/states/main/main.template.html',
         controller: mainController
     });
 
-    mainController.$inject = [];
+    mainController.$inject = ['$cookies'];
 
-    function mainController() {
+    function mainController($cookies) {
         let $ctrl = this;
 
-        $ctrl.nav = [];
+        ng.extend($ctrl, {
+            savedTheme: '',
+            selectedTheme: '',
+            themes: {
+                light: 'bg-gray-lightest text-gray-darkest',
+                dark: 'bg-gray-darkest text-white'
+            },
+            nav: []
+        });
 
         $ctrl.toggleMenu = (nav) => {
             nav.isOpen = !nav.isOpen;
         };
+
+        $ctrl.toggleTheme = () => {
+            $ctrl.activeTheme = $ctrl.activeTheme === $ctrl.themes.dark ? $ctrl.themes.light : $ctrl.themes.dark;
+            $cookies.put('userTheme', $ctrl.activeTheme);
+        }
 
         class navItem {
             constructor(title, url, iconClass, hasSubnav) {
@@ -25,6 +38,8 @@
         }
 
         $ctrl.$onInit = () => {
+            $ctrl.savedTheme = $cookies.get('userTheme');
+            $ctrl.activeTheme = $ctrl.savedTheme ? $ctrl.savedTheme : $ctrl.themes.dark;
             $ctrl.mainNav = {
                 isOpen: false
             };
@@ -39,4 +54,4 @@
 
         app.controller('mainController', mainController);
     }
-})(window.app);
+})(window.app, window.angular);
