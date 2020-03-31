@@ -1,31 +1,53 @@
 (function (app) {
-    app.factory("projectListFactory", ['projectListValue', 'projectListConstant', '$q',
-        function projectListFactory(projectListValue, projectListConstant, $q) {
+    app.factory("projectListFactory", ['projectListValue', 'projectListConstant', '$q', '$cookies',
+        function projectListFactory(projectListValue, projectListConstant, $q, $cookies) {
+            let cookies = {
+                selectedCategory: undefined,
+                selectedTags: []
+            };
+            const getCookies = () => {
+                return;
+            };
 
-            const getProjectList = (category) => {
+            const getProjectList = category => {
                 if (!category) return projectListConstant.list;
-                return projectListConstant.list.filter(element => element.category === category);
+                $cookies.put();
+                return $q.when(projectListConstant.list.filter(element => element.category === category));
             };
 
             const getProjectListByCategoryAndTags = (category, tags) => {
-                if (!category && !tags) return projectListConstant.list;
-                return projectListConstant.list.filter(element => element.category.toLowerCase() === category.toLowerCase() && element.tags.some(t => tags.includes(t)));
+                let result = undefined;
+                if (!category && !tags) result = projectListConstant.list;
+                result = projectListConstant.list.filter(element => element.category.toLowerCase() === category.toLowerCase() && element.tags.some(t => tags.includes(t)));
+                return $q.when(restult);
             };
 
-            const getHighlightList = (isStarred) => {
-                return projectListValue.filter(element => element.starred === isStarred);
+            const getHighlightList = isStarred => {
+                return $q.when(projectListConstant.list.filter(project => project.starred === isStarred));
             };
 
-            const getProjectById = (projectName) => {
-                return projectListValue.find(project => project.name == projectName);
+            const getProjectById = projectName => {
+                return projectListConstant.list.find(project => project.name == projectName);
+            }
+
+            const getTagList = () => {
+                let result = [];
+                // TODO: not working
+                return $q.when(projectListConstant.list.forEach(element => result.push(element.tags)));
+            }
+
+            const getCategoryList = () => {
+                let result = [];
+                return $q.when(projectListConstant.list.forEach(element => result.push(element.category)));
             }
 
             return {
                 getProjectList: getProjectList,
                 getHighlightList: getHighlightList,
-                getProjectById: getProjectById
+                getProjectListByCategoryAndTags: getProjectListByCategoryAndTags,
+                getProjectById: getProjectById,
+                getTagList: getTagList
             };
         }
-
     ]);
 })(window.app);

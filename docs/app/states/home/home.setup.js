@@ -1,4 +1,4 @@
-(function(app, ng) {
+(function (app, ng) {
     app.component("home", {
         templateUrl: '/app/states/home/home.template.html',
         controller: homeController
@@ -10,7 +10,8 @@
         let $ctrl = this;
 
         $ctrl.$onInit = () => {
-            $ctrl.highlightProjectList = projectListFactory.getHighlightList(true);
+            projectListFactory.getHighlightList(true).then(res => $ctrl.highlightProjectList = res);
+            projectListFactory.getTagList().then(res => console.log(res));
         };
     }
 

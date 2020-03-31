@@ -7,7 +7,7 @@
 
 html {
     @apply font-body;
-    font-size: 50%;
+    font-size: 62.5%;
 }
 
 @tailwind components;
@@ -23,7 +23,7 @@ html {
         }
     }
     &:disabled {
-        @apply bg-gray-darker text-white cursor-not-allowed;
+        @apply bg-gray-dark text-white cursor-not-allowed opacity-75;
     }
     &:focus {
         @apply outline-none;
@@ -101,6 +101,21 @@ html {
     }
 }
 
+.theme--light {
+    .btn {
+        &.btn--accent {
+            &:not(:disabled) {
+                @apply bg-transparent text-accent-darker border;
+                &:hover {
+                    @apply text-accent-dark;
+                }
+                &:focus {
+                    @apply shadow-outline;
+                }
+            }
+        }
+    }
+}
 .mobile-nav {
     top: 100%;
 }

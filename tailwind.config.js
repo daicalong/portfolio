@@ -6,7 +6,7 @@ const colors = {
     white: '#fff',
 
     gray: {
-        lightest: '#f5f5f5',
+        lightest: '#f0f0f0',
         lighter: '#d9d9d9',
         light: '#c1c1c1',
         default: '#919191',
@@ -51,9 +51,11 @@ const colors = {
         darkest: '#801938',
     },
     yellow: {
+        lighter: '#FFFD94',
         light: '#F5F256',
         default: '#E3E03D',
-        dark: '#BAB822'
+        dark: '#ADAB1A',
+        darker: '#8F8C00'
     }
 };
 
@@ -139,14 +141,18 @@ module.exports = {
         colors: {
             ...colors,
             primary: {
+                lighter: colors.pink.lighter,
                 light: colors.pink.light,
                 default: colors.pink.default,
-                dark: colors.pink.dark
+                dark: colors.pink.dark,
+                darker: colors.pink.darker
             },
             accent: {
+                lighter: colors.yellow.lighter,
                 light: colors.yellow.light,
                 default: colors.yellow.default,
-                dark: colors.yellow.dark
+                dark: colors.yellow.dark,
+                darker: colors.yellow.darker
             },
         },
         screens: {

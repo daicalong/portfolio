@@ -53,8 +53,8 @@
         $ctrl.filterByCategory = (categoryName) => {
             $ctrl.selectedCategory = categoryName ? ($ctrl.selectedCategory === categoryName ? undefined : categoryName) : undefined;
             $ctrl.projectList = $ctrl.selectedCategory ? projectListFactory.getProjectList($ctrl.selectedCategory) : projectListFactory.getProjectList();
-            if (!$ctrl.selectedCategory) return $cookies.remove('userSelection');
-            return $cookies.put('userSelection', categoryName);
+            // if (!$ctrl.selectedCategory) return $cookies.remove('userSelection');
+            // return $cookies.put('userSelection', categoryName);
         };
 
         $ctrl.$onInit = () => {
