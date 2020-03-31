@@ -4,7 +4,7 @@
         <label class="label text-base inline-block">{{$ctrl.project.date | date: 'shortDate'}}</label>
     </div>
     <ul class="list-reset flex flex-wrap col-span-6">
-        <li class="md:text-sm text-base font-medium col-span-1 bg-gray-darker py-4 px-10 rounded mr-10" ng-repeat="tag in $ctrl.project.tags">
+        <li class="md:text-sm text-base font-medium col-span-1 bg-gray-darker text-white py-4 px-10 rounded mr-10" ng-repeat="tag in $ctrl.project.tags">
             {{tag}}
         </li>
     </ul>
