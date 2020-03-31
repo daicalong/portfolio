@@ -10,21 +10,14 @@ html {
     font-size: 50%;
 }
 
-main {
-    @apply flex min-h-screen;
-}
-
 @tailwind components;
 
 /*Write custom components after this point*/
 
 //btn components
 .btn {
-    @apply inline-block bg-pink tracking-wider text-xs text-white uppercase font-bold h-48 px-40 rounded-sm transition duration-150;
+    @apply inline-block tracking-wider text-xs uppercase font-bold h-48 px-40 rounded-sm transition duration-150;
     &:not(:disabled) {
-        &:hover {
-            @apply bg-pink-dark;
-        }
         &:focus {
             @apply shadow-outline;
         }
@@ -152,7 +145,7 @@ main {
 }
 
 .nav {
-    @apply transition duration-200 fixed inset-y-0 left-0 top-0 z-30 bg-gray-darkest flex flex-col overflow-y-auto;
+    @apply transition duration-200 fixed inset-y-0 left-0 top-0 z-30 flex flex-col overflow-y-auto;
     @screen md {
         &.nav--open,
         &.nav--closed {

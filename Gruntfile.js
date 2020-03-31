@@ -179,7 +179,7 @@ module.exports = function(grunt) {
         grunt.log.writeln(target + ": " + filepath + " was " + action);
         var ext = filepath.substring(filepath.lastIndexOf("."));
         var tasks = [];
-        if (ext === ".js") tasks = ["appjs"];
+        if (ext === ".js") tasks = ["appjs", 'uglify:appjs'];
         if (ext === ".css" || ext === ".scss") tasks = ["appcss"];
         grunt.config("watch.all.tasks", tasks);
     });
