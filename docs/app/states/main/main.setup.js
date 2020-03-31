@@ -13,7 +13,7 @@
             savedTheme: '',
             selectedTheme: '',
             themes: {
-                light: 'bg-gray=lightest text-gray-darkest',
+                light: 'bg-gray-lightest text-gray-darkest',
                 dark: 'bg-gray-darkest text-white'
             },
             nav: []
