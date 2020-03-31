@@ -1,0 +1,15 @@
+.accordion {
+    transition: max-height 0.15s ease;
+    &.ng-enter {
+        max-height: 0rem;
+    }
+    &.ng-enter-active {
+        max-height: 32rem;
+    }
+    &.ng-leave {
+        max-height: 32rem;
+    }
+    &.ng-leave-active {
+        max-height: 0rem;
+    }
+}

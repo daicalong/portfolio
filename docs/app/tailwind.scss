@@ -30,7 +30,7 @@ main {
         }
     }
     &:disabled {
-        @apply bg-gray-darker text-white cursor-default;
+        @apply bg-gray-darker text-white cursor-not-allowed;
     }
     &:focus {
         @apply outline-none;
@@ -55,9 +55,9 @@ main {
     //colors
     &.btn--primary {
         &:not(:disabled) {
-            @apply bg-pink;
+            @apply bg-primary;
             &:hover {
-                @apply bg-pink-dark;
+                @apply bg-primary-dark;
             }
             &:focus {
                 @apply shadow-outline;
@@ -66,9 +66,9 @@ main {
     }
     &.btn--accent {
         &:not(:disabled) {
-            @apply bg-transparent text-pink;
+            @apply bg-transparent text-accent border;
             &:hover {
-                @apply bg-pink-lightest text-pink-dark;
+                @apply text-accent-dark;
             }
             &:focus {
                 @apply shadow-outline;

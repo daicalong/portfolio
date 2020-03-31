@@ -1,9 +1,9 @@
 <section class="text-center text-base p-10">
-    <p class="text-white">{{$ctrl.info.siteName}}</p>
-    <p class="text-white">{{$ctrl.info.phone}}</p>
-    <p class="text-white">{{$ctrl.info.email}}</p>
+    <p>{{$ctrl.info.siteName}}</p>
+    <p>{{$ctrl.info.phone}}</p>
+    <p>{{$ctrl.info.email}}</p>
     <div class="flex justify-center w-full">
-        <a ng-href="{{social.url}}" target="_blank" class="p-8 m-8 text-white hover:text-pink-lightest transition duration-150" ng-repeat="social in $ctrl.info.socialMedia">
+        <a ng-href="{{social.url}}" target="_blank" class="p-8 m-8 hover:text-pink-lightest transition duration-150" ng-repeat="social in $ctrl.info.socialMedia">
             <i class="fig-youtube fig-36px"></i></a>
     </div>
 </section>
