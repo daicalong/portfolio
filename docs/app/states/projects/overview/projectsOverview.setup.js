@@ -47,7 +47,10 @@
 
         $ctrl.$onInit = () => {
             projectListFactory.getTagList().then(res => {$ctrl.tags = res;});
-            projectListFactory.getCategoryList().then(res => {$ctrl.categories = res;});
+            // projectListFactory.getCategoryList().then(res => {
+            //     $ctrl.categories = res;
+            //     console.log(res);
+            // });
             $ctrl.selectedCategory = $cookies.get('userSelection');
             $ctrl.projectList = $ctrl.selectedCategory ? projectListFactory.getProjectList($ctrl.selectedCategory) : projectListFactory.getProjectList();
         };

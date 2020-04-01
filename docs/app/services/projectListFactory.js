@@ -32,16 +32,34 @@
 
             const getTagList = () => {
                 let result = [];
-                for(let i=0; i < projectListConstant.list.length; i++) {
+                for (let i = 0; i < projectListConstant.list.length; i++) {
                     result.push(...projectListConstant.list[i].tags);
                 }
                 return $q.when([...new Set(result)]);
             }
 
             const getCategoryList = () => {
+                let arr = projectListConstant.list;
+                let seen = {};
                 let result = [];
+                let length = arr.length;
+                var j = 0;
+                for (var i = 0; i < len; i++) {
+                    let item = {
+                        name: arr[i],
+                        icon: arr[i].category.includes('web design') ? 'fig-code-window' : arr[i].category.includes('illustration') ? 'fig-sketch' : 'fig-geometry'
+                    };
+                    if (seen[item] !== 1) {
+                        seen[item] = 1;
+                        out[j++] = item;
+                    }
+                }
+                return out;
                 //TODO: need icons
-                projectListConstant.list.forEach(element => result.push(element.category))
+                projectListConstant.list.forEach(element => result.push({
+                    name: element.category,
+                    icon: element.category.includes('web design') ? 'fig-code-window' : element.category.includes('illustration') ? 'fig-sketch' : 'fig-geometry'
+                }))
                 return $q.when([...new Set(result)]);
             }
 
