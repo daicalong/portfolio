@@ -71,7 +71,7 @@
                 "graphic design",
                 "angularjs"
             ],
-            "img": "acm-thumb.jpg",
+            "img":"acm-thumb.jpg",
             "starred": false
         },
         {
@@ -212,19 +212,6 @@
             "img": "fig-tech-summit-thumb.jpg",
             "starred": false
         }
-        ],
-        tags: [
-            "ui",
-            "website",
-            "javascript",
-            "angularjs",
-            "logo",
-            "graphic design",
-            'mockup',
-            "adobe illustrator",
-            "adobe photoshop",
-            "tailwindcss",
-            'illustration'
         ],
         categories: [{
             name: 'graphic design',

@@ -1,4 +1,4 @@
-(function(app, ng) {
+(function (app, ng) {
     app.component("overview", {
         templateUrl: '/app/states/projects/overview/projectsOverview.template.html',
         controller: projectsOverviewController
@@ -12,45 +12,30 @@
         var $ctrl = this;
 
         ng.extend($ctrl, {
-            categories: [{
-                    name: 'graphic design',
-                    icon: 'fig-geometry',
-                    tags: []
-                },
-                {
-                    name: 'illustration',
-                    icon: 'fig-sketch',
-                    tags: []
-                },
-                {
-                    name: 'web design',
-                    icon: 'fig-code-window',
-                    tags: []
-                }
-            ],
-            tags: [],
+            categories: projectListFactory.getCategoryList(),
+            tags: projectListFactory.getTagList(),
             selectedCategory: undefined,
             selectedTags: []
         });
 
-        $ctrl.filterbyTags = (tags) => {
-            $ctrl.selectedTags.some(tag => $ctrl.tags.includes(tag))
-            $ctrl.selectedTags.push(tags);
+        $ctrl.filterbyTags = (tag) => {
+            if ($ctrl.selectedTags.indexOf(tag) === -1) $ctrl.selectedTags.push(tag);
+            else $ctrl.selectedTags.splice($ctrl.selectedTags.indexOf(tag), 0, tag);
         };
 
-        $ctrl.filterByCategory = (categoryName) => {
-            $ctrl.selectedCategory = categoryName ? ($ctrl.selectedCategory === categoryName ? undefined : categoryName) : undefined;
+        $ctrl.filterByCategory = (_selectedCategory) => {
+            $ctrl.selectedCategory = _selectedCategory ? ($ctrl.selectedCategory === _selectedCategory ? undefined : _selectedCategory) : undefined;
             $ctrl.projectList = $ctrl.selectedCategory ? projectListFactory.getProjectList($ctrl.selectedCategory) : projectListFactory.getProjectList();
-            // if (!$ctrl.selectedCategory) return $cookies.remove('userSelection');
-            // return $cookies.put('userSelection', categoryName);
+            if (!$ctrl.selectedCategory) return $cookies.remove('userSelection');
+            return $cookies.put('userSelection', _selectedCategory);
+        };
+
+        $ctrl.filterProjects = (_selectedCategory, _selectedTag) => {
+            $ctrl.selectedCategory = _selectedCategory ? ($ctrl.selectedCategory === _selectedCategory ? undefined : _selectedCategory) : undefined;
+            // $ctrl.selectedTags = _selectedTag ? $ctrl.selectedTags.push(_selectedTag) : 
         };
 
         $ctrl.$onInit = () => {
-            projectListFactory.getTagList().then(res => {$ctrl.tags = res;});
-            // projectListFactory.getCategoryList().then(res => {
-            //     $ctrl.categories = res;
-            //     console.log(res);
-            // });
             $ctrl.selectedCategory = $cookies.get('userSelection');
             $ctrl.projectList = $ctrl.selectedCategory ? projectListFactory.getProjectList($ctrl.selectedCategory) : projectListFactory.getProjectList();
         };
