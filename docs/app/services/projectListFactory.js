@@ -32,13 +32,17 @@
 
             const getTagList = () => {
                 let result = [];
-                // TODO: not working
-                return $q.when(projectListConstant.list.forEach(element => result.push(element.tags)));
+                for(let i=0; i < projectListConstant.list.length; i++) {
+                    result.push(...projectListConstant.list[i].tags);
+                }
+                return $q.when([...new Set(result)]);
             }
 
             const getCategoryList = () => {
                 let result = [];
-                return $q.when(projectListConstant.list.forEach(element => result.push(element.category)));
+                //TODO: need icons
+                projectListConstant.list.forEach(element => result.push(element.category))
+                return $q.when([...new Set(result)]);
             }
 
             return {
@@ -46,7 +50,8 @@
                 getHighlightList: getHighlightList,
                 getProjectListByCategoryAndTags: getProjectListByCategoryAndTags,
                 getProjectById: getProjectById,
-                getTagList: getTagList
+                getTagList: getTagList,
+                getCategoryList: getCategoryList
             };
         }
     ]);

@@ -28,19 +28,7 @@
                     tags: []
                 }
             ],
-            tags: [
-                "ui",
-                "website",
-                "javascript",
-                "angularjs",
-                "logo",
-                "graphic design",
-                'mockup',
-                "adobe illustrator",
-                "adobe photoshop",
-                "tailwindcss",
-                'illustration'
-            ],
+            tags: [],
             selectedCategory: undefined,
             selectedTags: []
         });
@@ -58,6 +46,8 @@
         };
 
         $ctrl.$onInit = () => {
+            projectListFactory.getTagList().then(res => {$ctrl.tags = res;});
+            projectListFactory.getCategoryList().then(res => {$ctrl.categories = res;});
             $ctrl.selectedCategory = $cookies.get('userSelection');
             $ctrl.projectList = $ctrl.selectedCategory ? projectListFactory.getProjectList($ctrl.selectedCategory) : projectListFactory.getProjectList();
         };
