@@ -1,9 +1,13 @@
-<section class="text-center text-base p-10">
+<section class="text-center text-base p-20">
     <p>{{$ctrl.info.siteName}}</p>
-    <p>{{$ctrl.info.phone}}</p>
-    <p>{{$ctrl.info.email}}</p>
+    <a class="transition duration-150 underline hover:text-accent-darker p-4"
+        href="tel:{{$ctrl.info.phone}}">{{$ctrl.info.phone}}</a>
+    <a class="transition duration-150 underline hover:text-accent-darker p-4"
+        href="mailto:{{$ctrl.info.email}}">{{$ctrl.info.email}}</a>
     <div class="flex justify-center w-full">
-        <a ng-href="{{social.url}}" target="_blank" class="p-8 m-8 hover:text-pink-lightest transition duration-150" ng-repeat="social in $ctrl.info.socialMedia">
-            <i class="fig-youtube fig-36px"></i></a>
+        <a ng-href="{{social.url}}" target="_blank"
+            class="m-10 btn btn--sm btn--icon hover:bg-accent hover:text-gray-darkest focus:text-gray-darkest transition duration-150 rounded-full focus:outline-none focus:shadow-outline focus:bg-accent flex justify-center items-center"
+            ng-repeat="social in $ctrl.info.socialMedia">
+            <i class="fig-24px {{social.icon}}"></i></a>
     </div>
 </section>

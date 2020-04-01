@@ -28,19 +28,7 @@
                     tags: []
                 }
             ],
-            tags: [
-                "ui",
-                "website",
-                "javascript",
-                "angularjs",
-                "logo",
-                "graphic design",
-                'mockup',
-                "adobe illustrator",
-                "adobe photoshop",
-                "tailwindcss",
-                'illustration'
-            ],
+            tags: [],
             selectedCategory: undefined,
             selectedTags: []
         });
@@ -53,11 +41,16 @@
         $ctrl.filterByCategory = (categoryName) => {
             $ctrl.selectedCategory = categoryName ? ($ctrl.selectedCategory === categoryName ? undefined : categoryName) : undefined;
             $ctrl.projectList = $ctrl.selectedCategory ? projectListFactory.getProjectList($ctrl.selectedCategory) : projectListFactory.getProjectList();
-            if (!$ctrl.selectedCategory) return $cookies.remove('userSelection');
-            return $cookies.put('userSelection', categoryName);
+            // if (!$ctrl.selectedCategory) return $cookies.remove('userSelection');
+            // return $cookies.put('userSelection', categoryName);
         };
 
         $ctrl.$onInit = () => {
+            projectListFactory.getTagList().then(res => {$ctrl.tags = res;});
+            // projectListFactory.getCategoryList().then(res => {
+            //     $ctrl.categories = res;
+            //     console.log(res);
+            // });
             $ctrl.selectedCategory = $cookies.get('userSelection');
             $ctrl.projectList = $ctrl.selectedCategory ? projectListFactory.getProjectList($ctrl.selectedCategory) : projectListFactory.getProjectList();
         };

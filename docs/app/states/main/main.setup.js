@@ -13,8 +13,8 @@
             savedTheme: '',
             selectedTheme: '',
             themes: {
-                light: 'bg-gray-lightest text-gray-darkest',
-                dark: 'bg-gray-darkest text-white'
+                light: 'bg-gray-lightest text-gray-darkest theme--light',
+                dark: 'bg-gray-darkest text-white theme--dark'
             },
             nav: []
         });

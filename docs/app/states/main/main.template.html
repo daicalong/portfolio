@@ -9,7 +9,7 @@
     <header ng-model="$ctrl.mainNav" ng-class="$ctrl.mainNav.isOpen ? 'nav--open' : 'nav--closed'" class="nav lg:w-320 md:w-256 w-2/3 lg:px-20 md:px-10 {{$ctrl.activeTheme}}">
         <nav class="mt-72">
             <div class="flex flex-col">
-                <a ui-sref="Main.Home" class="flex items-center p-10 mx-auto" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
+                <a ui-sref="Main.Home" class="flex items-center p-10 mx-auto transition duration-150 rounded-full" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
                     <svg class="w-48 h-48" id="expanded" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <title>hatomi</title>
                         <path d="M5,8A3,3,0,1,1,8,5,3,3,0,0,1,5,8ZM5,3A2,2,0,1,0,7,5,2,2,0,0,0,5,3Z"
@@ -30,7 +30,7 @@
                 </a>
                 <ul class="list-reset flex flex-col text-center my-20">
                     <li ng-repeat="nav in $ctrl.nav">
-                        <a ui-sref="{{nav.url}}" ui-sref-active="nav__link--is-active" class="nav__link px-20 py-10 md:py-20 mx-20 mb-10" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
+                        <a ui-sref="{{nav.url}}" ui-sref-active="nav__link--is-active" class="nav__link px-20 py-10 md:py-20 mx-20 mb-10 text-sm lg:text-base focus:outline-none rounded-sm" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
                             <i class="fig-24px {{nav.iconClass}} mr-10"></i>
                             <span>{{nav.title}}</span>
                         </a>
@@ -45,7 +45,7 @@
     <span class="inset-0 fixed z-20 bg-black-3/4 md:hidden" ng-class="{'hidden' : !$ctrl.mainNav.isOpen}" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">></span>
 </section>
 
-<button class="btn btn--icon btn--lg fixed m-30 rounded-full z-50 bottom-0 right-0 bg-gray-darker hover:bg-gray-darkest hover:shadow-md" ng-class="$ctrl.activeTheme === $ctrl.themes.light ? 'text-blue-lighter hover:text-blue-lightest' : 'text-accent hover:text-accent-light'"
+<button title="This is a star!" title-direction="left" class="btn btn--icon btn--lg fixed m-30 rounded-full z-50 bottom-0 right-0 bg-gray-darker hover:bg-gray-darkest hover:shadow-md" ng-class="$ctrl.activeTheme === $ctrl.themes.light ? 'text-blue-lighter hover:text-blue-lightest' : 'text-accent hover:text-accent-light'"
     aria-label="Toggle dark mode" ng-click="$ctrl.toggleTheme()">
     <i class="fig-48px"
         ng-class="$ctrl.activeTheme === $ctrl.themes.light ? 'fig-lightbulb-off' : 'fig-lightbulb-on'"></i>
