@@ -173,9 +173,14 @@ module.exports = {
         },
         extend: {
             minHeight: {
-                sm: '18rem',
-                default: '36rem',
-                lg: '48rem'
+                '180': '18rem',
+                '360': '36rem',
+                '480': '48rem'
+            },
+            minWidth: {
+                '180': '18rem',
+                '360': '36rem',
+                '480': '48rem'
             },
             flex: {
                 '1/5': '0 1 20%',

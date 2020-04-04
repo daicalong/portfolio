@@ -11,7 +11,6 @@
 
         $ctrl.$onInit = () => {
             projectListFactory.getHighlightList(true).then(res => $ctrl.highlightProjectList = res);
-            projectListFactory.getTagList().then(res => console.log(res));
         };
     }
 
