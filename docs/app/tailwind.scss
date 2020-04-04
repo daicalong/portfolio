@@ -100,6 +100,93 @@ html {
     }
 }
 
+//input components
+.input {
+    @apply transition duration-150 h-48 px-10 border border-solid rounded-sm bg-transparent min-w-180;
+
+    &:disabled {
+        @apply bg-gray-dark text-white cursor-not-allowed opacity-75;
+    }
+
+    &:focus {
+        @apply outline-none shadow-outline border-primary;
+    }
+
+    &.input--lg {
+        @apply h-60;
+    }
+
+    &.input--sm {
+        @apply h-36;
+    }
+
+    &.input--primary {
+        @apply border-primary;
+
+        &:focus {
+            @apply border-primary-dark;
+        }
+    }
+
+    &.input--accent {
+        @apply border-accent;
+
+        &:focus {
+            @apply border-accent-dark;
+        }
+    }
+}
+
+.select {
+    @apply transition duration-150 h-48 px-10 border border-solid rounded-sm bg-transparent min-w-180 relative;
+
+    &::before {
+        @apply absolute border border-solid border-4 w-4 h-4 right-0 top-0 z-10;
+        content: '';
+    }
+
+    &:disabled {
+        @apply bg-gray-dark text-white cursor-not-allowed opacity-75;
+    }
+
+    &:focus {
+        @apply outline-none shadow-outline border-primary;
+    }
+
+    &.select--lg {
+        @apply h-60;
+    }
+
+    &.select--sm {
+        @apply h-36;
+    }
+
+    &.select--primary {
+        @apply border-primary;
+
+        &:focus {
+            @apply border-primary-dark;
+        }
+    }
+
+    &.select--accent {
+        @apply border-accent;
+
+        &:focus {
+            @apply border-accent-dark;
+        }
+    }
+
+    > option {
+        @apply bg-gray-darkest;
+    }
+}
+
+.card {
+    @apply rounded shadow-md bg-gray-darker overflow-hidden flex bg-center bg-no-repeat bg-cover outline-none transition duration-150;
+}
+
+//theme
 .theme--light {
     .btn {
         &.btn--accent {
@@ -114,7 +201,36 @@ html {
             }
         }
     }
+
+    .input {
+        &.input--accent {
+            @apply border-blue;
+
+            &:focus {
+                @apply border-blue-dark;
+            }
+        }
+    }
+
+    .select {
+        > option {
+            @apply bg-white;
+        }
+
+        &.select--accent {
+            @apply border-blue;
+    
+            &:focus {
+                @apply border-blue-dark;
+            }
+        }
+    }
+
+    .card {
+        @apply bg-white;
+    }
 }
+
 .mobile-nav {
     top: 100%;
 }
@@ -259,25 +375,11 @@ overview {
             opacity: 0;
         }
         &.ng-enter-stagger {
-            transition-delay: .08s;
+            transition-delay: 0.08s;
             transition-duration: 0s;
         }
         &.ng-enter-active {
             opacity: 1;
-        }
-    }
-}
-
-.card {
-    @apply bg-gray-darker flex-grow flex overflow-hidden rounded bg-center bg-no-repeat bg-cover outline-none transition duration-150;
-    &:hover,
-    &:focus {
-        @apply shadow-outline;
-    }
-    .card__content {
-        @apply flex flex-col justify-center items-center flex-grow bg-black-3/4 p-20 transition duration-150;
-        &:hover {
-            @apply bg-black-1/2;
         }
     }
 }
@@ -294,6 +396,5 @@ overview {
 @tailwind utilities;
 
 /*Write custom utils after this point*/
-
 
 /*# sourceMappingURL=tailwind.css.map */

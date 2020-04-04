@@ -11,20 +11,23 @@
                 return;
             };
 
-            const getProjectList = category => {
+            const getProjectListByCategory = category => {
                 if (!category) return _projectList;
-                // let result = [];
-                // for(let i=0;i<_projectList.length;i++) {
-                //     if(_projectList[i].category === category) result.push(_projectList[i]);
-                // }
-                // return $q.when(result);
                 return _projectList.filter(element => element.category === category);
             };
 
+            const getProjectListByTags = tags => {
+                if (!tags || !tags.length) return _projectList;
+                return _projectList.filter(element => element.tags.some(t => tags.includes(t)));
+            };
+
             const getProjectListByCategoryAndTags = (category, tags) => {
+                let result = [];
                 if (!category && !tags) return _projectList;
-                let result = _projectList.filter(element => element.category.toLowerCase() === category.toLowerCase() && element.tags.some(t => tags.includes(t)));
-                return $q.when(restult);
+                if (!category) result = _projectList.filter(element => element.tags.some(t => tags.includes(t)));
+                else if (!tags) result = _projectList.filter(element => element.category.toLowerCase() === category.toLowerCase());
+                else result = _projectList.filter(element => element.category.toLowerCase() === category.toLowerCase() && element.tags.some(t => tags.includes(t)));
+                return result;
             };
 
             const getHighlightList = isStarred => {
@@ -48,7 +51,8 @@
             };
 
             return {
-                getProjectList: getProjectList,
+                getProjectListByCategory: getProjectListByCategory,
+                getProjectListByTags: getProjectListByTags,
                 getHighlightList: getHighlightList,
                 getProjectListByCategoryAndTags: getProjectListByCategoryAndTags,
                 getProjectById: getProjectById,

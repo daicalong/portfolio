@@ -39,10 +39,11 @@
             <label class="text-base mb-20">Filter by category:</label>
             <div class="flex flex-wrap">
                 <button ng-repeat="cat in $ctrl.categories | orderBy: 'name'"
-                    class="btn btn--icon btn--toggle mr-10 mb-10" aria-label="{{cat.name}}" title="{{cat.name}}"
+                    class="btn btn--toggle mr-10 mb-10 flex items-center" aria-label="{{cat.name}}" title="{{cat.name}}"
                     ng-class="{'btn--toggle-on': cat.name === $ctrl.selectedCategory}"
                     ng-click="$ctrl.filterByCategory(cat.name)">
-                    <i class="fig-24px {{cat.icon}}"></i>
+                    <i class="fig-24px mr-10 {{cat.icon}}"></i>
+                    <span>{{cat.name}}</span>
                 </button>
                 <button class="btn btn--icon btn--warning mr-10 mb-10 rounded-full"
                     ng-disabled="!$ctrl.selectedCategory" aria-label="Clear filters" title="Clear filters"
@@ -54,8 +55,8 @@
             <div class="flex-wrap flex">
                 <button ng-repeat="tag in $ctrl.tags | orderBy: 'name'"
                     class="btn btn--sm btn--toggle rounded-full mr-10 mb-10 text-2xs" aria-label="{{tag}}"
-                    title="{{tag}}" ng-class="{'btn--toggle-on': cat.name === $ctrl.selectedCategory}"
-                    ng-click="$ctrl.filterByCategory(tag)">
+                    title="{{tag}}" ng-class="{'btn--toggle-on': $ctrl.selectedTags.includes(tag)}"
+                    ng-click="$ctrl.filterByTags(tag)">
                     {{tag}}
                 </button>
             </div>
@@ -64,8 +65,8 @@
     <ul class="list-reset w-full grid lg:grid-cols-3 col-span-6 gap-20">
         <li ng-repeat="item in $ctrl.projectList | orderBy: 'category'" class="gallery-item">
             <a ui-sref="Main.Projects.Details({projectName: item.name})" aria-label="Link to {{item.name}}"
-                class="card md:h-256 h-320" style="background-image: url('/assets/images/gallery/{{item.img}}')">
-                <div class="card__content">
+                class="card md:h-256 h-320 hover:shadow-outline" style="background-image: url('/assets/images/gallery/{{item.img}}')">
+                <div class="flex flex-col justify-center items-center flex-grow bg-black-3/4 hover:bg-black-1/2 p-20 transition duration-150">
                     <h4 class="text-lg font-display text-yellow">{{item.name}}</h4>
                     <label class="text-base text-white">{{item.date | date: 'shortDate'}}</label>
                 </div>
