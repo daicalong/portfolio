@@ -1,5 +1,5 @@
 <section class="flex min-h-screen {{$ctrl.activeTheme}} transition duration-150">
-    <header class="md:hidden fixed p-10 z-40 top-0 inset-x-0" ng-class="{'bg-gray-darkest': !$ctrl.mainNav.isOpen}">
+    <header class="md:hidden border-b border-gray-darker fixed p-10 z-40 top-0 inset-x-0" ng-class="{'bg-gray-darkest': !$ctrl.mainNav.isOpen}">
         <button ng-class="{ 'nav-button--open' : $ctrl.mainNav.isOpen}" class="nav-button" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
             <div class="before"></div>
             <div class="after"></div>
@@ -45,8 +45,8 @@
     <span class="inset-0 fixed z-20 bg-black-3/4 md:hidden" ng-class="{'hidden' : !$ctrl.mainNav.isOpen}" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">></span>
 </section>
 
-<button title="This is a star!" title-direction="left" class="btn btn--icon btn--lg fixed m-30 rounded-full z-50 bottom-0 right-0 bg-gray-darker hover:bg-gray-darkest hover:shadow-md" ng-class="$ctrl.activeTheme === $ctrl.themes.light ? 'text-blue-lighter hover:text-blue-lightest' : 'text-accent hover:text-accent-light'"
-    aria-label="Toggle dark mode" ng-click="$ctrl.toggleTheme()">
+<button title="Toggle dark theme" class="btn btn--icon btn--lg fixed m-30 rounded-full z-50 bottom-0 right-0 bg-gray-darker hover:bg-gray-darkest hover:shadow-md" ng-class="$ctrl.activeTheme === $ctrl.themes.light ? 'text-blue-lighter hover:text-blue-lightest' : 'text-accent hover:text-accent-light'"
+    aria-label="Toggle dark theme" ng-click="$ctrl.toggleTheme()">
     <i class="fig-48px"
         ng-class="$ctrl.activeTheme === $ctrl.themes.light ? 'fig-lightbulb-off' : 'fig-lightbulb-on'"></i>
 </button>
