@@ -36,6 +36,41 @@
 
         $ctrl.imgSrc = 'https://images.unsplash.com/photo-1558980664-769d59546b3d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60';
 
+        $ctrl.checkboxes = [
+            {
+                name: 'checkbox1',
+                id: 'checkbox1',
+                label: 'Checkbox 1'
+            },
+            {
+                name: 'checkbox2',
+                id: 'checkbox2',
+                label: 'Checkbox 2'
+            },
+            {
+                name: 'checkbox3',
+                id: 'checkbox3',
+                label: 'Checkbox 3'
+            },
+        ];
+
+        $ctrl.radios = [
+            {
+                name: 'radio1',
+                id: 'radio1',
+                label: 'Radio 1'
+            },
+            {
+                name: 'radio2',
+                id: 'radio2',
+                label: 'Radio 2'
+            },
+            {
+                name: 'radio3',
+                id: 'radio3',
+                label: 'Radio 3'
+            },
+        ];
         $ctrl.showAlert = () => {
             let mssg = 'You clicked a button.';
             return alert(mssg);
