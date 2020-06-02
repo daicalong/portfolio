@@ -1,123 +1,128 @@
-<section class="container my-20 py-20 grid grid-cols-6 gap-80">
-    <section class="col-span-6">
+<section class="container grid grid-cols-6">
+    <section class="col-span-6 my-40">
         <div class="flex flex-col">
             <h1 class="heading text-xl mb-20">Buttons</h1>
             <div class="flex flex-wrap">
-                <div class="flex flex-col m-10">
-                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary btn--lg m-10">Large button</button>
-                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary m-10">Medium button</button>
-                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary btn--sm m-10">Small button</button>
+                <div class="flex flex-grow sm:flex-none flex-col sm:m-10 my-10">
+                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary btn--lg sm:m-10 my-10">Large
+                        button</button>
+                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary sm:m-10 my-10">Medium button</button>
+                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary btn--sm sm:m-10 my-10">Small
+                        button</button>
                 </div>
-                <div class="flex flex-col m-10">
-                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary btn--lg btn--icon m-10"><i
+                <div class="flex flex-grow sm:flex-none flex-col sm:m-10 my-10">
+                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary btn--lg btn--icon sm:m-10 my-10"><i
                             class="fig-48px fig-emoticon"></i></button>
-                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary btn--icon m-10"><i class="fig-24px fig-emoticon"></i></button>
-                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary btn--icon btn--sm m-10"><i
+                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary btn--icon sm:m-10 my-10"><i
+                            class="fig-24px fig-emoticon"></i></button>
+                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary btn--icon btn--sm sm:m-10 my-10"><i
                             class="fig-24px fig-emoticon"></i></button>
                 </div>
-                <div class="flex flex-col m-10">
-                    <button ng-click="$ctrl.showAlert()" class="btn btn--accent btn--lg m-10">Large button</button>
-                    <button ng-click="$ctrl.showAlert()" class="btn btn--accent m-10">Medium button</button>
-                    <button ng-click="$ctrl.showAlert()" class="btn btn--accent btn--sm m-10">Small button</button>
+                <div class="flex flex-grow sm:flex-none flex-col sm:m-10 my-10">
+                    <button ng-click="$ctrl.showAlert()" class="btn btn--accent btn--lg sm:m-10 my-10">Large
+                        button</button>
+                    <button ng-click="$ctrl.showAlert()" class="btn btn--accent sm:m-10 my-10">Medium button</button>
+                    <button ng-click="$ctrl.showAlert()" class="btn btn--accent btn--sm sm:m-10 my-10">Small
+                        button</button>
                 </div>
-                <div class="flex flex-col m-10">
-                    <button ng-click="$ctrl.showAlert()" class="btn btn--accent btn--lg btn--icon m-10"><i
+                <div class="flex flex-grow sm:flex-none flex-col sm:m-10 my-10">
+                    <button ng-click="$ctrl.showAlert()" class="btn btn--accent btn--lg btn--icon sm:m-10 my-10"><i
                             class="fig-48px fig-emoticon"></i></button>
-                    <button ng-click="$ctrl.showAlert()" class="btn btn--accent btn--icon m-10"><i class="fig-24px fig-emoticon"></i></button>
-                    <button ng-click="$ctrl.showAlert()" class="btn btn--accent btn--icon btn--sm m-10"><i
+                    <button ng-click="$ctrl.showAlert()" class="btn btn--accent btn--icon sm:m-10 my-10"><i
+                            class="fig-24px fig-emoticon"></i></button>
+                    <button ng-click="$ctrl.showAlert()" class="btn btn--accent btn--icon btn--sm sm:m-10 my-10"><i
                             class="fig-24px fig-emoticon"></i></button>
                 </div>
-                <div class="flex flex-col m-10">
-                    <button ng-click="$ctrl.showAlert()" disabled class="btn btn--primary m-10">Disabled button</button>
-                    <button ng-click="$ctrl.showAlert()" disabled class="btn btn--primary btn--sm m-10">Disabled button</button>
-                    <button ng-click="$ctrl.showAlert()" disabled class="btn btn--primary btn--lg m-10">Disabled button</button>
+                <div class="flex flex-grow sm:flex-none flex-col sm:m-10 my-10">
+                    <button ng-click="$ctrl.showAlert()" disabled class="btn btn--primary sm:m-10 my-10">Disabled
+                        button</button>
+                    <button ng-click="$ctrl.showAlert()" disabled
+                        class="btn btn--primary btn--sm sm:m-10 my-10">Disabled button</button>
+                    <button ng-click="$ctrl.showAlert()" disabled
+                        class="btn btn--primary btn--lg sm:m-10 my-10">Disabled button</button>
                 </div>
             </div>
         </div>
     </section>
     <span class="border-b col-span-6 opacity-25"></span>
-    <section class="col-span-6">
+    <section class="col-span-6 my-40">
         <div class="flex flex-col">
             <h1 class="heading text-xl mb-20">Inputs & selects</h1>
             <div class="flex flex-wrap">
-                <div class="flex flex-col m-10">
-                    <span class="flex flex-col m-10">
+                <div class="flex flex-col flex-grow sm:flex-none w-full sm:w-auto sm:m-10 my-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Large input</label>
                         <input type="text" class="input input--primary input--lg" placeholder="Large input" />
                     </span>
-                    <span class="flex flex-col m-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Medium input</label>
                         <input type="text" class="input input--primary" placeholder="Medium input" />
                     </span>
-                    <span class="flex flex-col m-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Small input</label>
                         <input type="text" class="input input--primary input--sm" placeholder="Small input" />
                     </span>
                 </div>
-                <div class="flex flex-col m-10">
-                    <span class="flex flex-col m-10">
+                <div class="flex flex-col flex-grow sm:flex-none w-full sm:w-auto sm:m-10 my-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Large input</label>
                         <input type="text" class="input input--accent input--lg" placeholder="Large input" />
                     </span>
-                    <span class="flex flex-col m-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Medium input</label>
                         <input type="text" class="input input--accent" placeholder="Medium input" />
                     </span>
-                    <span class="flex flex-col m-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Small input</label>
                         <input type="text" class="input input--accent input--sm" placeholder="Small input" />
                     </span>
                 </div>
-                <div class="flex flex-col m-10">
-                    <span class="flex flex-col m-10">
+                <div class="flex flex-col flex-grow sm:flex-none sm:m-10 my-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Large input</label>
                         <input type="text" class="input input--lg" placeholder="Large input" />
                     </span>
-                    <span class="flex flex-col m-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Medium input</label>
                         <input type="text" class="input" placeholder="Medium input" />
                     </span>
-                    <span class="flex flex-col m-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Small input</label>
                         <input type="text" class="input input--sm" placeholder="Small input" />
                     </span>
                 </div>
-                <div class="flex flex-col m-10">
-                    <span class="flex flex-col m-10">
+                <div class="flex flex-col flex-grow sm:flex-none w-full sm:w-auto sm:m-10 my-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Large input</label>
                         <input disabled type="text" class="input input--lg" placeholder="Disabled input" />
                     </span>
-                    <span class="flex flex-col m-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Medium input</label>
                         <input disabled type="text" class="input" placeholder="Disabled input" />
                     </span>
-                    <span class="flex flex-col m-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Small input</label>
                         <input disabled type="text" class="input input--sm" placeholder="Disabled input" />
                     </span>
                 </div>
-
-
-
-
             </div>
             <div class="flex flex-wrap">
-                <div class="flex flex-col m-10">
-                    <span class="flex flex-col m-10">
+                <div class="flex flex-col w-full sm:w-auto sm:m-10 my-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Large select</label>
                         <select class="select select--lg select--primary">
                             <option selected value="">Select one</option>
                             <option value="{{op}}" ng-repeat="op in $ctrl.options">{{op.name}}</option>
                         </select>
                     </span>
-                    <span class="flex flex-col m-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Medium select</label>
                         <select class="select select--primary">
                             <option selected value="">Select one</option>
                             <option value="{{op}}" ng-repeat="op in $ctrl.options">{{op.name}}</option>
                         </select>
                     </span>
-                    <span class="flex flex-col m-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Small select</label>
                         <select class="select select--sm select--primary">
                             <option selected value="">Select one</option>
@@ -125,22 +130,22 @@
                         </select>
                     </span>
                 </div>
-                <div class="flex flex-col m-10">
-                    <span class="flex flex-col m-10">
+                <div class="flex flex-col w-full sm:w-auto sm:m-10 my-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Large select</label>
                         <select class="select select--lg select--accent">
                             <option selected value="">Select one</option>
                             <option value="{{op}}" ng-repeat="op in $ctrl.options">{{op.name}}</option>
                         </select>
                     </span>
-                    <span class="flex flex-col m-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Medium select</label>
                         <select class="select select--accent">
                             <option selected value="">Select one</option>
                             <option value="{{op}}" ng-repeat="op in $ctrl.options">{{op.name}}</option>
                         </select>
                     </span>
-                    <span class="flex flex-col m-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Small select</label>
                         <select class="select select--sm select--accent">
                             <option selected value="">Select one</option>
@@ -148,22 +153,22 @@
                         </select>
                     </span>
                 </div>
-                <div class="flex flex-col m-10">
-                    <span class="flex flex-col m-10">
+                <div class="flex flex-col w-full sm:w-auto sm:m-10 my-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Large select</label>
                         <select class="select select--lg">
                             <option selected value="">Select one</option>
                             <option value="{{op}}" ng-repeat="op in $ctrl.options">{{op.name}}</option>
                         </select>
                     </span>
-                    <span class="flex flex-col m-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Medium select</label>
                         <select class="select">
                             <option selected value="">Select one</option>
                             <option value="{{op}}" ng-repeat="op in $ctrl.options">{{op.name}}</option>
                         </select>
                     </span>
-                    <span class="flex flex-col m-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Small select</label>
                         <select class="select select--sm">
                             <option selected value="">Select one</option>
@@ -171,22 +176,22 @@
                         </select>
                     </span>
                 </div>
-                <div class="flex flex-col m-10">
-                    <span class="flex flex-col m-10">
+                <div class="flex flex-col w-full sm:w-auto sm:m-10 my-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Large select</label>
                         <select disabled class="select select--lg">
                             <option selected value="">Disabled</option>
                             <option value="{{op}}" ng-repeat="op in $ctrl.options">{{op.name}}</option>
                         </select>
                     </span>
-                    <span class="flex flex-col m-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Medium select</label>
                         <select disabled class="select">
                             <option selected value="">Disabled</option>
                             <option value="{{op}}" ng-repeat="op in $ctrl.options">{{op.name}}</option>
                         </select>
                     </span>
-                    <span class="flex flex-col m-10">
+                    <span class="flex flex-col sm:m-10 my-10">
                         <label class="label mb-8">Small select</label>
                         <select disabled class="select select--sm">
                             <option selected value="">Disabled</option>
@@ -197,50 +202,75 @@
             </div>
     </section>
     <span class="border-b col-span-6 opacity-25"></span>
-    <section class="col-span-6">
+    <section class="col-span-6 my-40 flex flex-col">
+        <h1 class="heading text-xl mb-20">Checkboxes & radios</h1>
+        <div class="flex flex-wrap sm:mx-10 my-10 mb-30">
+            <div class="flex flex-row checkbox mr-20" ng-repeat="checkbox in $ctrl.checkboxes">
+                <input type="checkbox" name="{{checkbox.name}}" id="{{checkbox.id}}" />
+                <label for="{{checkbox.id}}">{{checkbox.label}}</label>
+            </div>
+        </div>
+        <div class="flex flex-wrap sm:m-10 my-10">
+            <div class="flex flex-row radio mr-20" ng-repeat="radio in $ctrl.radios">
+                <input type="radio" name="radio" id="{{radio.id}}" />
+                <label for="{{radio.id}}">{{radio.label}}</label>
+            </div>
+        </div>
+    </section>
+    <span class="border-b col-span-6 opacity-25"></span>
+    <section class="col-span-6 my-40">
         <div class="flex flex-col">
             <h1 class="heading text-xl mb-20">Cards</h1>
             <div class="flex flex-wrap">
-                <div class="card flex-col max-w-lg m-10">
+                <div class="card flex-grow sm:flex-none flex-col sm:max-w-lg sm:m-10 my-10">
                     <img src="https://images.unsplash.com/photo-1558980664-769d59546b3d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
                         alt="Background image" class="w-full h-auto">
                     <p class="m-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque velit
                         aliquam, placerat leo ut, tempus libero. Curabitur urna tellus, porttitor sit amet pharetra sed,
                         ultrices in quam. Nulla venenatis tellus dui, id lobortis risus varius in. Sed rutrum sagittis
                         metus, a consequat ligula congue vel.</p>
-                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary m-20 mx-auto block">Medium button</button>
+                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary m-20 mx-auto block">Medium
+                        button</button>
                 </div>
-                <div class="card flex-col max-w-2xl m-10">
+                <div class="card flex-grow sm:flex-none flex-col sm:max-w-2xl sm:m-10 my-10">
                     <img src="https://images.unsplash.com/photo-1558980664-769d59546b3d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
                         alt="Background image" class="w-full h-auto">
                     <p class="m-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque velit
                         aliquam, placerat leo ut, tempus libero. Curabitur urna tellus, porttitor sit amet pharetra sed,
                         ultrices in quam. Nulla venenatis tellus dui, id lobortis risus varius in. Sed rutrum sagittis
                         metus, a consequat ligula congue vel.</p>
-                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary m-20 mx-auto block">Medium button</button>
+                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary m-20 mx-auto block">Medium
+                        button</button>
                 </div>
-                <div class="card flex-col max-w-3xl m-10">
+                <div class="card flex-grow sm:flex-none flex-col sm:max-w-3xl sm:m-10 my-10">
                     <img src="https://images.unsplash.com/photo-1558980664-769d59546b3d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
                         alt="Background image" class="w-full h-auto">
                     <p class="m-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque velit
                         aliquam, placerat leo ut, tempus libero. Curabitur urna tellus, porttitor sit amet pharetra sed,
                         ultrices in quam. Nulla venenatis tellus dui, id lobortis risus varius in. Sed rutrum sagittis
                         metus, a consequat ligula congue vel.</p>
-                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary m-20 mx-auto block">Medium button</button>
+                    <button ng-click="$ctrl.showAlert()" class="btn btn--primary m-20 mx-auto block">Medium
+                        button</button>
                 </div>
             </div>
             <div class="flex flex-wrap">
-                <div class="card w-320 h-320 m-10" style="background-image: url({{$ctrl.imgSrc}});">
+                <div class="card flex-grow sm:flex-none sm:w-320 h-320 sm:m-10 my-10"
+                    style="background-image: url({{$ctrl.imgSrc}});">
                     <div class="flex-grow bg-black-1/2 p-20 flex flex-col items-center justify-center">
-                        <h2 class="m-10 heading text-accent text-center">Card title</h2>
-                        <button ng-click="$ctrl.showAlert()" class="btn btn--primary m-10 mx-auto block">Medium button</button>
+                        <h2 class="sm:m-10 my-10 heading text-accent text-center">Card title</h2>
+                        <button ng-click="$ctrl.showAlert()" class="btn btn--primary sm:m-10 my-10 mx-auto block">Medium
+                            button</button>
                     </div>
                 </div>
-                <div class="card w-600 h-320 m-10" style="background-image: url({{$ctrl.imgSrc}});">
+                <div class="card flex-grow sm:flex-none sm:w-600 h-320 sm:m-10 my-10"
+                    style="background-image: url({{$ctrl.imgSrc}});">
                     <div class="flex-grow bg-black-1/2 p-20 flex flex-col items-center justify-center">
-                        <h2 class="m-10 heading text-accent text-center">Card title</h2>
-                        <p class="m-10 text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque velit aliquam, placerat leo ut, tempus libero. Curabitur urna tellus, porttitor sit amet pharetra sed, ultrices in quam.</p>
-                        <button ng-click="$ctrl.showAlert()" class="btn btn--primary m-20 mx-auto block">Medium button</button>
+                        <h2 class="sm:m-10 my-10 heading text-accent text-center">Card title</h2>
+                        <p class="sm:m-10 my-10 text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Donec scelerisque velit aliquam, placerat leo ut, tempus libero. Curabitur urna tellus,
+                            porttitor sit amet pharetra sed, ultrices in quam.</p>
+                        <button ng-click="$ctrl.showAlert()" class="btn btn--primary m-20 mx-auto block">Medium
+                            button</button>
                     </div>
                 </div>
             </div>
