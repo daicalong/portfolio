@@ -78,7 +78,7 @@ module.exports = {
         placeholderColor: false,
         borderCollapse: false,
         tableLayout: false,
-        verticalAlign: false,
+        // verticalAlign: false,
     },
     variants: {
         opacity: ['responsive', 'hover'],
@@ -125,10 +125,10 @@ module.exports = {
             '1920': '192rem'
         },
         fontSize: {
-            '2xs': '1rem',
-            'xs': '1.2rem',
-            'sm': '1.4rem',
-            'base': '1.6rem',
+            '2xs': '1.2rem',
+            'xs': '1.4rem',
+            'sm': '1.6rem',
+            'base': '1.8rem',
             'lg': '2rem',
             'xl': '2.4rem',
             '2xl': '3.6rem',

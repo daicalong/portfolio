@@ -12,7 +12,7 @@
         let $ctrl = this;
 
         $ctrl.$onInit = () => {
-            $ctrl.project = projectListFactory.getProjectById($stateParams.projectName);
+            $ctrl.project = projectListFactory.getProjectById(7);
             console.log($ctrl.project);
         }
     }

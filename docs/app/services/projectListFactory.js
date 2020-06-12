@@ -34,8 +34,8 @@
                 return $q.when(_projectList.filter(project => project.starred === isStarred));
             };
 
-            const getProjectById = projectName => {
-                return _projectList.find(project => project.name == projectName);
+            const getProjectById = projectId => {
+                return _projectList.find(project => project.id === projectId);
             };
 
             const getTagList = () => {

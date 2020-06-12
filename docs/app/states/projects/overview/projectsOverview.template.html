@@ -1,31 +1,31 @@
-<section class="container md:px-40 my-40 grid grid-cols-6 gap-40">
-    <h4 class="col-span-6 font-display text-2xl text-pink text-center capitalize">
+<section class="container grid grid-cols-6 gap-40 my-40 md:px-40">
+    <h4 class="col-span-6 text-2xl text-center capitalize font-display text-pink">
         {{$ctrl.selectedCategory ? $ctrl.selectedCategory : 'Portfolio'}}</h4>
 
-    <div class="col-span-6 lg:hidden flex flex-col items-center">
-        <button class="btn btn--accent mb-20 flex justify-center items-center"
-            ng-click="$ctrl.filterIsActive = !$ctrl.filterIsActive"><i class="fig-24px fig-filter mr-10"></i>Toggle
+    <div class="flex flex-col items-center col-span-6 lg:hidden">
+        <button class="flex items-center justify-center mb-20 btn btn--accent"
+            ng-click="$ctrl.filterIsActive = !$ctrl.filterIsActive"><i class="mr-10 fig-24px fig-filter"></i>Toggle
             Filters</button>
         <div class="overflow-hidden accordion" ng-if="$ctrl.filterIsActive">
             <div class="flex flex-col items-center mb-20">
-                <label class="text-base mb-20">Filter by category:</label>
+                <label class="mb-20 text-base">Filter by category:</label>
                 <div class="flex flex-wrap">
                     <button ng-repeat="cat in $ctrl.categories | orderBy: 'name'"
-                        class="btn btn--icon btn--toggle mr-10 mb-10" aria-label="{{cat.name}}" title="{{cat.name}}"
+                        class="mb-10 mr-10 btn btn--icon btn--toggle" aria-label="{{cat.name}}" title="{{cat.name}}"
                         ng-class="{'btn--toggle-on': cat.name === $ctrl.selectedCategory}"
                         ng-click="$ctrl.filterByCategory(cat.name)">
                         <i class="fig-24px {{cat.icon}}"></i>
                     </button>
-                    <button class="btn btn--icon btn--warning mr-10 mb-10 rounded-full"
+                    <button class="mb-10 mr-10 rounded-full btn btn--icon btn--warning"
                         ng-disabled="!$ctrl.selectedCategory" aria-label="Clear filters" title="Clear filters"
                         ng-click="$ctrl.filterByCategory()"><i class="fig-24px fig-cancel"></i></button>                
                 </div>
             </div>
             <div class="flex flex-col items-center">
-                <label class="text-base mb-20">Filter by tags:</label>
-                <div class="flex-wrap flex justify-center">
+                <label class="mb-20 text-base">Filter by tags:</label>
+                <div class="flex flex-wrap justify-center">
                     <button ng-repeat="tag in $ctrl.tags | orderBy: 'name'"
-                        class="btn btn--sm btn--toggle rounded-full mr-10 mb-10 text-2xs" aria-label="{{tag}}"
+                        class="mb-10 mr-10 rounded-full btn btn--sm btn--toggle text-2xs" aria-label="{{tag}}"
                         title="{{tag}}" ng-class="{'btn--toggle-on': $id === $ctrl.id}" ng-click="$ctrl.id = $id">
                         {{tag}}
                     </button>
@@ -34,27 +34,27 @@
         </div>
     </div>
 
-    <div class="col-span-6 hidden lg:block">
+    <div class="hidden col-span-6 lg:block">
         <div class="flex flex-col mb-20">
-            <label class="text-base mb-20">Filter by category:</label>
+            <label class="mb-20 text-base">Filter by category:</label>
             <div class="flex flex-wrap">
                 <button ng-repeat="cat in $ctrl.categories | orderBy: 'name'"
-                    class="btn btn--toggle mr-10 mb-10 flex items-center" aria-label="{{cat.name}}" title="{{cat.name}}"
+                    class="flex items-center mb-10 mr-10 btn btn--toggle" aria-label="{{cat.name}}" title="{{cat.name}}"
                     ng-class="{'btn--toggle-on': cat.name === $ctrl.selectedCategory}"
                     ng-click="$ctrl.filterByCategory(cat.name)">
                     <i class="fig-24px mr-10 {{cat.icon}}"></i>
                     <span>{{cat.name}}</span>
                 </button>
-                <button class="btn btn--icon btn--warning mr-10 mb-10 rounded-full"
+                <button class="mb-10 mr-10 rounded-full btn btn--icon btn--warning"
                     ng-disabled="!$ctrl.selectedCategory" aria-label="Clear filters" title="Clear filters"
                     ng-click="$ctrl.filterByCategory()"><i class="fig-24px fig-cancel"></i></button>
             </div>
         </div>
         <div class="flex flex-col">
-            <label class="text-base mb-20">Filter by tags:</label>
-            <div class="flex-wrap flex">
+            <label class="mb-20 text-base">Filter by tags:</label>
+            <div class="flex flex-wrap">
                 <button ng-repeat="tag in $ctrl.tags | orderBy: 'name'"
-                    class="btn btn--sm btn--toggle rounded-full mr-10 mb-10 text-2xs" aria-label="{{tag}}"
+                    class="mb-10 mr-10 rounded-full btn btn--sm btn--toggle text-2xs" aria-label="{{tag}}"
                     title="{{tag}}" ng-class="{'btn--toggle-on': $ctrl.selectedTags.includes(tag)}"
                     ng-click="$ctrl.filterByTags(tag)">
                     {{tag}}
@@ -62,11 +62,11 @@
             </div>
         </div>
     </div>
-    <ul class="list-reset w-full grid lg:grid-cols-3 col-span-6 gap-20">
+    <ul class="grid w-full col-span-6 gap-20 list-reset lg:grid-cols-3">
         <li ng-repeat="item in $ctrl.projectList | orderBy: 'category'" class="gallery-item">
-            <a ui-sref="Main.Projects.Details({projectName: item.name})" aria-label="Link to {{item.name}}"
+            <a ui-sref="Main.Projects.Details({projectId: item.id})" aria-label="Link to {{item.name}}"
                 class="card md:h-256 h-320 hover:shadow-outline" style="background-image: url('/assets/images/gallery/{{item.img}}')">
-                <div class="flex flex-col justify-center items-center flex-grow bg-black-3/4 hover:bg-black-1/2 p-20 transition duration-150">
+                <div class="flex flex-col items-center justify-center flex-grow p-20 transition duration-150 bg-black-3/4 hover:bg-black-1/2">
                     <h4 class="text-lg font-display text-yellow">{{item.name}}</h4>
                     <label class="text-base text-white">{{item.date | date: 'shortDate'}}</label>
                 </div>

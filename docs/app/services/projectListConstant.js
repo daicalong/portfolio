@@ -104,11 +104,12 @@
             "id": 7,
             "name": "Maldives Spa and Nails",
             "date": "20171001T000000-0700",
+            "url": "https://www.maldivesnails.com/",
             "category": "web design",
             "tags": [
                 "ux",
                 "ui",
-                "website"
+                "website",
             ],
             "img": "maldives-web-thumb.jpg",
             "starred": false

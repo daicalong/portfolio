@@ -1,38 +1,80 @@
-<section class="container my-20 py-20 grid grid-cols-6 gap-4">
-    <div class="col-span-6">
-        <h1 class="text-2xl font-display leading-tight text-pink">{{$ctrl.project.name}}</h1>
-        <label class="label text-base inline-block">{{$ctrl.project.date | date: 'shortDate'}}</label>
+<section class="container flex flex-col py-20 my-20">
+    <div class="flex flex-col">
+        <div class="flex flex-col">
+            <h1 class="text-2xl leading-tight font-display text-pink">{{$ctrl.project.name}}</h1>
+            <label class="inline-block text-base label">{{$ctrl.project.date | date: 'shortDate'}}</label>
+            <a ng-href="{{$ctrl.project.url}}" rel="noopener" target="_blank" ng-if="$ctrl.project.url"
+                class="hover:text-primary"><span class="underline">{{$ctrl.project.name}}</span> <i
+                    class="align-top fig-24px fig-new-tab"></i></a>
+        </div>
+        <ul class="flex flex-wrap my-20 list-reset">
+            <li class="col-span-1 px-10 py-4 mr-10 text-base font-medium text-white rounded md:text-sm bg-gray-darker"
+                ng-repeat="tag in $ctrl.project.tags">
+                {{tag}}
+            </li>
+        </ul>
     </div>
-    <ul class="list-reset flex flex-wrap col-span-6">
-        <li class="md:text-sm text-base font-medium col-span-1 bg-gray-darker text-white py-4 px-10 rounded mr-10" ng-repeat="tag in $ctrl.project.tags">
-            {{tag}}
-        </li>
-    </ul>
-    <div class="col-span-6">
-        <p class="text-base mt-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel ligula non dui aliquet tincidunt. Fusce leo libero, gravida ut felis eget, viverra pharetra nibh. Nunc eu bibendum lorem. Fusce dictum eu lectus sed suscipit. Aliquam a odio elit.
-            Sed ac felis nibh. Aenean pellentesque mi quis urna pharetra venenatis. Donec in placerat erat. Aenean nec suscipit lectus. Ut a dui ut orci eleifend aliquet a finibus libero. Sed aliquet augue sit amet libero condimentum, ac convallis ante
-            tristique.
+    <div class="flex flex-col">
+        <p>
+            This project is done for a long-time client and a good friend from my high school days. The Client is
+            opening a premium spa and nails shop located in Houston, Texas and needs a new logo and a business website
+            that also allows for online booking and payment. The website should showcase different manicure and pedicure
+            services, provide online appointments booking, and in-depth analytics to improve their business insights
+            around the Houston metro area. The website also comes with original, thematic graphical assets to bolster
+            the business’s professional credibility.
         </p>
-        <p class="text-base mt-20"> Aliquam tempor urna ullamcorper nibh consequat, in ullamcorper dui ultricies. Quisque vel magna bibendum, imperdiet justo ac, finibus nulla. Pellentesque vehicula ligula quis suscipit cursus. Cras elementum, lectus vitae rutrum commodo, quam leo
-            sollicitudin mauris, sit amet suscipit nibh lacus non massa.</p>
+        <p>
+            The website consists of 3 main components--overview, service details and online booking. We went with
+            Squarespace as the builder platform due to its streamlined interface, developer-friendly tools and native
+            online booking support.
+        </p>
+        <p>
+            I approach the branding project with a logo mark that best captures the feelings of serenity and elegance,
+            and one that could be displayed in different formats throughout the storefront, you can read more about the
+            logo design process here.
+        </p>
+        <p>
+            For the website, the goal was similar – create a clean, spacious website that has the premium look and feel
+            to it while maintaining the elegant strokes of the logo mark. The Online Booking and Payment feature was
+            added via a third-party plugin and integrated into the site so that it can be managed by the Client
+            post-launch.
+        </p>
     </div>
-    <div class="flex my-20 col-span-6">
-        <button class="btn btn--lg">Some Button</button>
-        <button class="btn btn--icon btn--lg"><i class="fig-24px fig-cancel"></i></button>
-    </div>
+    <img class="w-full h-auto mx-auto mt-40 rounded md:w-720"
+        src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+        alt=""></img>
 </section>
-<section class="container my-20 py-20">
-    <h1 class="heading text-xl my-10 text-pink text-center">Some heading</h1>
-    <p class="text-base hidden my-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel ligula non dui aliquet tincidunt. Fusce leo libero, gravida ut felis eget, viverra pharetra nibh. Nunc eu bibendum lorem. Fusce dictum eu lectus sed suscipit. Aliquam a odio elit. Sed
-        ac felis nibh. Aenean pellentesque mi quis urna pharetra venenatis. Donec in placerat erat. Aenean nec suscipit lectus. Ut a dui ut orci eleifend aliquet a finibus libero. Sed aliquet augue sit amet libero condimentum, ac convallis ante tristique.</p>
+<section class="container py-20 my-20">
+    <h1 class="my-10 text-xl text-center heading text-pink">Some heading</h1>
+    <p class="hidden my-20 text-base">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel ligula non dui aliquet tincidunt. Fusce leo
+        libero, gravida ut felis eget, viverra pharetra nibh. Nunc eu bibendum lorem. Fusce dictum eu lectus sed
+        suscipit. Aliquam a odio elit. Sed
+        ac felis nibh. Aenean pellentesque mi quis urna pharetra venenatis. Donec in placerat erat. Aenean nec suscipit
+        lectus. Ut a dui ut orci eleifend aliquet a finibus libero. Sed aliquet augue sit amet libero condimentum, ac
+        convallis ante tristique.
+    </p>
 </section>
-<section class="bg-img bg-fixed bg-center bg-cover p-200 min-h-sm">
+<section class="container bg-fixed bg-center bg-cover bg-img p-200 min-h-sm">
 </section>
-<section class="container my-20 py-20">
-    <h1 class="heading text-xl my-10 text-pink text-center">Some heading</h1>
-    <p class="text-base my-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel ligula non dui aliquet tincidunt. Fusce leo libero, gravida ut felis eget, viverra pharetra nibh. Nunc eu bibendum lorem. Fusce dictum eu lectus sed suscipit. Aliquam a odio elit. Sed
-        ac felis nibh. Aenean pellentesque mi quis urna pharetra venenatis. Donec in placerat erat. Aenean nec suscipit lectus. Ut a dui ut orci eleifend aliquet a finibus libero. Sed aliquet augue sit amet libero condimentum, ac convallis ante tristique.</p>
-    <p class="text-base my-20">Aliquet tincidunt. Fusce leo libero, gravida ut felis eget, viverra pharetra nibh. Nunc eu bibendum lorem. Fusce dictum eu lectus sed suscipit. Aliquam a odio elit. Sed ac felis nibh. Aenean pellentesque mi quis urna pharetra venenatis. Donec in placerat
-        erat. Aenean nec suscipit lectus. Ut a dui ut orci eleifend aliquet a finibus libero. Sed aliquet augue sit amet libero condimentum, ac convallis ante tristique.</p>
-    <img class="rounded my-40 mx-auto w-full h-auto" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt=""></img>
+<section class="container py-20 my-20">
+    <h1 class="my-10 text-xl text-center heading text-pink">Some heading</h1>
+    <p class="my-20 text-base">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel ligula non dui aliquet
+        tincidunt. Fusce leo libero, gravida ut felis eget, viverra pharetra nibh. Nunc eu bibendum lorem. Fusce dictum
+        eu lectus sed suscipit. Aliquam a odio elit. Sed
+        ac felis nibh. Aenean pellentesque mi quis urna pharetra venenatis. Donec in placerat erat. Aenean nec suscipit
+        lectus. Ut a dui ut orci eleifend aliquet a finibus libero. Sed aliquet augue sit amet libero condimentum, ac
+        convallis ante tristique.
+    </p>
+    <p class="my-20 text-base">
+        Aliquet tincidunt. Fusce leo libero, gravida ut felis eget, viverra pharetra nibh. Nunc
+        eu bibendum lorem. Fusce dictum eu lectus sed suscipit. Aliquam a odio elit. Sed ac felis nibh. Aenean
+        pellentesque mi quis urna pharetra venenatis. Donec in placerat
+        erat. Aenean nec suscipit lectus. Ut a dui ut orci eleifend aliquet a finibus libero. Sed aliquet augue sit amet
+        libero condimentum, ac convallis ante tristique.
+    </p>
+    <img class="w-full h-auto mx-auto my-40 rounded md:w-720"
+        src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+        alt=""></img>
 </section>

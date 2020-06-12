@@ -1,9 +1,9 @@
 <section class="flex min-h-screen {{$ctrl.activeTheme}} transition duration-150">
-    <header class="md:hidden border-b border-gray-darker fixed p-10 z-40 top-0 inset-x-0" ng-class="{'bg-gray-darkest': !$ctrl.mainNav.isOpen}">
+    <header class="fixed inset-x-0 top-0 z-40 p-10 border-b md:hidden border-gray-darker" ng-class="{'bg-gray-darkest': !$ctrl.mainNav.isOpen}">
         <button ng-class="{ 'nav-button--open' : $ctrl.mainNav.isOpen}" class="nav-button" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
             <div class="before"></div>
             <div class="after"></div>
-            <span class="text-base font-display ml-40 pl-8 uppercase">Menu</span>
+            <span class="pl-8 ml-40 text-base uppercase font-display">Menu</span>
         </button>
     </header>
     <header ng-model="$ctrl.mainNav" ng-class="$ctrl.mainNav.isOpen ? 'nav--open' : 'nav--closed'" class="nav lg:w-320 md:w-256 w-2/3 lg:px-20 md:px-10 {{$ctrl.activeTheme}}">
@@ -28,9 +28,9 @@
                             style="fill:#0d23b5" />
                     </svg>
                 </a>
-                <ul class="list-reset flex flex-col text-center my-20">
+                <ul class="flex flex-col my-20 text-center list-reset">
                     <li ng-repeat="nav in $ctrl.nav">
-                        <a ui-sref="{{nav.url}}" ui-sref-active="nav__link--is-active" class="nav__link px-20 py-10 md:py-20 mx-20 mb-10 text-sm lg:text-base focus:outline-none rounded-sm" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
+                        <a ui-sref="{{nav.url}}" ui-sref-active="nav__link--is-active" class="px-20 py-10 mx-20 mb-10 rounded-sm text-2xs nav__link md:py-20 lg:text-xs focus:outline-none" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">
                             <i class="fig-24px {{nav.iconClass}} mr-10"></i>
                             <span>{{nav.title}}</span>
                         </a>
@@ -40,12 +40,12 @@
         </nav>
         <footer class="mt-auto"></footer>
     </header>
-    <ui-view class="flex flex-col flex-grow lg:ml-320 md:ml-256 pt-48"></ui-view>
+    <ui-view class="flex flex-col flex-grow pt-48 lg:ml-320 md:ml-256"></ui-view>
 
-    <span class="inset-0 fixed z-20 bg-black-3/4 md:hidden" ng-class="{'hidden' : !$ctrl.mainNav.isOpen}" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">></span>
+    <span class="fixed inset-0 z-20 bg-black-3/4 md:hidden" ng-class="{'hidden' : !$ctrl.mainNav.isOpen}" ng-click="$ctrl.toggleMenu($ctrl.mainNav)">></span>
 </section>
 
-<button title="Toggle dark theme" class="btn btn--icon btn--lg fixed m-30 rounded-full z-50 bottom-0 right-0 bg-gray-darker hover:bg-gray-darkest hover:shadow-md" ng-class="$ctrl.activeTheme === $ctrl.themes.light ? 'text-blue-lighter hover:text-blue-lightest' : 'text-accent hover:text-accent-light'"
+<button title="Toggle dark theme" class="fixed bottom-0 right-0 z-50 rounded-full btn btn--icon btn--lg m-30 bg-gray-darker hover:bg-gray-darkest hover:shadow-md" ng-class="$ctrl.activeTheme === $ctrl.themes.light ? 'text-blue-lighter hover:text-blue-lightest' : 'text-accent hover:text-accent-light'"
     aria-label="Toggle dark theme" ng-click="$ctrl.toggleTheme()">
     <i class="fig-48px"
         ng-class="$ctrl.activeTheme === $ctrl.themes.light ? 'fig-lightbulb-off' : 'fig-lightbulb-on'"></i>
