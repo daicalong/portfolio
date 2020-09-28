@@ -54,7 +54,7 @@
             <label class="mb-20 text-base">Filter by tags:</label>
             <div class="flex flex-wrap">
                 <button ng-repeat="tag in $ctrl.tags | orderBy: 'name'"
-                    class="mb-10 mr-10 rounded-full btn btn--sm btn--toggle text-2xs" aria-label="{{tag}}"
+                    class="mb-10 mr-10 rounded-full btn btn--sm btn--toggle text-2xs"
                     title="{{tag}}" ng-class="{'btn--toggle-on': $ctrl.selectedTags.includes(tag)}"
                     ng-click="$ctrl.filterByTags(tag)">
                     {{tag}}
@@ -64,7 +64,7 @@
     </div>
     <ul class="grid w-full col-span-6 gap-20 list-reset lg:grid-cols-3">
         <li ng-repeat="item in $ctrl.projectList | orderBy: 'category'" class="gallery-item">
-            <a ui-sref="Main.Projects.Details({projectId: item.id})" aria-label="Link to {{item.name}}"
+            <a ui-sref="Main.Projects.Details({projectName: item.id})" aria-label="Link to {{item.name}}"
                 class="card md:h-256 h-320 hover:shadow-outline" style="background-image: url('/assets/images/gallery/{{item.img}}')">
                 <div class="flex flex-col items-center justify-center flex-grow p-20 transition duration-150 bg-black-3/4 hover:bg-black-1/2">
                     <h4 class="text-lg font-display text-yellow">{{item.name}}</h4>

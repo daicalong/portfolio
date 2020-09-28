@@ -7,6 +7,7 @@
             };
 
             const _projectList = projectListConstant.list;
+
             const getCookies = () => {
                 return;
             };
@@ -22,12 +23,11 @@
             };
 
             const getProjectListByCategoryAndTags = (category, tags) => {
-                let result = [];
-                if (!category && !tags) return _projectList;
-                if (!category) result = _projectList.filter(element => element.tags.some(t => tags.includes(t)));
-                else if (!tags) result = _projectList.filter(element => element.category.toLowerCase() === category.toLowerCase());
-                else result = _projectList.filter(element => element.category.toLowerCase() === category.toLowerCase() && element.tags.some(t => tags.includes(t)));
-                return result;
+                let result = _projectList;
+                if (!category && !tags) return result;
+                if (!category && tags) return result.filter(element => element.tags.some(t => tags.includes(t)));
+                else if (!tags && category) return result.filter(element => element.category === category);
+                else return result.filter(element => (element.category.toLowerCase() === category.toLowerCase()) && element.tags.some(t => tags.includes(t)));
             };
 
             const getHighlightList = isStarred => {
@@ -35,7 +35,7 @@
             };
 
             const getProjectById = projectId => {
-                return _projectList.find(project => project.id === projectId);
+                return _projectList.find(project => parseInt(project.id) === parseInt(projectId));
             };
 
             const getTagList = () => {

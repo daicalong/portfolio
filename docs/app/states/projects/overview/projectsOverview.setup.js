@@ -18,22 +18,24 @@
             selectedTags: []
         });
 
-        $ctrl.filterByTags = (tag) => {
-            // $ctrl.selectedTags = $ctrl.selectedTags.indexOf(tag) === -1 ? $ctrl.selectedTags.push(tag) : $ctrl.selectedTags.splice($ctrl.selectedTags.indexOf(tag), 1);
-            if ($ctrl.selectedTags.indexOf(tag) === -1) $ctrl.selectedTags.push(tag);
-            else $ctrl.selectedTags.splice($ctrl.selectedTags.indexOf(tag), 1);
-            $ctrl.projectList = projectListFactory.getProjectListByTags($ctrl.selectedTags);
+        $ctrl.filterByCategory = selectedCategory => {
+            $ctrl.selectedCategory = selectedCategory ? ($ctrl.selectedCategory === selectedCategory ? undefined : selectedCategory) : undefined;
+            $ctrl.projectList = projectListFactory.getProjectListByCategory($ctrl.selectedCategory);
+            return $cookies.put('selectedCategory', $ctrl.selectedCategory);
         };
 
-        $ctrl.filterByCategory = (_selectedCategory) => {
-            $ctrl.selectedCategory = _selectedCategory ? ($ctrl.selectedCategory === _selectedCategory ? undefined : _selectedCategory) : undefined;
-            $ctrl.projectList = $ctrl.selectedCategory ? projectListFactory.getProjectListByCategory($ctrl.selectedCategory) : projectListFactory.getProjectListByCategory();
-            if (!$ctrl.selectedCategory) return $cookies.remove('userSelection');
-            return $cookies.put('userSelection', _selectedCategory);
-        };
+        $ctrl.filterByTags = selectedTag => {
+            if ($ctrl.selectedTags.indexOf(selectedTag) === -1) $ctrl.selectedTags.push(selectedTag);
+            else $ctrl.selectedTags.splice($ctrl.selectedTags.indexOf(selectedTag), 1);
+
+            $ctrl.projectList = projectListFactory.getProjectListByCategoryAndTags($ctrl.selectedCategory, $ctrl.selectedTags);
+
+            return $cookies.put('selectedTags', JSON.stringify($ctrl.selectedTags));
+        }
 
         $ctrl.$onInit = () => {
-            $ctrl.selectedCategory = $cookies.get('userSelection');
+            $ctrl.selectedCategory = $cookies.get('selectedCategory');
+            $ctrl.selectedTags = JSON.parse($cookies.get('selectedTags'));
             $ctrl.projectList = $ctrl.selectedCategory ? projectListFactory.getProjectListByCategory($ctrl.selectedCategory) : projectListFactory.getProjectListByCategory();
         };
     }

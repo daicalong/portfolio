@@ -12,8 +12,8 @@
         let $ctrl = this;
 
         $ctrl.$onInit = () => {
-            $ctrl.project = projectListFactory.getProjectById(7);
-            console.log($ctrl.project);
+            $ctrl.project = projectListFactory.getProjectById($stateParams.projectName);
+            console.log($stateParams.projectName);
         }
     }
 })(window.app, window.angular);

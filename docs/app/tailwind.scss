@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
 
 //btn components
 .btn {
-    @apply inline-block tracking-wider text-xs uppercase font-bold h-48 px-40 rounded-sm transition duration-150;
+    @apply inline-block tracking-wider text-xs uppercase font-bold h-48 px-20 transition rounded-sm  duration-150;
 
     &:not(:disabled) {
         &:focus {
@@ -54,11 +54,11 @@ h1, h2, h3, h4, h5, h6 {
 
     //size
     &.btn--sm {
-        @apply h-36 px-20;
+        @apply h-36 px-10;
     }
 
     &.btn--lg {
-        @apply h-60 px-60;
+        @apply h-60 px-40;
     }
 
     //colors
